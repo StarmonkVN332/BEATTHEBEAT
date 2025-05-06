@@ -22,6 +22,7 @@ public class NoteS : MonoBehaviour
 
     void SpawnNote()
     {
+        Debug.Log("Bat dau spawn enemy");
         if (spawnPoint.Count == 0) return;
 
         // Chọn ngẫu nhiên 1 vị trí spawn
