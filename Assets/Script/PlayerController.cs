@@ -64,4 +64,12 @@ public class PlayerController : MonoBehaviour
         }
         //Debug.Log("Không có enemy trong vùng này.");
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            animator.SetTrigger("isHitDmg");
+        }
+    }
 }
