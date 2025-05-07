@@ -30,16 +30,19 @@ public class PlayerController : MonoBehaviour
                 {
                     transform.position = leftPos.position;
                     TryAttack(leftZone);
+                    animator.SetTrigger("isAttackLeft");
                 }
                 else if (touchPos.x < 2f * screenWidth / 3f)
                 {
                     transform.position = midPos.position;
                     TryAttack(midZone);
+                    animator.SetTrigger("isAttackMiddle");
                 }
                 else
                 {
                     transform.position = rightPos.position;
                     TryAttack(rightZone);
+                    animator.SetTrigger("isAttackRight");
                 }
             }
         }
