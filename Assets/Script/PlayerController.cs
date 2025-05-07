@@ -6,12 +6,12 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Animator animator;
 
-    
+    [Header("CheckBoxx")]
     [SerializeField] private Collider leftZone;
     [SerializeField] private Collider midZone;
     [SerializeField] private Collider rightZone;
 
-
+    [Header("Positon Player Transform")]
     [SerializeField] private Transform leftPos;
     [SerializeField] private Transform midPos;
     [SerializeField] private Transform rightPos;
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    void TryAttack(Collider attackZone)
+    private void TryAttack(Collider attackZone)
     {
         Collider[] hits = Physics.OverlapBox(attackZone.bounds.center, attackZone.bounds.extents, attackZone.transform.rotation);
 
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         {
             if (hit.CompareTag("Enemy"))
             {
-                hit.GetComponent<Enemy>().TakeDamage(1); // hoặc gọi hàm tấn công khác
+                hit.GetComponent<Enemy>().EnemyTakeDamage(1);
 
                 //Debug.Log("Tấn công enemy trong vùng!");
                 return;
@@ -66,19 +66,4 @@ public class PlayerController : MonoBehaviour
 
         //Debug.Log("Không có enemy trong vùng này.");
     }
-
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("Enemy"))
-    //    {
-    //        animator.SetBool("ATK",true);
-    //        StartCoroutine(ResetAttack());
-    //    }
-    //}
-    //IEnumerator ResetAttack()
-    //{
-    //    yield return new WaitForSeconds(0.3f); // Thời gian attack animation
-    //    animator.SetBool("ATK", false);
-    //}
-
 }

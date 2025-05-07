@@ -6,13 +6,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int health = 1;
+    [SerializeField] private int health = 1;
+    [SerializeField] private int enemyScore = 1;
 
-    public void TakeDamage(int amount)
+    public void EnemyTakeDamage(int amount)
     {
         health -= amount;
         Debug.Log("Enemy took damage. Remaining: " + health);
-
+        
         if (health <= 0)
         {
             Die();
@@ -22,7 +23,8 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerHealth>().TakeDamage(1); // hoặc gọi hàm tấn công khác
+            other.GetComponent<PlayerInfo>().PlayerTakeDamage(1); // hoặc gọi hàm tấn công khác
+            
             Debug.Log("Gây sát thương cho player!");
             return;
         }
@@ -30,6 +32,17 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         Debug.Log("Enemy died!");
+        // Tìm PlayerInfo
+        PlayerInfo player = FindObjectOfType<PlayerInfo>();
+        if (player != null)
+        {
+            player.Score(enemyScore);
+        }
+        else
+        {
+            Debug.LogWarning("Không tìm thấy PlayerInfo để cộng điểm!");
+        }
+
         Destroy(gameObject);
     }
 }
