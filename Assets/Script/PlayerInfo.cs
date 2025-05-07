@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerInfo : MonoBehaviour
 {
+    [Header("Heart UI")]
+    [SerializeField] private List<Image> heartImages; // Gán trái tim đỏ trong Editor
     [Header("player info")]
     [SerializeField] private int playerHealth = 3;
     [SerializeField] private int score = 0;
@@ -87,12 +89,19 @@ public class PlayerInfo : MonoBehaviour
     private void UpdatePlayerInfo()
     {
         if (hpText != null)
-        {
+    {
             hpText.text = "HP: " + playerHealth.ToString();
         }
+
         if (scoreText != null)
         {
             scoreText.text = "SCORE: " + score.ToString();
+        }
+
+        // Cập nhật hiển thị trái tim
+        for (int i = 0; i < heartImages.Count; i++)
+        {
+            heartImages[i].enabled = i < playerHealth;
         }
     }
     private void PlayerDie()
