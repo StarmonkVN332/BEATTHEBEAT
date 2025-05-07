@@ -58,12 +58,10 @@ public class PlayerController : MonoBehaviour
             if (hit.CompareTag("Enemy"))
             {
                 hit.GetComponent<Enemy>().EnemyTakeDamage(1);
-
                 //Debug.Log("Tấn công enemy trong vùng!");
                 return;
             }
         }
-
         //Debug.Log("Không có enemy trong vùng này.");
     }
 }
