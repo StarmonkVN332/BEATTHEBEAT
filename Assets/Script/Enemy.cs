@@ -1,5 +1,7 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -16,7 +18,15 @@ public class Enemy : MonoBehaviour
             Die();
         }
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<PlayerHealth>().TakeDamage(1); // hoặc gọi hàm tấn công khác
+            Debug.Log("Gây sát thương cho player!");
+            return;
+        }
+    }
     void Die()
     {
         Debug.Log("Enemy died!");

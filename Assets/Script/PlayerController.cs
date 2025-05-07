@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public Animator animator;
+    [SerializeField] private Animator animator;
 
-    //[SerializeField] private Transform point1;
-    //[SerializeField] private Transform point2;
-    //[SerializeField] private Transform point3;
-
+    
     [SerializeField] private Collider leftZone;
     [SerializeField] private Collider midZone;
     [SerializeField] private Collider rightZone;
@@ -58,12 +55,13 @@ public class PlayerController : MonoBehaviour
             if (hit.CompareTag("Enemy"))
             {
                 hit.GetComponent<Enemy>().TakeDamage(1); // hoặc gọi hàm tấn công khác
-                Debug.Log("Tấn công enemy trong vùng!");
+
+                //Debug.Log("Tấn công enemy trong vùng!");
                 return;
             }
         }
 
-        Debug.Log("Không có enemy trong vùng này.");
+        //Debug.Log("Không có enemy trong vùng này.");
     }
 
     //void OnTriggerEnter(Collider other)
