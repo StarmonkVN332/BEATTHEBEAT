@@ -898,9 +898,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: 3
-  hpText: {fileID: 286969092}
   score: 0
+  invincibleDuration: 2
   scoreText: {fileID: 1031917026}
+  hpText: {fileID: 286969092}
+  animator: {fileID: 319083874}
 --- !u!1 &605805434
 GameObject:
   m_ObjectHideFlags: 0
