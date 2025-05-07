@@ -826,7 +826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58fe93549328cf1468146809176b6211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ground: {fileID: 2013494465}
+  ground: {fileID: 5626142648922942002, guid: 1da7bb00bb1e9924180d461ccbc3110c, type: 3}
   vectorSpawn: 113
 --- !u!114 &319083881
 MonoBehaviour:
@@ -2091,12 +2091,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!1 &2013494465 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5626142648922942002, guid: 1da7bb00bb1e9924180d461ccbc3110c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1700153985}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2083296996
 GameObject:
   m_ObjectHideFlags: 0
