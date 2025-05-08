@@ -4,6 +4,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    [SerializeField] private ParticleSystem rightSlash;
+    [SerializeField] private ParticleSystem leftSlash;
+    [SerializeField] private ParticleSystem middleSlash;
 
     [Header("Check Box")]
     [SerializeField] private Collider leftZone;
@@ -68,16 +71,19 @@ public class PlayerController : MonoBehaviour
             case 0:
                 transform.position = leftPos.position;
                 animator.SetTrigger("isAttackLeft");
+                leftSlash.Play();
                 TryAttack(leftZone);
                 break;
             case 1:
                 transform.position = midPos.position;
                 animator.SetTrigger("isAttackMiddle");
+                middleSlash.Play();
                 TryAttack(midZone);
                 break;
             case 2:
                 transform.position = rightPos.position;
                 animator.SetTrigger("isAttackRight");
+                rightSlash.Play();
                 TryAttack(rightZone);
                 break;
         }

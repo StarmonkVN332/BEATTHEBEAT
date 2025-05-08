@@ -732,12 +732,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 319083874}
+  rightSlash: {fileID: 1838652433}
+  leftSlash: {fileID: 1838652432}
+  middleSlash: {fileID: 1838652431}
   leftZone: {fileID: 935335274}
   midZone: {fileID: 49347416}
   rightZone: {fileID: 1694396012}
   leftPos: {fileID: 606891139}
   midPos: {fileID: 1702611083}
   rightPos: {fileID: 857819720}
+  clonePrefab: {fileID: 0}
 --- !u!114 &319083879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2593,6 +2597,24 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 319083881}
   m_SourcePrefab: {fileID: 100100000, guid: cc91c8ba8b9a34f4d99e70d721f60b64, type: 3}
+--- !u!198 &1838652431 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6969039879398366859, guid: cc91c8ba8b9a34f4d99e70d721f60b64,
+    type: 3}
+  m_PrefabInstance: {fileID: 1838652430}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1838652432 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1630598727785963717, guid: cc91c8ba8b9a34f4d99e70d721f60b64,
+    type: 3}
+  m_PrefabInstance: {fileID: 1838652430}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1838652433 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8161801485263001665, guid: cc91c8ba8b9a34f4d99e70d721f60b64,
+    type: 3}
+  m_PrefabInstance: {fileID: 1838652430}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1904428265
 GameObject:
   m_ObjectHideFlags: 0
