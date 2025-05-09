@@ -129,5 +129,5 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         hasClone = false;
     }
-
+    
 }

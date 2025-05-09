@@ -3,33 +3,49 @@ using UnityEngine;
 
 public class NoteS : MonoBehaviour
 {
-    [SerializeField] private List<Transform> spawnPoint;
-    public GameObject notePrefab; // Prefab của note
-    public AudioSource musicSource; // Nhạc nền
+    public GameObject notePrefab;
+    public AudioSource musicSource;
+    public Transform[] laneSpawnPoints; // 0 = left, 1 = middle, 2 = right
+    public TextAsset beatmapJson;
 
-    [SerializeField]private List<float> noteTimestamps = new List<float>() { 1f, 3f, 10f, 11.5f };
+    private List<NoteData> noteList;
     private int currentNoteIndex = 0;
+
+    void Start()
+    {
+        Beatmap beatmap = JsonUtility.FromJson<Beatmap>(beatmapJson.text);
+        noteList = beatmap.notes;
+    }
 
     void Update()
     {
-        if (currentNoteIndex < noteTimestamps.Count &&
-            musicSource.time >= noteTimestamps[currentNoteIndex])
+        if (currentNoteIndex >= noteList.Count) return;
+
+        float currentTime = musicSource.time + 1f;
+        NoteData nextNote = noteList[currentNoteIndex];
+
+        if (currentTime >= nextNote.time)
         {
-            SpawnNote();
+            SpawnNote(nextNote.lane);
             currentNoteIndex++;
         }
     }
 
-    void SpawnNote()
+    void SpawnNote(int lane)
     {
-        Debug.Log("Bat dau spawn enemy");
-        if (spawnPoint.Count == 0) return;
-
-        // Chọn ngẫu nhiên 1 vị trí spawn
-        int randomIndex = Random.Range(0, spawnPoint.Count);
-        Transform spawnPos = spawnPoint[randomIndex];
-
-        // Spawn tại vị trí đó
-        Instantiate(notePrefab, spawnPos.position, Quaternion.identity);
+        Instantiate(notePrefab, laneSpawnPoints[lane].position, Quaternion.identity);
     }
+}
+
+[System.Serializable]
+public class NoteData
+{
+    public float time;
+    public int lane;
+}
+
+[System.Serializable]
+public class Beatmap
+{
+    public List<NoteData> notes;
 }

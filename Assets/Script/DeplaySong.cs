@@ -3,7 +3,7 @@ using UnityEngine;
 public class DeplaySong : MonoBehaviour
 {
     public AudioSource audioSource;
-    public float delayInSeconds = 2f;
+    public float delayInSeconds = 4f;
 
     void Start()
     {
