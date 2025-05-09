@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.40496042, g: 0.22866985, b: 0.097306654, a: 1}
+  m_IndirectSpecularColor: {r: 0.40456647, g: 0.22826146, b: 0.097210705, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -177,8 +177,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 2.0570502}
-  m_Center: {x: 0, y: 0, z: 0.17745852}
+  m_Size: {x: 1, y: 1, z: 2.1750555}
+  m_Center: {x: 0, y: 0, z: 0.23646116}
 --- !u!23 &49347417
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -475,6 +475,7 @@ MonoBehaviour:
   - {fileID: 281227350}
   - {fileID: 1537931147}
   beatmapJson: {fileID: 4900000, guid: 0f31beabf89e7bd48b3a6d48e2c5489f, type: 3}
+  delayMusicStart: 1.5
 --- !u!4 &273085366
 Transform:
   m_ObjectHideFlags: 0
@@ -1266,8 +1267,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 2.255217}
-  m_Center: {x: 0, y: 0, z: 0.18002439}
+  m_Size: {x: 1, y: 1, z: 2.4411511}
+  m_Center: {x: 0, y: 0, z: 0.27299142}
 --- !u!23 &935335275
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2335,8 +2336,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1.9693446}
-  m_Center: {x: 0, y: 0, z: 0.09916139}
+  m_Size: {x: 1, y: 1, z: 2.1014376}
+  m_Center: {x: 0, y: 0, z: 0.16520786}
 --- !u!23 &1694396013
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2569,7 +2570,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1822908763}
-  - component: {fileID: 1822908762}
   - component: {fileID: 1822908761}
   m_Layer: 0
   m_Name: Audio
@@ -2674,20 +2674,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1822908762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1822908760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 746be13fff27e7f4c8394fa6c9883998, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 1822908761}
-  delayInSeconds: 2
 --- !u!4 &1822908763
 Transform:
   m_ObjectHideFlags: 0
