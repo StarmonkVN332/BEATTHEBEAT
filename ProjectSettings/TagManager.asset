@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Check
   - Enemy
+  - AnimationTrigger
   layers:
   - Default
   - TransparentFX

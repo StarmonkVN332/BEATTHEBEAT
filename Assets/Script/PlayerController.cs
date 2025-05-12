@@ -4,6 +4,8 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Player Settings")]
     [SerializeField] private Animator animator;
+    [SerializeField] private ParticleSystem slashEffect;
+
     [SerializeField] private float moveSpeed = 10f; // Tốc độ phản hồi khi kéo
     [SerializeField] private float minX = -4.5f;
     [SerializeField] private float maxX = 4.5f;
@@ -42,6 +44,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("AnimationTrigger"))
+        {
+            animator.SetTrigger("isAttackRight");
+            slashEffect.Play();
+        }
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10065178, g: 0.12503307, b: 0.31774116, a: 1}
+  m_IndirectSpecularColor: {r: 0.08031829, g: 0.0997165, b: 0.30112457, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -651,6 +651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 319083874}
+  slashEffect: {fileID: 692672174}
   moveSpeed: 15
   minX: -4.5
   maxX: 4.5
@@ -897,6 +898,12 @@ Transform:
   - {fileID: 857819720}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &692672174 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1254822395979393810, guid: cc91c8ba8b9a34f4d99e70d721f60b64,
+    type: 3}
+  m_PrefabInstance: {fileID: 1838652430}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &813182848
 GameObject:
   m_ObjectHideFlags: 0
