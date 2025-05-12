@@ -19,16 +19,6 @@ public class Enemy : MonoBehaviour
             Die();
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            other.GetComponent<PlayerInfo>().PlayerTakeDamage(1); // hoặc gọi hàm tấn công khác
-            
-            Debug.Log("Gây sát thương cho player!");
-            return;
-        }
-    }
     void Die()
     {
         Debug.Log("Enemy died!");

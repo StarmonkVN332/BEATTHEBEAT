@@ -1,133 +1,47 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Player Settings")]
     [SerializeField] private Animator animator;
-    [SerializeField] private ParticleSystem rightSlash;
-    [SerializeField] private ParticleSystem leftSlash;
-    [SerializeField] private ParticleSystem middleSlash;
+    [SerializeField] private float moveSpeed = 10f; // Tốc độ phản hồi khi kéo
+    [SerializeField] private float minX = -4.5f;
+    [SerializeField] private float maxX = 4.5f;
 
-    [Header("Check Box")]
-    [SerializeField] private Collider leftZone;
-    [SerializeField] private Collider midZone;
-    [SerializeField] private Collider rightZone;
-
-    [Header("Player Positions")]
-    [SerializeField] private Transform leftPos;
-    [SerializeField] private Transform midPos;
-    [SerializeField] private Transform rightPos;
-
-    [Header("Clone Settings")]
-    [SerializeField] private GameObject clonePrefab;
-    private bool hasClone = false;
+    private Vector2 previousTouchPos;
 
     void Update()
     {
-        if (Input.touchCount >= 2)
-        {
-            Touch touch1 = Input.GetTouch(0);
-            Touch touch2 = Input.GetTouch(1);
-
-            if (touch1.phase == TouchPhase.Began && touch2.phase == TouchPhase.Began)
-            {
-                int zone1 = GetZone(touch1.position);
-                int zone2 = GetZone(touch2.position);
-
-                if (zone1 != zone2)
-                {
-                    MoveAndAttack(zone1);
-
-                    if (!hasClone)
-                    {
-                        SpawnClone(zone2);
-                    }
-                }
-            }
-        }
-        else if (Input.touchCount == 1)
+        if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
+
+            // Khi chạm lần đầu, lưu vị trí
             if (touch.phase == TouchPhase.Began)
             {
-                int zone = GetZone(touch.position);
-                MoveAndAttack(zone);
+                previousTouchPos = touch.position;
             }
-        }
-    }
-
-    int GetZone(Vector2 position)
-    {
-        float width = Screen.width;
-        if (position.x < width / 3f) return 0;
-        else if (position.x < 2f * width / 3f) return 1;
-        else return 2;
-    }
-
-    void MoveAndAttack(int zone)
-    {
-        switch (zone)
-        {
-            case 0:
-                transform.position = leftPos.position;
-                animator.SetTrigger("isAttackLeft");
-                leftSlash.Play();
-                TryAttack(leftZone);
-                break;
-            case 1:
-                transform.position = midPos.position;
-                animator.SetTrigger("isAttackMiddle");
-                middleSlash.Play();
-                TryAttack(midZone);
-                break;
-            case 2:
-                transform.position = rightPos.position;
-                animator.SetTrigger("isAttackRight");
-                rightSlash.Play();
-                TryAttack(rightZone);
-                break;
-        }
-    }
-
-    void TryAttack(Collider zone)
-    {
-        Collider[] hits = Physics.OverlapBox(zone.bounds.center, zone.bounds.extents, zone.transform.rotation);
-
-        foreach (Collider hit in hits)
-        {
-            if (hit.CompareTag("Enemy"))
+            // Khi đang kéo
+            else if (touch.phase == TouchPhase.Moved)
             {
-                hit.GetComponent<Enemy>().EnemyTakeDamage(1);
-                return;
+                Vector2 delta = touch.position - previousTouchPos;
+                previousTouchPos = touch.position;
+
+                // Tính delta X theo tỷ lệ màn hình để di chuyển
+                float deltaX = (delta.x / Screen.width) * moveSpeed;
+
+                // Cập nhật vị trí mới với giới hạn X, Y và Z giữ nguyên
+                float newX = Mathf.Clamp(transform.position.x + deltaX, minX, maxX);
+                transform.position = new Vector3(newX, 0f, -8f);
+
+                // Kích hoạt animation nếu cần
+                animator.SetTrigger("isMoving");
             }
         }
     }
 
-    void SpawnClone(int zone)
+    private void OnTriggerEnter(Collider other)
     {
-        Transform spawnPoint = zone == 0 ? leftPos : zone == 1 ? midPos : rightPos;
-        GameObject clone = Instantiate(clonePrefab, spawnPoint.position, Quaternion.identity);
-
-        Animator cloneAnimator = clone.GetComponent<Animator>();
-        if (cloneAnimator != null)
-        {
-            switch (zone)
-            {
-                case 0: cloneAnimator.SetTrigger("isAttackLeft"); break;
-                case 1: cloneAnimator.SetTrigger("isAttackMiddle"); break;
-                case 2: cloneAnimator.SetTrigger("isAttackRight"); break;
-            }
-        }
-
-        hasClone = true;
-        Destroy(clone, 0.7f);
-        StartCoroutine(ResetCloneFlag());
+        
     }
-
-    IEnumerator ResetCloneFlag()
-    {
-        yield return new WaitForSeconds(1f);
-        hasClone = false;
-    }
-    
 }
