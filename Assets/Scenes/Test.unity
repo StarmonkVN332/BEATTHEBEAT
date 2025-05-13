@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.100556545, g: 0.12493268, b: 0.3176025, a: 1}
+  m_IndirectSpecularColor: {r: 0.10072677, g: 0.12510034, b: 0.31777468, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -595,7 +595,7 @@ MonoBehaviour:
   spawnHeight: 5
   noteSpeed: 1
   musicSource: {fileID: 1822908761}
-  delayMusicStart: 5.5
+  delayMusicStart: 3.75
   spawnOrigin: {fileID: 272253844}
 --- !u!1 &281227349
 GameObject:

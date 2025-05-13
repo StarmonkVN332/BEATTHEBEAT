@@ -3495,7 +3495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c15870aa2cd1854c8e089831d9071ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundMove: -20
+  groundMove: -22
 --- !u!1 &6308516029903548097
 GameObject:
   m_ObjectHideFlags: 0
