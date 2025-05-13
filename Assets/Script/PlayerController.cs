@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
     [Header("Player Settings")]
     [SerializeField] private Animator animator;
     [SerializeField] private ParticleSystem slashEffect;
+    [SerializeField] private AudioSource slashSound;
 
     [SerializeField] private float moveSpeed = 10f; // Tốc độ phản hồi khi kéo
     [SerializeField] private float minX = -4.5f;
@@ -48,6 +49,11 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetTrigger("isAttackRight");
             slashEffect.Play();
+        }
+
+        if (other.CompareTag("SoundEffect"))
+        {
+            slashSound.Play();
         }
     }
 }
