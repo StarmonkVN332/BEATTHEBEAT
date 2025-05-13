@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "845256251075",
+    "firebase_url": "https://musicgame-f97f5-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "musicgame-f97f5",
+    "storage_bucket": "musicgame-f97f5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:845256251075:android:35a83da3667faca42d3476",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.DemoBackEnd"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDi4CMBjdAchA8dX4Jev77ZtAYghA91Qn8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
