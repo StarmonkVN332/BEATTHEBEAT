@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10061631, g: 0.12500338, b: 0.31765142, a: 1}
+  m_IndirectSpecularColor: {r: 0.10054441, g: 0.12492713, b: 0.31759793, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -779,6 +779,7 @@ MonoBehaviour:
   animator: {fileID: 319083874}
   slashEffect: {fileID: 692672174}
   slashSound: {fileID: 0}
+  slashHitSound: {fileID: 319083882}
   moveSpeed: 15
   minX: -4.5
   maxX: 4.5
@@ -828,7 +829,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1904a5ae6b1ed574fa32fb0b5a989170, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 29ee3149cdd0f7f46baacd0780e76bb9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
