@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.10057678, g: 0.124960825, b: 0.31764123, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -595,7 +595,7 @@ MonoBehaviour:
   spawnHeight: 5
   noteSpeed: 1
   musicSource: {fileID: 1822908761}
-  delayMusicStart: 3.75
+  delayMusicStart: 3.7
   spawnOrigin: {fileID: 272253844}
 --- !u!1 &281227349
 GameObject:
@@ -778,7 +778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 319083874}
   slashEffect: {fileID: 692672174}
-  slashSound: {fileID: 0}
+  slashSound: {fileID: 319083882}
   moveSpeed: 15
   minX: -4.5
   maxX: 4.5
@@ -2301,7 +2301,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 338e640c6c9d53644ae0a0bba59bd5f4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d99b778703475ab4e9946a97d8c92ca8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
