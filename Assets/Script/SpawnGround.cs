@@ -21,7 +21,7 @@ public class SpawnGround : MonoBehaviour
 
     IEnumerator DeactivateGround(GameObject ground)
     {
-        yield return new WaitForSeconds(25f);
+        yield return new WaitForSeconds(30f);
         groundPool.ReturnGround(ground);
     }
 }
