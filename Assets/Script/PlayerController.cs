@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor.Experimental.GraphView;
+using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 10f; // Tốc độ phản hồi khi kéo
     [SerializeField] private float minX = -4.5f;
     [SerializeField] private float maxX = 4.5f;
+
+    public NotePool notePool;
 
     private Vector2 previousTouchPos;
 
@@ -50,6 +53,15 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("isAttackRight");
             slashSound.Play();
             slashEffect.Play();
+        }
+        Enemy note = other.GetComponent<Enemy>();
+        if (note != null)
+        {
+            if (notePool != null)
+            {
+                notePool.ReturnNote(note.gameObject);
+                Debug.Log("Trả enemy về pool thành công");
+            }
         }
     }
 }

@@ -7,7 +7,7 @@ using MidiParser;
 public class MidiNoteSpawner : MonoBehaviour
 {
     public string midiFilePath = "Assets/Music/OldTownRoad.mid"; // MIDI file path
-    public GameObject notePrefab;
+    public NotePool notePool;
     public float spawnHeight = 5f;
     public float noteSpeed = 1f;
 
@@ -16,7 +16,7 @@ public class MidiNoteSpawner : MonoBehaviour
     [SerializeField] private float delayMusicStart = 3f;
 
 
-    public Transform spawnOrigin;   
+    public Transform spawnOrigin;
 
     private List<(float time, int note, int velocity)> noteEvents = new();
 
@@ -76,7 +76,20 @@ public class MidiNoteSpawner : MonoBehaviour
             Vector3 spawnPos = spawnOrigin.position + new Vector3(noteOffsetX, 0, 0);
 
             // Spawn nốt
-            Instantiate(notePrefab, spawnPos, Quaternion.identity);
+            GameObject noteObj = notePool.GetNote();
+            noteObj.transform.position = spawnPos;
+            noteObj.transform.rotation = Quaternion.identity;
+
+            StartCoroutine(DeactivateNote(noteObj));
+        }
+    }
+    IEnumerator DeactivateNote(GameObject noteObj)
+    {
+        yield return new WaitForSeconds(3f);
+
+        if (noteObj != null && noteObj.activeInHierarchy)
+        {
+            notePool.ReturnNote(noteObj);
         }
     }
 }

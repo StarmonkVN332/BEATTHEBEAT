@@ -4,14 +4,25 @@ using UnityEngine;
 
 public class SpawnGround : MonoBehaviour
 {
-    [SerializeField] private GameObject ground;
-    [SerializeField] private float vectorSpawn = 37f;
+    [SerializeField] private GroundPool groundPool;
+    [SerializeField] private float vectorSpawn = 113f;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Check"))
         {
-            Instantiate(ground, new Vector3(0, 0, vectorSpawn), Quaternion.identity);
+            GameObject ground = groundPool.GetGround();
+            ground.transform.position = new Vector3(0, 0, vectorSpawn);
+            ground.transform.rotation = Quaternion.identity;
+
+            StartCoroutine(DeactivateGround(ground));
         }
     }
+
+    IEnumerator DeactivateGround(GameObject ground)
+    {
+        yield return new WaitForSeconds(25f);
+        groundPool.ReturnGround(ground);
+    }
 }
+
