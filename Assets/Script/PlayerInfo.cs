@@ -30,6 +30,7 @@ public class PlayerInfo : MonoBehaviour
         {
             Score(1);
             Debug.Log("Chạm vào Enemy: +1 điểm");
+            slashHitSound.pitch = Random.Range(0.8f, 1.2f);
             slashHitSound.Play();
             Destroy(other.gameObject);
         }

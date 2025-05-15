@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("AnimationTrigger"))
         {
             animator.SetTrigger("isAttackRight");
+            slashSound.pitch = Random.Range(0.8f, 1.2f);
             slashSound.Play();
             slashEffect.Play();
         }
