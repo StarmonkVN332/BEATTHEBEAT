@@ -18,6 +18,7 @@ public class PlayerInfo : MonoBehaviour
 
     [Header("Animator")]
     [SerializeField] private Animator animator;
+    [SerializeField] private AudioSource slashHitSound;
 
     private void Start()
     {
@@ -29,6 +30,7 @@ public class PlayerInfo : MonoBehaviour
         {
             Score(1);
             Debug.Log("Chạm vào Enemy: +1 điểm");
+            slashHitSound.Play();
             Destroy(other.gameObject);
         }
     }
