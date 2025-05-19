@@ -10,7 +10,6 @@ public class PlayerInfo : MonoBehaviour
     [Header("player info")]
     [SerializeField] private int playerHealth = 3;
     [SerializeField] private int score = 0;
-    [SerializeField] private float invincibleDuration = 2f;
 
     [Header("Text")]
     [SerializeField] private TextMeshProUGUI scoreText;
