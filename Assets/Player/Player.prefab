@@ -837,10 +837,10 @@ GameObject:
   - component: {fileID: 3510919016874099520}
   - component: {fileID: 3307179879435108906}
   - component: {fileID: 8655585262895163247}
-  - component: {fileID: 8336020603330146079}
   - component: {fileID: 1964568767601230714}
   - component: {fileID: 2405312734103968852}
   - component: {fileID: 1611767591129878199}
+  - component: {fileID: 5519720784352173288}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -917,29 +917,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!136 &8336020603330146079
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1371266603118731061}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.79930854
-  m_Height: 1.6274153
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.78486675, z: 0.29930854}
 --- !u!114 &1964568767601230714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -954,9 +931,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 3307179879435108906}
   slashEffect: {fileID: 8062064367481969517}
+  slashSound: {fileID: 0}
   moveSpeed: 10
   minX: -4.5
   maxX: 4.5
+  notePool: {fileID: 0}
 --- !u!114 &2405312734103968852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -969,7 +948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58fe93549328cf1468146809176b6211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ground: {fileID: 5626142648922942002, guid: 1da7bb00bb1e9924180d461ccbc3110c, type: 3}
+  groundPool: {fileID: 0}
   vectorSpawn: 113
 --- !u!114 &1611767591129878199
 MonoBehaviour:
@@ -990,6 +969,28 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   hpText: {fileID: 0}
   animator: {fileID: 3307179879435108906}
+  randomSoundPlayer: {fileID: 0}
+--- !u!65 &5519720784352173288
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371266603118731061}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1404178083249379373
 GameObject:
   m_ObjectHideFlags: 0

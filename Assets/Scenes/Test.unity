@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10052248, g: 0.124909, b: 0.31756577, a: 1}
+  m_IndirectSpecularColor: {r: 0.08029652, g: 0.099690296, b: 0.30108327, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -590,12 +590,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cdab3ea1af8c4c4ebf0accd1172e300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  midiFilePath: Assets/Music/OldTownRoad.mid
+  midiFilePath: Assets/Music/OldTownRoadCustomized.mid
   notePool: {fileID: 470383062}
   spawnHeight: 5
   noteSpeed: 1
   musicSource: {fileID: 1822908761}
-  delayMusicStart: 3.65
+  delayMusicStart: 3.88
   spawnOrigin: {fileID: 272253844}
 --- !u!1 &281227349
 GameObject:
@@ -741,29 +741,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!136 &319083877
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 319083873}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.411654
-  m_Height: 1.9091289
-  m_Direction: 1
-  m_Center: {x: -0.0142662525, y: 0.63403857, z: 0.0030808449}
 --- !u!114 &319083878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -820,6 +797,27 @@ MonoBehaviour:
   hpText: {fileID: 0}
   animator: {fileID: 319083874}
   randomSoundPlayer: {fileID: 1949624657}
+--- !u!65 &319083883
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319083873}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.6, y: 1, z: 0.081882}
+  m_Center: {x: 0, y: 0, z: 0.459059}
 --- !u!1 &333108563
 GameObject:
   m_ObjectHideFlags: 0
@@ -2429,7 +2427,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d99b778703475ab4e9946a97d8c92ca8, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.694
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2668,10 +2666,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7647134206250791342, guid: cc91c8ba8b9a34f4d99e70d721f60b64,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 319083877}
-    - targetCorrespondingSourceObject: {fileID: 7647134206250791342, guid: cc91c8ba8b9a34f4d99e70d721f60b64,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 319083878}
     - targetCorrespondingSourceObject: {fileID: 7647134206250791342, guid: cc91c8ba8b9a34f4d99e70d721f60b64,
         type: 3}
@@ -2681,6 +2675,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 319083881}
+    - targetCorrespondingSourceObject: {fileID: 7647134206250791342, guid: cc91c8ba8b9a34f4d99e70d721f60b64,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 319083883}
   m_SourcePrefab: {fileID: 100100000, guid: cc91c8ba8b9a34f4d99e70d721f60b64, type: 3}
 --- !u!1 &1896344600
 GameObject:
