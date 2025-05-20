@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10059731, g: 0.124988444, b: 0.31765178, a: 1}
+  m_IndirectSpecularColor: {r: 0.08013628, g: 0.09953251, b: 0.3009477, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -355,12 +355,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16fa1e9be2303054681839df7690c9a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  midiFilePath: Assets/Music/OldTownRoad.mid
-  noteBPool: {fileID: 0}
+  midiFilePath: Assets/Music/OldTownRoadPat3.mid
+  noteBPool: {fileID: 2097392443}
   spawnHeight: 5
   noteSpeed: 1
-  musicSource: {fileID: 0}
-  delayMusicStart: 3
+  musicSource: {fileID: 1822908761}
+  delayMusicStart: 3.54
   spawnOrigin: {fileID: 272253844}
 --- !u!1 &272253840
 GameObject:
@@ -511,12 +511,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cdab3ea1af8c4c4ebf0accd1172e300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  midiFilePath: Assets/Music/OldTownRoadCustomized.mid
+  midiFilePath: Assets/Music/OldTownRoadPat1.mid
   notePool: {fileID: 470383062}
   spawnHeight: 5
   noteSpeed: 1
   musicSource: {fileID: 1822908761}
-  delayMusicStart: 3.88
+  delayMusicStart: 3.54
   spawnOrigin: {fileID: 272253844}
 --- !u!1 &319083873 stripped
 GameObject:
@@ -677,12 +677,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4ad75304fba76a4ca56f7a10e59641f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  midiFilePath: Assets/Music/OldTownRoad.mid
-  noteAPool: {fileID: 0}
+  midiFilePath: Assets/Music/OldTownRoadPat2.mid
+  noteAPool: {fileID: 2135716989}
   spawnHeight: 5
   noteSpeed: 1
-  musicSource: {fileID: 0}
-  delayMusicStart: 3
+  musicSource: {fileID: 1822908761}
+  delayMusicStart: 3.54
   spawnOrigin: {fileID: 272253844}
 --- !u!1 &333108563
 GameObject:
@@ -3165,7 +3165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff6f4c6d843e5e4e80a3bd616aa4546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteBPrefabs: {fileID: 0}
+  noteBPrefabs: {fileID: 8027987855001571748, guid: 2d6707babfdfedd4883ad9884aca9416,
+    type: 3}
 --- !u!1 &2135716987
 GameObject:
   m_ObjectHideFlags: 0
@@ -3210,7 +3211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d2700f001ab374ea7972d7aef94b4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteAPrefabs: {fileID: 0}
+  noteAPrefabs: {fileID: 8027987855001571748, guid: 2d6707babfdfedd4883ad9884aca9416,
+    type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

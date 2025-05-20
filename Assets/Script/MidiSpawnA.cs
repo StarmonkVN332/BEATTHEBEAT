@@ -7,7 +7,7 @@ using MidiParser;
 public class MidiSpawnA : MonoBehaviour
 {
     public string midiFilePath = "Assets/Music/OldTownRoad.mid"; // MIDI file path
-    public NotePool noteAPool;
+    public NoteForPoolA noteAPool;
     public float spawnHeight = 5f;
     public float noteSpeed = 1f;
 
@@ -76,7 +76,7 @@ public class MidiSpawnA : MonoBehaviour
             Vector3 spawnPos = spawnOrigin.position + new Vector3(noteOffsetX, 0, 0);
 
             // Spawn nốt
-            GameObject noteA = noteAPool.GetNote();
+            GameObject noteA = noteAPool.GetNoteA();
             noteA.transform.position = spawnPos;
             noteA.transform.rotation = Quaternion.identity;
 
@@ -89,7 +89,7 @@ public class MidiSpawnA : MonoBehaviour
 
         if (noteA != null && noteA.activeInHierarchy)
         {
-            noteAPool.ReturnNote(noteA);
+            noteAPool.ReturnNoteA(noteA);
         }
     }
 }
