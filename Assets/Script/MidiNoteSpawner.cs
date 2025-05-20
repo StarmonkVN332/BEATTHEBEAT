@@ -6,7 +6,7 @@ using MidiParser;
 
 public class MidiNoteSpawner : MonoBehaviour
 {
-    public string midiFilePath = "Assets/Music/OldTownRoad.mid"; // MIDI file path
+    public string midiResourceName = "OldTownRoadPat1"; // Name of the .bytes file (without extension) in Resources
     public NotePool notePool;
     public float spawnHeight = 5f;
     public float noteSpeed = 1f;
@@ -15,15 +15,35 @@ public class MidiNoteSpawner : MonoBehaviour
     private float startTime;
     [SerializeField] private float delayMusicStart = 3f;
 
-
     public Transform spawnOrigin;
 
     private List<(float time, int note, int velocity)> noteEvents = new();
 
     void Start()
     {
-        // Load MIDI
-        var midiFile = new MidiFile(midiFilePath);
+        // Load .bytes file as TextAsset from Resources
+        TextAsset midiAsset = Resources.Load<TextAsset>(midiResourceName);
+        if (midiAsset == null)
+        {
+            Debug.LogError($"Failed to load MIDI file: {midiResourceName}.bytes from Resources");
+            return;
+        }
+
+        // Parse MIDI file from TextAsset bytes
+        MidiFile midiFile;
+        try
+        {
+            using (var memoryStream = new MemoryStream(midiAsset.bytes))
+            {
+                midiFile = new MidiFile(memoryStream); // Assumes MidiFile supports Stream input
+            }
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Error parsing MIDI file: {e.Message}");
+            return;
+        }
+
         StartMusicWithDelay();
         float ticksPerQuarter = midiFile.TicksPerQuarterNote;
         float tempo = 500000f; // default 120bpm
@@ -50,6 +70,7 @@ public class MidiNoteSpawner : MonoBehaviour
         // Bắt đầu coroutine spawn
         StartCoroutine(SpawnNotes());
     }
+
     private void StartMusicWithDelay()
     {
         // Lấy thời gian hiện tại cộng với độ trễ (delay)
@@ -58,6 +79,7 @@ public class MidiNoteSpawner : MonoBehaviour
         // Đặt thời điểm phát nhạc chính xác (mượt mà hơn)
         musicSource.PlayScheduled(startTime);
     }
+
     IEnumerator SpawnNotes()
     {
         float startTime = Time.time;
@@ -83,6 +105,7 @@ public class MidiNoteSpawner : MonoBehaviour
             StartCoroutine(DeactivateNote(noteObj));
         }
     }
+
     IEnumerator DeactivateNote(GameObject noteObj)
     {
         yield return new WaitForSeconds(3f);
