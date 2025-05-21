@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 previousTouchPos;
 
+    private bool isGameOver = false;
     void Update()
     {
         if (Input.touchCount == 1)
@@ -63,5 +64,15 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Trả enemy về pool thành công");
             }
         }
+        if (!isGameOver && other.CompareTag("obstacle"))
+        {
+            GameOver();
+        }
+    }
+    void GameOver()
+    {
+        isGameOver = true;
+        Debug.Log("Game Over!");
+        Time.timeScale = 0f; // Dừng game
     }
 }
