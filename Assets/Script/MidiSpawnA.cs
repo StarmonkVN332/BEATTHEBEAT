@@ -6,8 +6,8 @@ using MidiParser;
 
 public class MidiSpawnA : MonoBehaviour
 {
-    public string midiFilePath = "Assets/Music/OldTownRoad.mid"; // MIDI file path
-    public NoteForPoolA noteAPool;
+    public string midiResourceName = "OldTownRoadPat1"; // Name of the .bytes file (without extension) in Resources
+    public NoteForPoolA notePoolA;
     public float spawnHeight = 5f;
     public float noteSpeed = 1f;
 
@@ -15,15 +15,35 @@ public class MidiSpawnA : MonoBehaviour
     private float startTime;
     [SerializeField] private float delayMusicStart = 3f;
 
-
     public Transform spawnOrigin;
 
     private List<(float time, int note, int velocity)> noteEvents = new();
 
     void Start()
     {
-        // Load MIDI
-        var midiFile = new MidiFile(midiFilePath);
+        // Load .bytes file as TextAsset from Resources
+        TextAsset midiAsset = Resources.Load<TextAsset>(midiResourceName);
+        if (midiAsset == null)
+        {
+            Debug.LogError($"Failed to load MIDI file: {midiResourceName}.bytes from Resources");
+            return;
+        }
+
+        // Parse MIDI file from TextAsset bytes
+        MidiFile midiFile;
+        try
+        {
+            using (var memoryStream = new MemoryStream(midiAsset.bytes))
+            {
+                midiFile = new MidiFile(memoryStream); // Assumes MidiFile supports Stream input
+            }
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Error parsing MIDI file: {e.Message}");
+            return;
+        }
+
         StartMusicWithDelay();
         float ticksPerQuarter = midiFile.TicksPerQuarterNote;
         float tempo = 500000f; // default 120bpm
@@ -50,6 +70,7 @@ public class MidiSpawnA : MonoBehaviour
         // Bắt đầu coroutine spawn
         StartCoroutine(SpawnNotes());
     }
+
     private void StartMusicWithDelay()
     {
         // Lấy thời gian hiện tại cộng với độ trễ (delay)
@@ -58,38 +79,40 @@ public class MidiSpawnA : MonoBehaviour
         // Đặt thời điểm phát nhạc chính xác (mượt mà hơn)
         musicSource.PlayScheduled(startTime);
     }
+
     IEnumerator SpawnNotes()
     {
         float startTime = Time.time;
 
-        foreach (var note in noteEvents)
+        foreach (var noteA in noteEvents)
         {
-            float delay = note.time - (Time.time - startTime);
+            float delay = noteA.time - (Time.time - startTime);
             if (delay > 0)
                 yield return new WaitForSeconds(delay);
 
             // Tăng 2 nửa cung (tăng pitch)
-            int transposedNote = note.note + 2;
+            int transposedNote = noteA.note + 2;
             float noteOffsetX = (transposedNote - 60) * 0.2f;
 
             // Tạo vị trí spawn dựa trên vị trí gốc
             Vector3 spawnPos = spawnOrigin.position + new Vector3(noteOffsetX, 0, 0);
 
             // Spawn nốt
-            GameObject noteA = noteAPool.GetNoteA();
-            noteA.transform.position = spawnPos;
-            noteA.transform.rotation = Quaternion.identity;
+            GameObject noteObjA = notePoolA.GetNoteA();
+            noteObjA.transform.position = spawnPos;
+            noteObjA.transform.rotation = Quaternion.identity;
 
-            StartCoroutine(DeactivateNote(noteA));
+            StartCoroutine(DeactivateNoteA(noteObjA));
         }
     }
-    IEnumerator DeactivateNote(GameObject noteA)
+
+    IEnumerator DeactivateNoteA(GameObject noteObj)
     {
         yield return new WaitForSeconds(3f);
 
-        if (noteA != null && noteA.activeInHierarchy)
+        if (noteObj != null && noteObj.activeInHierarchy)
         {
-            noteAPool.ReturnNoteA(noteA);
+            notePoolA.ReturnNoteA(noteObj);
         }
     }
 }
