@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10044348, g: 0.12483868, b: 0.31750548, a: 1}
+  m_IndirectSpecularColor: {r: 0.08035691, g: 0.09975394, b: 0.3011824, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -362,6 +362,12 @@ MonoBehaviour:
   musicSource: {fileID: 1822908761}
   delayMusicStart: 3.7
   spawnOrigin: {fileID: 272253844}
+--- !u!198 &225138042 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7017751990960077488, guid: c4b0599cf856aeb468e0a421e735e63e,
+    type: 3}
+  m_PrefabInstance: {fileID: 5226789332984825620}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &272253840
 GameObject:
   m_ObjectHideFlags: 0
@@ -3082,6 +3088,11 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1031917026}
+    - target: {fileID: 8297326534378222447, guid: c4b0599cf856aeb468e0a421e735e63e,
+        type: 3}
+      propertyPath: boomEffect
+      value: 
+      objectReference: {fileID: 225138042}
     - target: {fileID: 8297326534378222447, guid: c4b0599cf856aeb468e0a421e735e63e,
         type: 3}
       propertyPath: randomSoundPlayer

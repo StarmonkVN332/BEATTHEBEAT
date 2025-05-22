@@ -18,6 +18,7 @@ public class PlayerInfo : MonoBehaviour
     [Header("Animator")]
     [SerializeField] private Animator animator;
     [SerializeField] private RandomSoundPlayer randomSoundPlayer;
+    [SerializeField] private ParticleSystem boomEffect;
 
     private void Start()
     {
@@ -30,6 +31,7 @@ public class PlayerInfo : MonoBehaviour
             Score(1);
             Debug.Log("Chạm vào Enemy: +1 điểm");
             randomSoundPlayer.PlayRandomSound();
+            boomEffect.Play();
             Destroy(other.gameObject);
         }
     }
