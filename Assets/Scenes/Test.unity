@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08035691, g: 0.09975394, b: 0.3011824, a: 1}
+  m_IndirectSpecularColor: {r: 0.1005261, g: 0.124903746, b: 0.31757486, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -355,12 +355,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16fa1e9be2303054681839df7690c9a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  midiResourceName: OldTownRoadPat1
-  notePoolB: {fileID: 0}
+  midiResourceName: OldTownRoadPat3
+  notePoolB: {fileID: 2097392443}
   spawnHeight: 5
   noteSpeed: 1
   musicSource: {fileID: 1822908761}
-  delayMusicStart: 3.7
+  delayMusicStart: 3.55
   spawnOrigin: {fileID: 272253844}
 --- !u!198 &225138042 stripped
 ParticleSystem:
@@ -522,7 +522,7 @@ MonoBehaviour:
   spawnHeight: 5
   noteSpeed: 1
   musicSource: {fileID: 1822908761}
-  delayMusicStart: 3.5
+  delayMusicStart: 3.55
   spawnOrigin: {fileID: 272253844}
 --- !u!1 &331476103
 GameObject:
@@ -568,12 +568,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4ad75304fba76a4ca56f7a10e59641f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  midiResourceName: OldTownRoadPat1
-  notePoolA: {fileID: 0}
+  midiResourceName: OldTownRoadPat2
+  notePoolA: {fileID: 2135716989}
   spawnHeight: 5
   noteSpeed: 1
   musicSource: {fileID: 1822908761}
-  delayMusicStart: 3.7
+  delayMusicStart: 3.55
   spawnOrigin: {fileID: 272253844}
 --- !u!1 &333108563
 GameObject:
@@ -2993,7 +2993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d2700f001ab374ea7972d7aef94b4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteAPrefabs: {fileID: 8027987855001571748, guid: 2d6707babfdfedd4883ad9884aca9416,
+  noteAPrefabs: {fileID: 5813818180465729043, guid: 01cf8ec9e1802fb409fc8f12a2ec74c3,
     type: 3}
 --- !u!1001 &5226789332984825620
 PrefabInstance:
