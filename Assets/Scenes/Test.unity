@@ -361,7 +361,7 @@ MonoBehaviour:
   noteSpeed: 1
   musicSource: {fileID: 1822908761}
   delayMusicStart: 3.55
-  spawnOrigin: {fileID: 272253844}
+  spawnOrigin: {fileID: 1260333094}
 --- !u!198 &225138042 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7017751990960077488, guid: c4b0599cf856aeb468e0a421e735e63e,
@@ -1575,6 +1575,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031917024}
   m_CullTransparentMesh: 1
+--- !u!1 &1260333093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1260333094}
+  m_Layer: 0
+  m_Name: ObstaclePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1260333094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260333093}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1364967273
 GameObject:
   m_ObjectHideFlags: 0
@@ -2947,7 +2978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff6f4c6d843e5e4e80a3bd616aa4546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteBPrefabs: {fileID: 8027987855001571748, guid: 2d6707babfdfedd4883ad9884aca9416,
+  noteBPrefabs: {fileID: 5813818180465729043, guid: 01cf8ec9e1802fb409fc8f12a2ec74c3,
     type: 3}
 --- !u!1 &2135716987
 GameObject:
@@ -2993,7 +3024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d2700f001ab374ea7972d7aef94b4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteAPrefabs: {fileID: 5813818180465729043, guid: 01cf8ec9e1802fb409fc8f12a2ec74c3,
+  noteAPrefabs: {fileID: 8027987855001571748, guid: 2d6707babfdfedd4883ad9884aca9416,
     type: 3}
 --- !u!1001 &5226789332984825620
 PrefabInstance:
@@ -3146,6 +3177,7 @@ SceneRoots:
   - {fileID: 1896344602}
   - {fileID: 90121141}
   - {fileID: 272253844}
+  - {fileID: 1260333094}
   - {fileID: 698989651}
   - {fileID: 1913008058}
   - {fileID: 889829159}
