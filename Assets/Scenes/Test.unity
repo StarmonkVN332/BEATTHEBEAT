@@ -3023,6 +3023,16 @@ PrefabInstance:
       propertyPath: slashSound
       value: 
       objectReference: {fileID: 942707265}
+    - target: {fileID: 2988604167572522282, guid: c4b0599cf856aeb468e0a421e735e63e,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.9220004
+      objectReference: {fileID: 0}
+    - target: {fileID: 2988604167572522282, guid: c4b0599cf856aeb468e0a421e735e63e,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.46100044
+      objectReference: {fileID: 0}
     - target: {fileID: 4508933563386377913, guid: c4b0599cf856aeb468e0a421e735e63e,
         type: 3}
       propertyPath: m_Name
