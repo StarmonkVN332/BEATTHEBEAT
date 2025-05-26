@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Settings")]
+    [SerializeField] private float forwardSpeed = 22f;
     [SerializeField] private Animator animator;
     [SerializeField] private ParticleSystem slashEffect;
     [SerializeField] private AudioSource slashSound;
@@ -15,34 +16,36 @@ public class PlayerController : MonoBehaviour
     public NotePool notePool;
 
     private Vector2 previousTouchPos;
-
     private bool isGameOver = false;
+
     void Update()
     {
+        if (isGameOver) return;
+
+        // Luôn di chuyển về phía trước (trục Z)
+        transform.position += Vector3.forward * forwardSpeed * Time.deltaTime;
+
+        // Di chuyển ngang theo thao tác kéo
         if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
 
-            // Khi chạm lần đầu, lưu vị trí
             if (touch.phase == TouchPhase.Began)
             {
                 previousTouchPos = touch.position;
             }
-            // Khi đang kéo
             else if (touch.phase == TouchPhase.Moved)
             {
                 Vector2 delta = touch.position - previousTouchPos;
                 previousTouchPos = touch.position;
 
-                // Tính delta X theo tỷ lệ màn hình để di chuyển
                 float deltaX = (delta.x / Screen.width) * moveSpeed;
 
-                // Cập nhật vị trí mới với giới hạn X, Y và Z giữ nguyên
                 float newX = Mathf.Clamp(transform.position.x + deltaX, minX, maxX);
-                transform.position = new Vector3(newX, 0f, -8f);
+                transform.position = new Vector3(newX, transform.position.y, transform.position.z);
 
-                // Kích hoạt animation nếu cần
-                animator.SetTrigger("isMoving");
+                if (animator != null)
+                    animator.SetTrigger("isMoving");
             }
         }
     }
@@ -66,13 +69,13 @@ public class PlayerController : MonoBehaviour
         }
         if (!isGameOver && other.CompareTag("obstacle"))
         {
-            GameOver();
+            //GameOver();
         }
     }
-    void GameOver()
-    {
-        isGameOver = true;
-        Debug.Log("Game Over!");
-        Time.timeScale = 0f; // Dừng game
-    }
+    //void GameOver()
+    //{
+    //    isGameOver = true;
+    //    Debug.Log("Game Over!");
+    //    Time.timeScale = 0f; // Dừng game
+    //}
 }

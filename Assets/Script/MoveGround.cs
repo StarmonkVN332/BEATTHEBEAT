@@ -15,6 +15,6 @@ public class MoveGround : MonoBehaviour
     private void GroundMove()
     {
         transform.position += new Vector3(0, 0, groundMove) * Time.deltaTime;
-        Destroy(gameObject, 60f);
+        //Destroy(gameObject, 60f);
     }
 }
