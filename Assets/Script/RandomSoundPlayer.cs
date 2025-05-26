@@ -6,8 +6,8 @@ public class RandomSoundPlayer : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip[] clips;
-    [SerializeField] private float minPitch = 0.8f;
-    [SerializeField] private float maxPitch = 1.2f;
+    [SerializeField] private float minPitch = 1f;
+    [SerializeField] private float maxPitch = 1.1f;
 
     public void PlayRandomSound()
     {

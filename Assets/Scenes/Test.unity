@@ -360,7 +360,7 @@ MonoBehaviour:
   spawnHeight: 5
   noteSpeed: 1
   musicSource: {fileID: 1822908761}
-  delayMusicStart: 3.55
+  delayMusicStart: 3.43
   spawnOrigin: {fileID: 1260333094}
 --- !u!198 &225138042 stripped
 ParticleSystem:
@@ -522,7 +522,7 @@ MonoBehaviour:
   spawnHeight: 5
   noteSpeed: 1
   musicSource: {fileID: 1822908761}
-  delayMusicStart: 3.55
+  delayMusicStart: 3.43
   spawnOrigin: {fileID: 272253844}
 --- !u!1 &331476103
 GameObject:
@@ -573,7 +573,7 @@ MonoBehaviour:
   spawnHeight: 5
   noteSpeed: 1
   musicSource: {fileID: 1822908761}
-  delayMusicStart: 3.55
+  delayMusicStart: 3.43
   spawnOrigin: {fileID: 272253844}
 --- !u!1 &333108563
 GameObject:
@@ -2732,7 +2732,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.529
+  m_Volume: 0.328
   m_Pitch: 1
   Loop: 0
   Mute: 0
