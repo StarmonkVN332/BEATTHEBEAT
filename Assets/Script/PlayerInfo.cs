@@ -13,7 +13,6 @@ public class PlayerInfo : MonoBehaviour
 
     [Header("Text")]
     [SerializeField] private TextMeshProUGUI scoreText;
-    [SerializeField] private TextMeshProUGUI hpText;
 
     [Header("Animator")]
     [SerializeField] private Animator animator;
@@ -56,11 +55,6 @@ public class PlayerInfo : MonoBehaviour
     }
     private void UpdatePlayerInfo()
     {
-        if (hpText != null)
-    {
-            hpText.text = "HP: " + playerHealth.ToString();
-        }
-
         if (scoreText != null)
         {
             scoreText.text = "SCORE: " + score.ToString();
