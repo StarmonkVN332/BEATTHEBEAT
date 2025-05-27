@@ -69,6 +69,8 @@ public class PlayerController : MonoBehaviour
         }
         if (!isGameOver && other.CompareTag("obstacle"))
         {
+            PlayerInfo playerInfo = other.GetComponent<PlayerInfo>();
+            playerInfo.PlayerTakeDamage(1);
             //GameOver();
         }
     }

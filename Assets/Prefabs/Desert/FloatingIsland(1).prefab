@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2602151858888800332}
   m_Layer: 0
-  m_Name: Floating Island
+  m_Name: FloatingIsland(1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
