@@ -1,18 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MusicSelectItem : MonoBehaviour
 {
-   
-[SerializeField] private string gameplaySceneName ="Test"; // tên scene gameplay
- public void OnSelectThisTrack()
-        {
-            // Tùy chọn: lưu tên bài nhạc để dùng trong gameplay scene
-            PlayerPrefs.SetString("SelectedTrack", gameplaySceneName);
+    public string gameplaySceneName = "Test";
+    public AudioClip clickSound;
+    public AudioSource uiAudioSource;
 
-            // Load scene chơi nhạc
-            SceneManager.LoadScene(gameplaySceneName);
+
+    public void OnSelectThisTrack()
+    {
+        // Phát âm thanh click
+        if (clickSound != null && uiAudioSource != null)
+        {
+            uiAudioSource.PlayOneShot(clickSound);
+            // Đợi âm xong rồi mới chuyển scene
+            Invoke(nameof(LoadScene), clickSound.length);
+        }
+        else
+        {
+            // Không có âm thanh thì load liền
+            LoadScene();
         }
     }
+
+    void LoadScene()
+    {
+        SceneManager.LoadScene(gameplaySceneName);
+    }
+}
