@@ -8,40 +8,50 @@ public class MusicPreviewController : MonoBehaviour
     public Button previewButton;
     public GameObject recordDisk;
 
+
     private bool isPlaying = false;
 
     void Start()
     {
         previewButton.onClick.AddListener(TogglePreview);
-        // KHÔNG ẩn đĩa nữa
     }
 
-    void TogglePreview()
+    public void TogglePreview()
     {
-        if (isPlaying)
-            StopPreview();
-        else
-            PlayPreview();
+        if (isPlaying) StopPreview();
+        else PlayPreview();
     }
 
-    void PlayPreview()
+    public void PlayPreview()
     {
-        audioSource.clip = previewClip;
-        audioSource.Play();
-        isPlaying = true;
+        if (audioSource != null && previewClip != null)
+        {
+            audioSource.clip = previewClip;
+            audioSource.Play();
+            isPlaying = true;
+        }
     }
 
-    void StopPreview()
+    public void StopPreview()
     {
-        audioSource.Stop();
-        isPlaying = false;
+        if (isPlaying && audioSource != null)
+        {
+            audioSource.Stop();
+            isPlaying = false;
+        }
     }
 
     void Update()
     {
-        if (isPlaying)
+        if (isPlaying && recordDisk != null)
         {
             recordDisk.transform.Rotate(0f, 0f, -180f * Time.deltaTime);
         }
+    }
+
+    // 🚨 Tự động gọi khi GameObject này hoặc parent bị SetActive(false)
+    void OnDisable()
+    {
+        StopPreview(); // đảm bảo dừng nhạc khi panel bị tắt
     }
 }
