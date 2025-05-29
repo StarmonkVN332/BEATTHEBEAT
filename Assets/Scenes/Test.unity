@@ -2730,6 +2730,11 @@ PrefabInstance:
       objectReference: {fileID: 470383062}
     - target: {fileID: 322185822698880162, guid: c4b0599cf856aeb468e0a421e735e63e,
         type: 3}
+      propertyPath: moveSpeed
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 322185822698880162, guid: c4b0599cf856aeb468e0a421e735e63e,
+        type: 3}
       propertyPath: slashSound
       value: 
       objectReference: {fileID: 942707265}
@@ -2757,6 +2762,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.y
       value: 0.46100044
+      objectReference: {fileID: 0}
+    - target: {fileID: 4170653839104765318, guid: c4b0599cf856aeb468e0a421e735e63e,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 4508933563386377913, guid: c4b0599cf856aeb468e0a421e735e63e,
         type: 3}
@@ -2878,7 +2888,8 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4170653839104765318, guid: c4b0599cf856aeb468e0a421e735e63e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -2909,8 +2920,8 @@ MonoBehaviour:
   m_PlayOnAwake: 1
   m_LoopMode: 1
   m_Method: 0
-  m_Duration: 1
-  m_MaxSpeed: 2529.2793
+  m_Duration: 22
+  m_MaxSpeed: 114.96724
   m_EasingMode: 0
   m_AlignmentMode: 1
   m_ObjectForwardAxis: 2
