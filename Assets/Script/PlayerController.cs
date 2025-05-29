@@ -1,31 +1,39 @@
-﻿//using UnityEditor.Experimental.GraphView;
-using UnityEngine;
+﻿using UnityEngine;
+using Unity.Mathematics;
+using UnityEngine.Splines;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Settings")]
-    [SerializeField] private float forwardSpeed = 22f;
+    [SerializeField] private float forwardSpeed = 1f;
     [SerializeField] private Animator animator;
     [SerializeField] private ParticleSystem slashEffect;
     [SerializeField] private AudioSource slashSound;
+    [SerializeField] private float moveSpeed = 5f; // tốc độ di chuyển ngang
+    [SerializeField] private float maxOffsetX = 2.5f; // giới hạn trái/phải theo trục X
 
-    [SerializeField] private float moveSpeed = 10f; // Tốc độ phản hồi khi kéo
-    [SerializeField] private float minX = -4.5f;
-    [SerializeField] private float maxX = 4.5f;
+    [Header("Spline Settings")]
+    [SerializeField] private SplineAnimate splineAnimate;
 
     public NotePool notePool;
 
     private Vector2 previousTouchPos;
+    private float currentX = 0f; // vị trí ngang hiện tại
     private bool isGameOver = false;
 
     void Update()
     {
         if (isGameOver) return;
 
-        // Luôn di chuyển về phía trước (trục Z)
-        transform.position += Vector3.forward * forwardSpeed * Time.deltaTime;
+        // Di chuyển dọc spline theo Z (forward)
+        splineAnimate.NormalizedTime += forwardSpeed * Time.deltaTime;
 
-        // Di chuyển ngang theo thao tác kéo
+        float t = splineAnimate.NormalizedTime;
+
+        SplineUtility.Evaluate(splineAnimate.Container.Spline, t, out float3 splinePosF3, out _, out _);
+        Vector3 splinePosition = (Vector3)splinePosF3;
+
+        // Xử lý kéo để di chuyển theo X
         if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
@@ -40,14 +48,17 @@ public class PlayerController : MonoBehaviour
                 previousTouchPos = touch.position;
 
                 float deltaX = (delta.x / Screen.width) * moveSpeed;
+                currentX += deltaX;
 
-                float newX = Mathf.Clamp(transform.position.x + deltaX, minX, maxX);
-                transform.position = new Vector3(newX, transform.position.y, transform.position.z);
+                currentX = Mathf.Clamp(currentX, -maxOffsetX, maxOffsetX);
 
                 if (animator != null)
                     animator.SetTrigger("isMoving");
             }
         }
+
+        // Gán vị trí mới: X lấy từ currentX, Z từ spline
+        transform.position = new Vector3(currentX, splinePosition.y, splinePosition.z);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -58,26 +69,26 @@ public class PlayerController : MonoBehaviour
             slashSound.Play();
             slashEffect.Play();
         }
+
         Enemy note = other.GetComponent<Enemy>();
-        if (note != null)
+        if (note != null && notePool != null)
         {
-            if (notePool != null)
-            {
-                notePool.ReturnNote(note.gameObject);
-                Debug.Log("Trả enemy về pool thành công");
-            }
+            notePool.ReturnNote(note.gameObject);
+            Debug.Log("Trả enemy về pool thành công");
         }
+
         if (!isGameOver && other.CompareTag("obstacle"))
         {
             PlayerInfo playerInfo = other.GetComponent<PlayerInfo>();
             playerInfo.PlayerTakeDamage(1);
-            //GameOver();
+            GameOver();
         }
     }
-    //void GameOver()
-    //{
-    //    isGameOver = true;
-    //    Debug.Log("Game Over!");
-    //    Time.timeScale = 0f; // Dừng game
-    //}
+
+    void GameOver()
+    {
+        isGameOver = true;
+        Debug.Log("Game Over!");
+        Time.timeScale = 0f;
+    }
 }
