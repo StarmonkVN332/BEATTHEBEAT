@@ -13,12 +13,13 @@ public class ControllerTest : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private ParticleSystem slashEffect;
     [SerializeField] private AudioSource slashSound;
-    [SerializeField] private float lateralMoveRange = 2f;
+    [SerializeField] private float lateralMoveRange = 2f; // giới hạn kéo trái/phải
+    [SerializeField] private float lateralSensitivity = 5f; // độ nhạy khi kéo
 
     public NotePool notePool;
 
     private float distanceAlongSpline = 0f;
-    private float lateralOffset = 0f; // kéo trái phải
+    private float lateralOffset = 0f; // vị trí kéo ngang hiện tại
     private Vector2 previousTouchPos;
     private bool isGameOver = false;
 
@@ -44,7 +45,7 @@ public class ControllerTest : MonoBehaviour
         transform.position = pos + offset;
         transform.rotation = Quaternion.LookRotation(tangent);
 
-        // Kéo trái/phải theo cảm ứng
+        // Kéo trái/phải theo cảm ứng (mượt và đúng chiều)
         if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
@@ -58,8 +59,9 @@ public class ControllerTest : MonoBehaviour
                 Vector2 delta = touch.position - previousTouchPos;
                 previousTouchPos = touch.position;
 
-                lateralOffset += (delta.x / Screen.width) * lateralMoveRange;
-                lateralOffset = Mathf.Clamp(lateralOffset, -2f, 2f);
+                float targetOffset = lateralOffset - (delta.x / Screen.width) * lateralSensitivity; // đảo ngược nếu cần
+                lateralOffset = Mathf.Lerp(lateralOffset, targetOffset, 0.25f); // làm mượt
+                lateralOffset = Mathf.Clamp(lateralOffset, -lateralMoveRange, lateralMoveRange); // giới hạn
 
                 if (animator != null)
                     animator.SetTrigger("isMoving");
