@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08035691, g: 0.09975394, b: 0.3011824, a: 1}
+  m_IndirectSpecularColor: {r: 0.1005261, g: 0.124903746, b: 0.31757486, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 23995119}
   - component: {fileID: 23995122}
+  - component: {fileID: 23995123}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -167,6 +168,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &23995123
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23995118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BindingMode: 1
+  m_FollowOffset: {x: 0, y: 6, z: -10}
+  m_XDamping: 1
+  m_YDamping: 1
+  m_ZDamping: 1
+  m_AngularDampingMode: 0
+  m_PitchDamping: 0
+  m_YawDamping: 0
+  m_RollDamping: 0
+  m_AngularDamping: 0
 --- !u!1 &158983048
 GameObject:
   m_ObjectHideFlags: 0
@@ -2071,7 +2094,7 @@ Transform:
   m_GameObject: {fileID: 1948248375}
   serializedVersion: 2
   m_LocalRotation: {x: 0.16212869, y: 0.000000014704015, z: -0.000000002415906, w: 0.9867696}
-  m_LocalPosition: {x: 0, y: 7.1000004, z: -9.58}
+  m_LocalPosition: {x: 0, y: 6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2342,7 +2365,7 @@ Transform:
   m_GameObject: {fileID: 2079204592}
   serializedVersion: 2
   m_LocalRotation: {x: 0.16212869, y: 0.000000014704015, z: -0.000000002415906, w: 0.9867696}
-  m_LocalPosition: {x: 0, y: 7.1000004, z: -9.58}
+  m_LocalPosition: {x: 0, y: 6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2367,8 +2390,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 28
   m_StandbyUpdate: 0
-  m_LookAt: {fileID: 984723737}
-  m_Follow: {fileID: 984723737}
+  m_LookAt: {fileID: 5226789332984825629}
+  m_Follow: {fileID: 5226789332984825629}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5
