@@ -1,7 +1,7 @@
-﻿using Facebook.Unity;
+﻿
 using Firebase.Auth;
+using Firebase.Database;
 using Firebase.Extensions;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -29,23 +29,9 @@ public class FirebaseLoginManager : MonoBehaviour
     public GameObject registerForm;
 
     private FirebaseAuth auth;
-    private FirebaseDatabaseManager databaseManager;
+    private FirebaseManager firebaseManager;
 
-    private void Awake()
-    {
-        if (!FB.IsInitialized)
-        {
-            FB.Init(() =>
-            {
-                if (FB.IsInitialized) FB.ActivateApp();
-                else Debug.LogError("Failed to initialize Facebook SDK.");
-            });
-        }
-        else
-        {
-            FB.ActivateApp();
-        }
-    }
+    
 
     private void Start()
     {
@@ -56,10 +42,14 @@ public class FirebaseLoginManager : MonoBehaviour
         buttonMoveToRegister.onClick.AddListener(SwitchForm);
         buttonMoveToLogin.onClick.AddListener(SwitchForm);
 
-        buttonFacebookLogin.onClick.AddListener(SignInWithFacebook);
-        buttonGoogleLogin.onClick.AddListener(SignInWithGoogle); // bạn cần tích hợp Google SDK
+        
+        buttonGoogleLogin.onClick.AddListener(SignInWithGoogle);
 
-        databaseManager = GetComponent<FirebaseDatabaseManager>();
+        firebaseManager = FindObjectOfType<FirebaseManager>();
+        if (firebaseManager == null)
+        {
+            Debug.LogWarning("⚠ firebaseManager chưa được tìm thấy trong scene!");
+        }
     }
 
     public void RegisterAccountWithFirebase()
@@ -71,15 +61,23 @@ public class FirebaseLoginManager : MonoBehaviour
         {
             if (task.IsCanceled || task.IsFaulted)
             {
-                Debug.Log("Đăng ký thất bại");
+                Debug.Log("❌ Đăng ký thất bại: " + task.Exception);
                 return;
             }
 
-            Debug.Log("Đăng ký thành công");
-            User userInGame = new User("", 100, 1000);
             FirebaseUser firebaseUser = task.Result.User;
+            Debug.Log("✅ Đăng ký thành công");
 
-            databaseManager.WriteDatabase("Users/" + firebaseUser.UserId, userInGame.ToString());
+            // Gán giá trị mặc định
+            string defaultName = firebaseUser.Email.Split('@')[0];
+            int defaultCoins = 100;
+            int defaultPoint = 0;
+
+            if (firebaseManager != null)
+            {
+                firebaseManager.SaveUserData(firebaseUser.UserId, defaultName, defaultCoins, defaultPoint);
+            }
+
             SceneManager.LoadScene("Test");
         });
     }
@@ -93,52 +91,54 @@ public class FirebaseLoginManager : MonoBehaviour
         {
             if (task.IsCanceled || task.IsFaulted)
             {
-                Debug.Log("Đăng nhập thất bại");
+                Debug.Log("❌ Đăng nhập thất bại: " + task.Exception);
                 return;
             }
 
-            Debug.Log("Đăng nhập thành công");
-            SceneManager.LoadScene("Test");
-        });
-    }
+            FirebaseUser firebaseUser = task.Result.User;
+            Debug.Log("✅ Đăng nhập thành công");
 
-    public void SignInWithFacebook()
-    {
-        var permissions = new System.Collections.Generic.List<string>() { "public_profile", "email" };
-        FB.LogInWithReadPermissions(permissions, result =>
-        {
-            if (FB.IsLoggedIn)
+            // Kiểm tra xem đã có dữ liệu người dùng trong DB chưa
+            DatabaseReference dbRef = FirebaseDatabase.DefaultInstance.RootReference;
+            dbRef.Child("Users").Child(firebaseUser.UserId).GetValueAsync().ContinueWithOnMainThread(getTask =>
             {
-                var accessToken = AccessToken.CurrentAccessToken.TokenString;
-                var credential = FacebookAuthProvider.GetCredential(accessToken);
-
-                auth.SignInWithCredentialAsync(credential).ContinueWithOnMainThread(task =>
+                if (getTask.IsFaulted)
                 {
-                    if (task.IsCanceled || task.IsFaulted)
-                    {
-                        Debug.LogError("Firebase Facebook login failed: " + task.Exception);
-                        return;
-                    }
+                    Debug.LogError("❌ Lỗi khi kiểm tra dữ liệu người dùng: " + getTask.Exception);
+                    return;
+                }
 
-                    Debug.Log("Firebase Facebook login success!");
-                    SceneManager.LoadScene("Test");
-                });
-            }
-            else
-            {
-                Debug.Log("Facebook login cancelled or failed.");
-            }
+                if (!getTask.Result.Exists)
+                {
+                    Debug.Log("🆕 Người dùng mới, lưu dữ liệu mặc định");
+
+                    string name = firebaseUser.Email.Split('@')[0]; // lấy phần tên từ email
+                    int defaultCoins = 100;
+                    int defaultPoint = 0;
+
+                    if (firebaseManager != null)
+                    {
+                        firebaseManager.SaveUserData(firebaseUser.UserId, name, defaultCoins, defaultPoint);
+                    }
+                }
+                else
+                {
+                    Debug.Log("👤 Người dùng đã tồn tại trong DB, không lưu lại.");
+                }
+
+                // Chuyển scene sau khi xử lý DB
+                firebaseManager?.OnLoginSuccess();
+                SceneManager.LoadScene("Test");
+            });
         });
     }
+
+    
+
 
     public void SignInWithGoogle()
     {
-        Debug.Log("Google login not yet implemented. You must integrate Google Sign-In SDK for Unity.");
-
-        // Placeholder — You must integrate the Google Sign-In plugin for Unity first.
-        // After you obtain Google ID Token, do:
-        // var credential = GoogleAuthProvider.GetCredential(idToken, null);
-        // auth.SignInWithCredentialAsync(credential);
+        Debug.Log("⚠ Google login chưa tích hợp. Cần tích hợp Google Sign-In SDK for Unity.");
     }
 
     public void SwitchForm()
