@@ -3932,6 +3932,7 @@ GameObject:
   - component: {fileID: 7743219434980749888}
   - component: {fileID: 1044738053537393215}
   - component: {fileID: 3805551235629433799}
+  - component: {fileID: 4677796978114863662}
   m_Layer: 0
   m_Name: CheckSpawnGround
   m_TagString: Check
@@ -3948,8 +3949,8 @@ Transform:
   m_GameObject: {fileID: 6688668898882998896}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.49, z: -0.4237}
-  m_LocalScale: {x: 10.184194, y: 8.500311, z: 0.94174856}
+  m_LocalPosition: {x: 0, y: 3.49, z: 17.3}
+  m_LocalScale: {x: 15.0369625, y: 8.500311, z: 0.94174856}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1383036032237831700}
@@ -4025,6 +4026,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4677796978114863662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6688668898882998896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58fe93549328cf1468146809176b6211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundPrefab: {fileID: 5626142648922942002}
+  groundLength: 239
 --- !u!1 &6725447283497788559
 GameObject:
   m_ObjectHideFlags: 0

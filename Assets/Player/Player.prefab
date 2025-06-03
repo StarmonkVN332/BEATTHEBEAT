@@ -1516,7 +1516,6 @@ GameObject:
   - component: {fileID: 3080405901222996424}
   - component: {fileID: 4170653839104765318}
   - component: {fileID: 322185822698880162}
-  - component: {fileID: 5327588676598609994}
   - component: {fileID: 8297326534378222447}
   - component: {fileID: 2988604167572522282}
   m_Layer: 0
@@ -1609,26 +1608,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3080405901222996424}
-  slashEffect: {fileID: 4167722339560935422}
-  slashSound: {fileID: 0}
   moveSpeed: 15
+  forwardSpeed: 5
   minX: -4.5
   maxX: 4.5
-  notePool: {fileID: 0}
---- !u!114 &5327588676598609994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4508933563386377913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58fe93549328cf1468146809176b6211, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundPool: {fileID: 0}
-  vectorSpawn: 113
 --- !u!114 &8297326534378222447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1641,16 +1624,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b467b027b172abb48873ed452995693b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heartImages:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   playerHealth: 3
   score: 0
   scoreText: {fileID: 0}
-  hpText: {fileID: 0}
   animator: {fileID: 3080405901222996424}
   randomSoundPlayer: {fileID: 0}
+  boomEffect: {fileID: 0}
 --- !u!65 &2988604167572522282
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3293,12 +3272,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2204f06b178af014986bf95a7bda8e6e, type: 3}
---- !u!198 &4167722339560935422 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8587560481101609276, guid: 2204f06b178af014986bf95a7bda8e6e,
-    type: 3}
-  m_PrefabInstance: {fileID: 5691315868269754050}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4167722339560935423 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8587560481101609277, guid: 2204f06b178af014986bf95a7bda8e6e,

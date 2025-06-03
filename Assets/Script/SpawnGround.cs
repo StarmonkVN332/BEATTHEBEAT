@@ -1,28 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpawnGround : MonoBehaviour
 {
-    [SerializeField] private GroundPool groundPool;
-    [SerializeField] private float vectorSpawn = 113f;
+    [SerializeField] private GameObject groundPrefab;
+    [SerializeField] private float groundLength = 113f;
+
+    private static float lastZSpawn = 0f;  // giữ vị trí spawn cuối cùng
+    private bool hasSpawned = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Check"))
+        if (!hasSpawned && other.CompareTag("Player"))
         {
-            GameObject ground = groundPool.GetGround();
-            ground.transform.position = new Vector3(0, 0, vectorSpawn);
-            ground.transform.rotation = Quaternion.identity;
+            hasSpawned = true;
 
-            StartCoroutine(DeactivateGround(ground));
+            // Tính vị trí spawn mới nối tiếp ground trước
+            Vector3 newSpawnPos = new Vector3(0f, 0f, lastZSpawn + groundLength);
+            Instantiate(groundPrefab, newSpawnPos, Quaternion.identity);
+
+            // Cập nhật lại vị trí cuối cùng đã spawn
+            lastZSpawn = newSpawnPos.z;
+
+            Debug.Log("Spawn ground tại z = " + lastZSpawn);
         }
     }
-
-    IEnumerator DeactivateGround(GameObject ground)
-    {
-        yield return new WaitForSeconds(30f);
-        groundPool.ReturnGround(ground);
-    }
 }
-
