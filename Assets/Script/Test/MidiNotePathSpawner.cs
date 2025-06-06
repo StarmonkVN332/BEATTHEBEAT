@@ -64,28 +64,32 @@ public class MidiNotePathSpawner : MonoBehaviour
     }
 
     void SpawnNotesAlongPath()
+{
+    if (noteEvents.Count == 0 || notePrefab == null)
+        return;
+
+    float songDuration = noteEvents[noteEvents.Count - 1].time;
+
+    foreach (var note in noteEvents)
     {
-        audioSource.gameObject.SetActive(true);
+        // Chuyển note theo pitch
+        int transposedNote = note.note + 2;
+        float offsetX = (transposedNote - 60) * 0.2f;
 
-        if (noteEvents.Count == 0 || notePrefab == null)
-            return;
+        // Tính vị trí Z theo thời gian
+        float zPos = (note.time / songDuration) * pathLength;
 
-        float songDuration = noteEvents[noteEvents.Count - 1].time;
+        // Xác định vị trí spawn
+        Vector3 spawnPos = spawnOrigin.position + new Vector3(offsetX, 0, zPos);
 
-        foreach (var note in noteEvents)
-        {
-            // Chuyển note theo pitch
-            int transposedNote = note.note + 2;
-            float offsetX = (transposedNote - 60) * 0.2f;
-
-            // Tính vị trí Z theo thời gian
-            float zPos = (note.time / songDuration) * pathLength;
-
-            // Xác định vị trí spawn
-            Vector3 spawnPos = spawnOrigin.position + new Vector3(offsetX, 0, zPos);
-
-            // Tạo đối tượng mới từ Prefab
-            Instantiate(notePrefab, spawnPos, Quaternion.identity);
-        }
+        // Tạo đối tượng mới từ Prefab
+        Instantiate(notePrefab, spawnPos, Quaternion.identity);
     }
+
+    // ✅ Play audio after all notes have been instantiated
+    if (audioSource != null)
+    {
+        audioSource.Play();
+    }
+}
 }
