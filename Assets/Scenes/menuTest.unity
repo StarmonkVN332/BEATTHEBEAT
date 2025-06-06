@@ -3471,6 +3471,7 @@ MonoBehaviour:
   gameplaySceneName: Test
   clickSound: {fileID: 8300000, guid: 37c25c1e5aec90e42a434db1a8c9a1b0, type: 3}
   uiAudioSource: {fileID: 526079748}
+  mainSceneManager: {fileID: 2130495217}
 --- !u!114 &2042477030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3792,6 +3793,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2130495216}
   - component: {fileID: 2130495215}
+  - component: {fileID: 2130495217}
   m_Layer: 0
   m_Name: MainMenuController
   m_TagString: Untagged
@@ -3828,6 +3830,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2130495217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130495214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f93f7c535ef68488a9c8a36ca3dd10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayTime: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

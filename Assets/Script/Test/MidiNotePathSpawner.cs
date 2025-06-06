@@ -10,11 +10,12 @@ public class MidiNotePathSpawner : MonoBehaviour
     public GameObject notePrefab;                        // Prefab của nốt nhạc
     public Transform spawnOrigin;                        // Gốc tạo nốt
     public float pathLength = 2486f;                     // Chiều dài trục Z tương ứng với độ dài bài hát
-
+    [SerializeField] private AudioSource audioSource;
     private List<(float time, int note, int velocity)> noteEvents = new();
 
-    void Start()
+    void Awake()
     {
+        
         // Load file MIDI (.bytes)
         TextAsset midiAsset = Resources.Load<TextAsset>(midiResourceName);
         if (midiAsset == null)
@@ -59,12 +60,13 @@ public class MidiNotePathSpawner : MonoBehaviour
                 }
             }
         }
-
         SpawnNotesAlongPath();
     }
 
     void SpawnNotesAlongPath()
     {
+        audioSource.gameObject.SetActive(true);
+
         if (noteEvents.Count == 0 || notePrefab == null)
             return;
 

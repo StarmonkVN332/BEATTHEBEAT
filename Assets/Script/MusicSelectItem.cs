@@ -6,7 +6,7 @@ public class MusicSelectItem : MonoBehaviour
     public string gameplaySceneName = "Test";
     public AudioClip clickSound;
     public AudioSource uiAudioSource;
-
+    [SerializeField] private MainSceneManager mainSceneManager;
 
     public void OnSelectThisTrack()
     {
@@ -26,6 +26,6 @@ public class MusicSelectItem : MonoBehaviour
 
     void LoadScene()
     {
-        SceneManager.LoadScene(gameplaySceneName);
+        mainSceneManager.ChangeScene(gameplaySceneName);
     }
 }
