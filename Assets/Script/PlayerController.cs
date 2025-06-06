@@ -4,12 +4,20 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Player Settings")]
     [SerializeField] private Animator animator;
-    [SerializeField] private float moveSpeed = 10f; // tốc độ phản hồi khi kéo sang trái/phải
-    [SerializeField] private float forwardSpeed = 5f; // tốc độ chạy về phía trước
+    [SerializeField] private float moveSpeed = 10f;      // tốc độ phản hồi kéo ngang
+    [SerializeField] private float forwardSpeed = 5f;    // tốc độ chạy về phía trước
     [SerializeField] private float minX = -4.5f;
     [SerializeField] private float maxX = 4.5f;
+    [SerializeField] private float smoothTime = 0.1f;    // thời gian làm mượt
 
     private Vector2 previousTouchPos;
+    private float targetX;                               // vị trí x mục tiêu
+    private float velocityX = 0f;                         // tốc độ tạm để smooth
+
+    void Start()
+    {
+        targetX = transform.position.x;
+    }
 
     void Update()
     {
@@ -31,14 +39,19 @@ public class PlayerController : MonoBehaviour
                 Vector2 delta = touch.position - previousTouchPos;
                 previousTouchPos = touch.position;
 
-                // Chỉ xử lý delta X
+                // Tính toán delta x
                 float deltaX = (delta.x / Screen.width) * moveSpeed;
-                currentPosition.x = Mathf.Clamp(currentPosition.x + deltaX, minX, maxX);
+
+                // Cập nhật target x với Clamp
+                targetX = Mathf.Clamp(targetX + deltaX, minX, maxX);
 
                 // Gọi animation nếu cần
                 animator.SetTrigger("isMoving");
             }
         }
+
+        // Làm mượt chuyển động theo trục X
+        currentPosition.x = Mathf.SmoothDamp(currentPosition.x, targetX, ref velocityX, smoothTime);
 
         // Cập nhật vị trí mới
         transform.position = new Vector3(currentPosition.x, 0f, currentPosition.z);

@@ -318,7 +318,7 @@ MonoBehaviour:
   midiResourceName: OldTownRoadPat1
   notePrefab: {fileID: 8027987855001571748, guid: 2d6707babfdfedd4883ad9884aca9416,
     type: 3}
-  spawnOrigin: {fileID: 0}
+  spawnOrigin: {fileID: 1276223235}
   pathLength: 2486
 --- !u!4 &1276223235
 Transform:
