@@ -320,6 +320,7 @@ MonoBehaviour:
     type: 3}
   spawnOrigin: {fileID: 1276223235}
   pathLength: 2486
+  audioSource: {fileID: 0}
 --- !u!4 &1276223235
 Transform:
   m_ObjectHideFlags: 0
@@ -423,13 +424,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1577762170}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.07215788, y: -0.8929999, z: 0.4164121, w: 0.15474282}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: -160.338, z: 0}
 --- !u!114 &1577762173
 MonoBehaviour:
   m_ObjectHideFlags: 0
