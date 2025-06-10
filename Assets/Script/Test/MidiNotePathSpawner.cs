@@ -6,7 +6,10 @@ using MidiParser;
 
 public class MidiNotePathSpawner : MonoBehaviour
 {
-    public string midiResourceName = "OldTownRoadPat1"; // Tên file MIDI (.bytes) trong Resources
+    [Header("MIDI File Selection")]
+    public string midiFolder = "Songs";               // Folder inside Resources/
+    public string midiFileName = "OldTownRoadPat1.bytes"; // Must end with .bytes
+
     public GameObject notePrefab;                        // Prefab của nốt nhạc
     public Transform spawnOrigin;                        // Gốc tạo nốt
     public float pathLength = 2486f;                     // Chiều dài trục Z tương ứng với độ dài bài hát
@@ -21,10 +24,12 @@ public class MidiNotePathSpawner : MonoBehaviour
     IEnumerator LoadAndSpawnNotesCoroutine()
     {
         // 1. Load MIDI file
-        TextAsset midiAsset = Resources.Load<TextAsset>(midiResourceName);
+        string fullPath = Path.Combine(midiFolder, Path.GetFileNameWithoutExtension(midiFileName));
+        TextAsset midiAsset = Resources.Load<TextAsset>(fullPath);
+
         if (midiAsset == null)
         {
-            Debug.LogError($"Không tìm thấy file MIDI: {midiResourceName}.bytes trong Resources");
+            Debug.LogError($"Không tìm thấy file MIDI: {midiFileName}.bytes trong Resources");
             yield break;
         }
 
