@@ -545,6 +545,56 @@ MonoBehaviour:
   spawnOrigin: {fileID: 401423969}
   pathLength: 2787
   audioSource: {fileID: 1822908761}
+--- !u!1 &454335179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 454335181}
+  - component: {fileID: 454335180}
+  m_Layer: 0
+  m_Name: Obstacle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &454335180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454335179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba4368684f168f8468c03beffc14773d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  midiResourceName: FlowrBedObstacle
+  notePrefab: {fileID: 5813818180465729043, guid: 01cf8ec9e1802fb409fc8f12a2ec74c3,
+    type: 3}
+  spawnOrigin: {fileID: 454335181}
+  pathLength: 2787
+  audioSource: {fileID: 1822908761}
+--- !u!4 &454335181
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454335179}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &470383060
 GameObject:
   m_ObjectHideFlags: 0
@@ -2846,6 +2896,7 @@ SceneRoots:
   - {fileID: 1654178052}
   - {fileID: 1566242692}
   - {fileID: 401423969}
+  - {fileID: 454335181}
   - {fileID: 5226789332984825620}
   - {fileID: 1948248378}
   - {fileID: 2079204593}
