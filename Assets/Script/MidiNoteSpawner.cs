@@ -6,7 +6,7 @@ using MidiParser;
 
 public class MidiNoteSpawner : MonoBehaviour
 {
-    public string midiResourceName = "OldTownRoadPat1"; // Name of the .bytes file (without extension) in Resources
+    public string midiResourceName = "OldTownRoadMain"; // Name of the .bytes file (without extension) in Resources
     public NotePool notePool;
     public float spawnHeight = 5f;
     public float noteSpeed = 1f;

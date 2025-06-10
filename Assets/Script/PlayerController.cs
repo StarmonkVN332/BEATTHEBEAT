@@ -21,11 +21,16 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        // 🚫 Wait until notes are spawned and music started
+        if (!GameState.GameStarted)
+            return;
+
         Vector3 currentPosition = transform.position;
 
-        // Di chuyển về phía trước theo thời gian
+        // Forward movement
         currentPosition.z += forwardSpeed * Time.deltaTime;
 
+        // Touch input
         if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
@@ -39,21 +44,16 @@ public class PlayerController : MonoBehaviour
                 Vector2 delta = touch.position - previousTouchPos;
                 previousTouchPos = touch.position;
 
-                // Tính toán delta x
                 float deltaX = (delta.x / Screen.width) * moveSpeed;
-
-                // Cập nhật target x với Clamp
                 targetX = Mathf.Clamp(targetX + deltaX, minX, maxX);
-
-                // Gọi animation nếu cần
                 animator.SetTrigger("isMoving");
             }
         }
 
-        // Làm mượt chuyển động theo trục X
+        // Smooth horizontal movement
         currentPosition.x = Mathf.SmoothDamp(currentPosition.x, targetX, ref velocityX, smoothTime);
 
-        // Cập nhật vị trí mới
+        // Apply new position
         transform.position = new Vector3(currentPosition.x, 0f, currentPosition.z);
     }
 }

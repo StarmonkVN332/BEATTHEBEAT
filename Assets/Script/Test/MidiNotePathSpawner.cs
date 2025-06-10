@@ -13,15 +13,19 @@ public class MidiNotePathSpawner : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     private List<(float time, int note, int velocity)> noteEvents = new();
 
-    void Awake()
+    void Start()
     {
-        
-        // Load file MIDI (.bytes)
+        StartCoroutine(LoadAndSpawnNotesCoroutine());
+    }
+
+    IEnumerator LoadAndSpawnNotesCoroutine()
+    {
+        // 1. Load MIDI file
         TextAsset midiAsset = Resources.Load<TextAsset>(midiResourceName);
         if (midiAsset == null)
         {
             Debug.LogError($"Không tìm thấy file MIDI: {midiResourceName}.bytes trong Resources");
-            return;
+            yield break;
         }
 
         MidiFile midiFile;
@@ -35,12 +39,13 @@ public class MidiNotePathSpawner : MonoBehaviour
         catch (System.Exception e)
         {
             Debug.LogError($"Lỗi khi đọc MIDI: {e.Message}");
-            return;
+            yield break;
         }
 
         float ticksPerQuarter = midiFile.TicksPerQuarterNote;
-        float tempo = 500000f; // tempo mặc định 120 bpm
+        float tempo = 500000f;
 
+        // 2. Parse notes
         foreach (var track in midiFile.Tracks)
         {
             foreach (var midiEvent in track.MidiEvents)
@@ -60,7 +65,21 @@ public class MidiNotePathSpawner : MonoBehaviour
                 }
             }
         }
+
+        // 3. Spawn Notes
         SpawnNotesAlongPath();
+
+        // 4. Wait one frame to ensure instantiation is complete
+        yield return null;
+
+        // 5. Start audio and unlock game
+        if (audioSource != null)
+        {
+            audioSource.Play();
+        }
+
+        // ✅ Allow game to start
+        GameState.GameStarted = true;
     }
 
     void SpawnNotesAlongPath()
