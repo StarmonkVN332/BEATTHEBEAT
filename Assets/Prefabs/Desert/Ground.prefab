@@ -3434,7 +3434,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1383036032237831700}
-  - component: {fileID: 8932878020049484749}
+  - component: {fileID: 6248817399756454105}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -3483,19 +3483,19 @@ Transform:
   - {fileID: 2803410836010818456}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8932878020049484749
+--- !u!114 &6248817399756454105
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5626142648922942002}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c15870aa2cd1854c8e089831d9071ef, type: 3}
+  m_Script: {fileID: 11500000, guid: c55e13e51a44b5749b60e46a7dd896c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundMove: -22
+  lifetime: 20
 --- !u!1 &6308516029903548097
 GameObject:
   m_ObjectHideFlags: 0
@@ -4038,7 +4038,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58fe93549328cf1468146809176b6211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundPrefab: {fileID: 5626142648922942002}
   groundLength: 239
 --- !u!1 &6725447283497788559
 GameObject:

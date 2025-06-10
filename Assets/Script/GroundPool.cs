@@ -1,12 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class GroundPool : MonoBehaviour
 {
-    [Header("Ground")]
+    public static GroundPool Instance;
+
+    [Header("Ground Settings")]
     public GameObject groundPrefab;
+    public int initialPoolSize = 5;
+
     private Queue<GameObject> poolground = new Queue<GameObject>();
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+
+        // Khởi tạo pool sẵn
+        for (int i = 0; i < initialPoolSize; i++)
+        {
+            GameObject obj = Instantiate(groundPrefab);
+            obj.SetActive(false);
+            poolground.Enqueue(obj);
+        }
+    }
 
     public GameObject GetGround()
     {
@@ -16,6 +35,7 @@ public class GroundPool : MonoBehaviour
             obj.SetActive(true);
             return obj;
         }
+
         return Instantiate(groundPrefab);
     }
 
@@ -24,5 +44,4 @@ public class GroundPool : MonoBehaviour
         obj.SetActive(false);
         poolground.Enqueue(obj);
     }
-
 }
