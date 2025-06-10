@@ -494,6 +494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundPrefab: {fileID: 5626142648922942002, guid: 1da7bb00bb1e9924180d461ccbc3110c,
     type: 3}
+  initialPoolSize: 5
 --- !u!1 &401423968
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,7 +539,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4368684f168f8468c03beffc14773d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  midiResourceName: OldTownRoadMain
+  midiFolder: OldTownRoad
+  midiFileName: OldTownRoadMain
   notePrefab: {fileID: 8027987855001571748, guid: 2d6707babfdfedd4883ad9884aca9416,
     type: 3}
   spawnOrigin: {fileID: 401423969}
@@ -891,7 +893,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4368684f168f8468c03beffc14773d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  midiResourceName: OldTownRoadBlueNote
+  midiFolder: OldTownRoad
+  midiFileName: OldTownRoadBlueNote
   notePrefab: {fileID: 8027987855001571748, guid: 3fa58f13cd2d96e43bd05dcffa334ceb,
     type: 3}
   spawnOrigin: {fileID: 650220655}
@@ -1555,7 +1558,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4368684f168f8468c03beffc14773d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  midiResourceName: OldTownRoadObstacle
+  midiFolder: OldTownRoad
+  midiFileName: OldTownRoadObstacle
   notePrefab: {fileID: 5813818180465729043, guid: 01cf8ec9e1802fb409fc8f12a2ec74c3,
     type: 3}
   spawnOrigin: {fileID: 1655711314}
