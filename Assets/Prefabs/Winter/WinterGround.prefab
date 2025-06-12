@@ -128,6 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2323247894902442708}
+  - component: {fileID: 5684659487747305546}
   m_Layer: 0
   m_Name: WinterGround
   m_TagString: Untagged
@@ -179,6 +180,19 @@ Transform:
   - {fileID: 2599676124095824989}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5684659487747305546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4451465632181202435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c55e13e51a44b5749b60e46a7dd896c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 20
 --- !u!1001 &151696901415854674
 PrefabInstance:
   m_ObjectHideFlags: 0
