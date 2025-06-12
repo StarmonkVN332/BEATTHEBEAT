@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +11,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float minX = -4.5f;
     [SerializeField] private float maxX = 4.5f;
     [SerializeField] private float smoothTime = 0.1f;    // thời gian làm mượt
+
+    [SerializeField] private GameObject pannelLose;
+    private bool isGameOver = false;
 
     private Vector2 previousTouchPos;
     private float targetX;                               // vị trí x mục tiêu
@@ -55,5 +60,18 @@ public class PlayerController : MonoBehaviour
 
         // Apply new position
         transform.position = new Vector3(currentPosition.x, 0f, currentPosition.z);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("obstacle") && !isGameOver)
+        {
+            isGameOver = true;
+            Debug.Log("Game Over!");
+
+            Time.timeScale = 0f; // Dừng game
+            // Nếu có UI thua cuộc thì bật lên ở đây
+            pannelLose.SetActive(true);
+        }
     }
 }
