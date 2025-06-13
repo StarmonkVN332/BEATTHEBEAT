@@ -9,6 +9,7 @@ TagManager:
   - AnimationTrigger
   - SoundEffect
   - obstacle
+  - ReturnPool
   layers:
   - Default
   - TransparentFX

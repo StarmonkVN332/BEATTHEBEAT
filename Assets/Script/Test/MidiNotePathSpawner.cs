@@ -7,23 +7,31 @@ using MidiParser;
 public class MidiNotePathSpawner : MonoBehaviour
 {
     [Header("MIDI File Selection")]
-    public string midiFolder = "Songs";               // Folder inside Resources/
-    public string midiFileName = "OldTownRoadPat1.bytes"; // Must end with .bytes
+    public string midiFolder = "Songs";                     // Thư mục trong Resources/
+    public string midiFileName = "OldTownRoadPat1.bytes";   // File MIDI (đuôi .bytes)
 
-    public GameObject notePrefab;                        // Prefab của nốt nhạc
-    public Transform spawnOrigin;                        // Gốc tạo nốt
-    public float pathLength = 2486f;                     // Chiều dài trục Z tương ứng với độ dài bài hát
+    public Transform spawnOrigin;                           // Gốc tạo nốt
+    public float pathLength = 2486f;                        // Chiều dài trục Z tương ứng với độ dài bài hát
     [SerializeField] private AudioSource audioSource;
+
     private List<(float time, int note, int velocity)> noteEvents = new();
+    [SerializeField] private NotePool notePool;
 
     void Start()
     {
+        notePool = NotePool.Instance;
+        if (notePool == null)
+        {
+            Debug.LogError("Không tìm thấy NotePool trong scene!");
+            return;
+        }
+
         StartCoroutine(LoadAndSpawnNotesCoroutine());
     }
 
     IEnumerator LoadAndSpawnNotesCoroutine()
     {
-        // 1. Load MIDI file
+        // 1. Load MIDI
         string fullPath = Path.Combine(midiFolder, Path.GetFileNameWithoutExtension(midiFileName));
         TextAsset midiAsset = Resources.Load<TextAsset>(fullPath);
 
@@ -74,46 +82,41 @@ public class MidiNotePathSpawner : MonoBehaviour
         // 3. Spawn Notes
         SpawnNotesAlongPath();
 
-        // 4. Wait one frame to ensure instantiation is complete
         yield return null;
 
-        // 5. Start audio and unlock game
+        // 4. Play audio
         if (audioSource != null)
         {
             audioSource.Play();
         }
 
-        // ✅ Allow game to start
+        // 5. Bắt đầu game
         GameState.GameStarted = true;
     }
 
     void SpawnNotesAlongPath()
-{
-    if (noteEvents.Count == 0 || notePrefab == null)
-        return;
-
-    float songDuration = noteEvents[noteEvents.Count - 1].time;
-
-    foreach (var note in noteEvents)
     {
-        // Chuyển note theo pitch
-        int transposedNote = note.note + 2;
+        if (noteEvents.Count == 0 || notePool == null)
+            return;
+
+        float songDuration = noteEvents[noteEvents.Count - 1].time;
+
+        foreach (var note in noteEvents)
+        {
+            SpawnSingleNote(note, songDuration);
+        }
+    }
+
+    void SpawnSingleNote((float time, int note, int velocity) noteData, float songDuration)
+    {
+        int transposedNote = noteData.note + 2; // Nếu cần transpose
         float offsetX = (transposedNote - 60) * 0.2f;
-
-        // Tính vị trí Z theo thời gian
-        float zPos = (note.time / songDuration) * pathLength;
-
-        // Xác định vị trí spawn
+        float zPos = (noteData.time / songDuration) * pathLength;
         Vector3 spawnPos = spawnOrigin.position + new Vector3(offsetX, 0, zPos);
 
-        // Tạo đối tượng mới từ Prefab
-        Instantiate(notePrefab, spawnPos, Quaternion.identity);
-    }
+        GameObject noteObj = notePool.GetNote();
+        noteObj.transform.position = spawnPos;
 
-    // ✅ Play audio after all notes have been instantiated
-    if (audioSource != null)
-    {
-        audioSource.Play();
+        // (Nếu cần reset animation, script riêng, bạn có thể gọi tại đây)
     }
-}
 }

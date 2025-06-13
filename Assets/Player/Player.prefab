@@ -1649,6 +1649,7 @@ MonoBehaviour:
   minX: -4.5
   maxX: 4.5
   smoothTime: 0.1
+  pannelLose: {fileID: 0}
 --- !u!114 &8297326534378222447
 MonoBehaviour:
   m_ObjectHideFlags: 0
