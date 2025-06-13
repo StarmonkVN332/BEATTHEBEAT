@@ -85,13 +85,7 @@ public class MidiNotePathSpawner : MonoBehaviour
         yield return null;
 
         // 4. Play audio
-        if (audioSource != null)
-        {
-            audioSource.Play();
-        }
-
-        // 5. Bắt đầu game
-        GameState.GameStarted = true;
+        
     }
 
     void SpawnNotesAlongPath()
@@ -105,6 +99,13 @@ public class MidiNotePathSpawner : MonoBehaviour
         {
             SpawnSingleNote(note, songDuration);
         }
+        if (audioSource != null)
+        {
+            audioSource.Play();
+        }
+
+        // 5. Bắt đầu game
+        GameState.GameStarted = true;
     }
 
     void SpawnSingleNote((float time, int note, int velocity) noteData, float songDuration)
