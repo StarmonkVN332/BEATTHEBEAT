@@ -4,30 +4,45 @@ using UnityEngine;
 
 public class NotePool : MonoBehaviour
 {
-    [Header("Note")]
-    public GameObject notePrefabs;
-    private Queue<GameObject> poolnote = new Queue<GameObject>();
+    public static NotePool Instance;
 
+    [Header("Note Settings")]
+    public GameObject notePrefab;
+    public int initialPoolSize = 100;
+
+    private Queue<GameObject> pool = new Queue<GameObject>();
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+
+        for (int i = 0; i < initialPoolSize; i++)
+        {
+            GameObject obj = Instantiate(notePrefab);
+            obj.SetActive(false);
+            pool.Enqueue(obj);
+        }
+    }
 
     public GameObject GetNote()
     {
-        while (poolnote.Count > 0)
+        if (pool.Count > 0)
         {
-            GameObject note = poolnote.Dequeue();
-
-            if (note != null) // ✅ tránh lỗi null (destroyed)
-            {
-                note.SetActive(true);
-                return note;
-            }
+            GameObject obj = pool.Dequeue();
+            obj.SetActive(true);
+            return obj;
         }
 
-        return Instantiate(notePrefabs);
+        return Instantiate(notePrefab);
     }
 
-    public void ReturnNote(GameObject note)
+    public void ReturnNote(GameObject obj)
     {
-        note.SetActive(false);
-        poolnote.Enqueue(note);
+        obj.SetActive(false);
+        pool.Enqueue(obj);
     }
 }
+

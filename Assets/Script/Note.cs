@@ -1,12 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Note : MonoBehaviour
 {
-    [SerializeField] private int move = -5;  
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        transform.position += new Vector3(0, 0, move) * Time.deltaTime;
+        if (other.CompareTag("Player"))
+        {
+            NotePool.Instance.ReturnNote(gameObject);
+        }
+        if (other.CompareTag("ReturnPool"))
+        {
+            NotePool.Instance.ReturnNote(gameObject);
+        }
+        Debug.Log("Note return to pool");
     }
 }
