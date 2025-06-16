@@ -327,7 +327,7 @@ MonoBehaviour:
   midiFolder: CryForMe
   midiFileName: CryForMeMain
   spawnOrigin: {fileID: 76543901}
-  pathLength: 3894.75
+  pathLength: 3896
   audioSource: {fileID: 1673691687}
   notePool: {fileID: 847764092}
 --- !u!4 &76543901
@@ -892,7 +892,7 @@ MonoBehaviour:
   midiFolder: CryForMe
   midiFileName: CryForMeObstacle
   spawnOrigin: {fileID: 494900255}
-  pathLength: 3894.75
+  pathLength: 3896
   audioSource: {fileID: 1673691687}
   obstaclePool: {fileID: 296000598}
 --- !u!1 &515889351
