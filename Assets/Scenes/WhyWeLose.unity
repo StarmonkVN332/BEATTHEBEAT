@@ -2297,7 +2297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1843131492}
   - component: {fileID: 1843131494}
-  - component: {fileID: 1843131493}
+  - component: {fileID: 1843131495}
   m_Layer: 0
   m_Name: SlashHit
   m_TagString: Untagged
@@ -2320,7 +2320,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1673691689}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1843131493
+--- !u!114 &1843131494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843131491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2359b3d00253ab48aa101d09373b511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1843131495}
+  clips:
+  - {fileID: 8300000, guid: 729b970e391de82438402ad2df3fd7cc, type: 3}
+  - {fileID: 8300000, guid: b5c717574afb69a4a92a99e0ec9ee209, type: 3}
+  - {fileID: 8300000, guid: 580c0791e4af0b440bd0588c98bf0523, type: 3}
+  - {fileID: 8300000, guid: 22b04cd114bbe204e8542601c4bec072, type: 3}
+  - {fileID: 8300000, guid: 72747c3840cf10c4ca6bf7e32c801cc3, type: 3}
+  - {fileID: 8300000, guid: fa1e4a50f8714ec41937677d8ab55933, type: 3}
+  - {fileID: 8300000, guid: 61526c150f889594e99644d7062716d7, type: 3}
+  - {fileID: 8300000, guid: 2bfb6f7abf2ac96449133a36cae3bdd5, type: 3}
+  - {fileID: 8300000, guid: de27a117093482d47b4f4f9c0f08d116, type: 3}
+  - {fileID: 8300000, guid: f7a14edf6c85ded42b9c1425276bb4b4, type: 3}
+  - {fileID: 8300000, guid: 4512226f4f10e4f4e83beba64b1bc052, type: 3}
+  - {fileID: 8300000, guid: 04fbaed5114c58e4ea099fea91042e7b, type: 3}
+  - {fileID: 8300000, guid: 52f1b553a281b864d8c1aebff883335f, type: 3}
+  - {fileID: 8300000, guid: 59352f8dd76e3c2408e5f084b670ee46, type: 3}
+  - {fileID: 8300000, guid: b3c0f44a09b025f49b838a627b2a762e, type: 3}
+  - {fileID: 8300000, guid: 0e1cb2773a836a84b976397af6180d5f, type: 3}
+  minPitch: 1
+  maxPitch: 1
+--- !u!82 &1843131495
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2331,8 +2363,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 0.328
+  m_PlayOnAwake: 1
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2416,38 +2448,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1843131494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1843131491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2359b3d00253ab48aa101d09373b511, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 1843131493}
-  clips:
-  - {fileID: 8300000, guid: 729b970e391de82438402ad2df3fd7cc, type: 3}
-  - {fileID: 8300000, guid: b5c717574afb69a4a92a99e0ec9ee209, type: 3}
-  - {fileID: 8300000, guid: 580c0791e4af0b440bd0588c98bf0523, type: 3}
-  - {fileID: 8300000, guid: 22b04cd114bbe204e8542601c4bec072, type: 3}
-  - {fileID: 8300000, guid: 72747c3840cf10c4ca6bf7e32c801cc3, type: 3}
-  - {fileID: 8300000, guid: fa1e4a50f8714ec41937677d8ab55933, type: 3}
-  - {fileID: 8300000, guid: 61526c150f889594e99644d7062716d7, type: 3}
-  - {fileID: 8300000, guid: 2bfb6f7abf2ac96449133a36cae3bdd5, type: 3}
-  - {fileID: 8300000, guid: de27a117093482d47b4f4f9c0f08d116, type: 3}
-  - {fileID: 8300000, guid: f7a14edf6c85ded42b9c1425276bb4b4, type: 3}
-  - {fileID: 8300000, guid: 4512226f4f10e4f4e83beba64b1bc052, type: 3}
-  - {fileID: 8300000, guid: 04fbaed5114c58e4ea099fea91042e7b, type: 3}
-  - {fileID: 8300000, guid: 52f1b553a281b864d8c1aebff883335f, type: 3}
-  - {fileID: 8300000, guid: 59352f8dd76e3c2408e5f084b670ee46, type: 3}
-  - {fileID: 8300000, guid: b3c0f44a09b025f49b838a627b2a762e, type: 3}
-  - {fileID: 8300000, guid: 0e1cb2773a836a84b976397af6180d5f, type: 3}
-  minPitch: 1
-  maxPitch: 1
 --- !u!1001 &1847452132
 PrefabInstance:
   m_ObjectHideFlags: 0
