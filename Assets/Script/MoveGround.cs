@@ -9,6 +9,8 @@ public class MoveGround : MonoBehaviour
     
     void Update()
     {
+        if (!GameState.GameStarted)
+            return;
         GroundMove();
     }
 

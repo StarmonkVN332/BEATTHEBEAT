@@ -100,7 +100,7 @@ public class MidiObstaclePathSpawner : MonoBehaviour
         //    audioSource.Play();
         //}
 
-        GameState.GameStarted = true;
+        //GameState.GameStarted = true;
     }
 
     void SpawnSingleObstacle((float time, int note, int velocity) noteData, float songDuration)

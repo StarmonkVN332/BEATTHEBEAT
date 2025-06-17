@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08035691, g: 0.09975394, b: 0.3011824, a: 1}
+  m_IndirectSpecularColor: {r: 0.1005261, g: 0.124903746, b: 0.31757486, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -190,57 +190,6 @@ MonoBehaviour:
   m_YawDamping: 0
   m_RollDamping: 0
   m_AngularDamping: 0
---- !u!1 &158983048
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 158983049}
-  - component: {fileID: 158983050}
-  m_Layer: 0
-  m_Name: EnemyManagerB
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &158983049
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 158983048}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.118271, y: -13.736135, z: -85.29644}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 889829159}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &158983050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 158983048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16fa1e9be2303054681839df7690c9a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  midiResourceName: OldTownRoadPat3
-  notePoolB: {fileID: 2097392443}
-  spawnHeight: 5
-  noteSpeed: 1
-  musicSource: {fileID: 1822908761}
-  delayMusicStart: 3.43
-  spawnOrigin: {fileID: 1260333094}
 --- !u!1 &272253840
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,155 +295,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &273085364
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 273085366}
-  - component: {fileID: 273085367}
-  m_Layer: 0
-  m_Name: EnemyManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &273085366
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273085364}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.118271, y: -13.736135, z: -85.29644}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 889829159}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &273085367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273085364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cdab3ea1af8c4c4ebf0accd1172e300, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  midiResourceName: OldTownRoadPat1
-  notePool: {fileID: 470383062}
-  spawnHeight: 5
-  noteSpeed: 1
-  musicSource: {fileID: 1822908761}
-  delayMusicStart: 3.43
-  spawnOrigin: {fileID: 272253844}
---- !u!1 &331476103
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 331476104}
-  - component: {fileID: 331476105}
-  m_Layer: 0
-  m_Name: EnemyManagerA
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &331476104
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331476103}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.118271, y: -13.736135, z: -85.29644}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 889829159}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &331476105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331476103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4ad75304fba76a4ca56f7a10e59641f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  midiResourceName: OldTownRoadPat2
-  notePoolA: {fileID: 2135716989}
-  spawnHeight: 5
-  noteSpeed: 1
-  musicSource: {fileID: 1822908761}
-  delayMusicStart: 3.43
-  spawnOrigin: {fileID: 272253844}
---- !u!1 &333108563
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 333108564}
-  - component: {fileID: 333108565}
-  m_Layer: 0
-  m_Name: GroundPool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &333108564
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 333108563}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1913008058}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &333108565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 333108563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 107feb871fc7bc6428b376d9f0144537, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundPrefab: {fileID: 5626142648922942002, guid: 1da7bb00bb1e9924180d461ccbc3110c,
-    type: 3}
-  initialPoolSize: 5
 --- !u!1001 &357643613
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -654,6 +454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 401423969}
   - component: {fileID: 401423970}
+  - component: {fileID: 401423971}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -690,57 +491,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   midiFolder: OldTownRoad
   midiFileName: OldTownRoadMain
-  notePrefab: {fileID: 8027987855001571748, guid: 2d6707babfdfedd4883ad9884aca9416,
-    type: 3}
   spawnOrigin: {fileID: 401423969}
   pathLength: 3000
   audioSource: {fileID: 1822908761}
---- !u!1 &470383060
-GameObject:
+  notePool: {fileID: 1265197884}
+--- !u!65 &401423971
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 470383061}
-  - component: {fileID: 470383062}
-  m_Layer: 0
-  m_Name: NotePool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &470383061
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 470383060}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1913008058}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &470383062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 470383060}
+  m_GameObject: {fileID: 401423968}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43c29d85698b3184f88212bea59394da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  notePrefabs: {fileID: 8027987855001571748, guid: 2d6707babfdfedd4883ad9884aca9416,
-    type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0.2}
 --- !u!1 &517182454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,11 +819,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   midiFolder: OldTownRoad
   midiFileName: OldTownRoadBlueNote
-  notePrefab: {fileID: 8027987855001571748, guid: 3fa58f13cd2d96e43bd05dcffa334ceb,
-    type: 3}
   spawnOrigin: {fileID: 650220655}
   pathLength: 3000
   audioSource: {fileID: 1822908761}
+  notePool: {fileID: 1265197884}
 --- !u!4 &650220655
 Transform:
   m_ObjectHideFlags: 0
@@ -1212,40 +986,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 636166368}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &889829158
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 889829159}
-  m_Layer: 0
-  m_Name: SpawnManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &889829159
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 889829158}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5148308, y: 15.906135, z: 98.46644}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 273085366}
-  - {fileID: 331476104}
-  - {fileID: 158983049}
-  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &942707263
 GameObject:
@@ -1475,6 +1215,104 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1265197883
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 215655890701067233, guid: 590d65204bfa5574899ea687464b8aec,
+        type: 3}
+      propertyPath: groundPrefab
+      value: 
+      objectReference: {fileID: 5626142648922942002, guid: 1da7bb00bb1e9924180d461ccbc3110c,
+        type: 3}
+    - target: {fileID: 2576403316268953619, guid: 590d65204bfa5574899ea687464b8aec,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -135.54944
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576403316268953619, guid: 590d65204bfa5574899ea687464b8aec,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 34.51951
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576403316268953619, guid: 590d65204bfa5574899ea687464b8aec,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 368.52875
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576403316268953619, guid: 590d65204bfa5574899ea687464b8aec,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576403316268953619, guid: 590d65204bfa5574899ea687464b8aec,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576403316268953619, guid: 590d65204bfa5574899ea687464b8aec,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576403316268953619, guid: 590d65204bfa5574899ea687464b8aec,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576403316268953619, guid: 590d65204bfa5574899ea687464b8aec,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576403316268953619, guid: 590d65204bfa5574899ea687464b8aec,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576403316268953619, guid: 590d65204bfa5574899ea687464b8aec,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5336307643431449436, guid: 590d65204bfa5574899ea687464b8aec,
+        type: 3}
+      propertyPath: m_Name
+      value: POOL
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 590d65204bfa5574899ea687464b8aec, type: 3}
+--- !u!114 &1265197884 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1709943556051947853, guid: 590d65204bfa5574899ea687464b8aec,
+    type: 3}
+  m_PrefabInstance: {fileID: 1265197883}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c29d85698b3184f88212bea59394da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1265197885 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 37305971849897726, guid: 590d65204bfa5574899ea687464b8aec,
+    type: 3}
+  m_PrefabInstance: {fileID: 1265197883}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a787dd835e9e5204aacaae180c93034e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1388306622
 GameObject:
   m_ObjectHideFlags: 0
@@ -1538,37 +1376,6 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1566242691
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1566242692}
-  m_Layer: 0
-  m_Name: _____________________________________
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1566242692
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1566242691}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.46100044, z: 0.459059}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1688,7 +1495,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1655711314}
-  - component: {fileID: 1655711313}
+  - component: {fileID: 1655711315}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -1696,25 +1503,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1655711313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1655711312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba4368684f168f8468c03beffc14773d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  midiFolder: OldTownRoad
-  midiFileName: OldTownRoadObstacle
-  notePrefab: {fileID: 5813818180465729043, guid: 01cf8ec9e1802fb409fc8f12a2ec74c3,
-    type: 3}
-  spawnOrigin: {fileID: 1655711314}
-  pathLength: 3000
-  audioSource: {fileID: 1822908761}
 --- !u!4 &1655711314
 Transform:
   m_ObjectHideFlags: 0
@@ -1730,6 +1518,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1655711315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655711312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cbffc875182e364cb09e002b8e70a4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  midiFolder: OldTownRoad
+  midiFileName: OldTownRoadObstacle
+  spawnOrigin: {fileID: 1655711314}
+  pathLength: 3000
+  audioSource: {fileID: 1822908761}
+  obstaclePool: {fileID: 1265197885}
 --- !u!1001 &1700153985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2071,41 +1877,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1913008057
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1913008058}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1913008058
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1913008057}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.244208, y: -25.14375, z: 92.72904}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 333108564}
-  - {fileID: 470383061}
-  - {fileID: 2135716988}
-  - {fileID: 2097392442}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1932267351
 GameObject:
   m_ObjectHideFlags: 0
@@ -2273,7 +2044,7 @@ Transform:
   m_GameObject: {fileID: 1948248375}
   serializedVersion: 2
   m_LocalRotation: {x: 0.08741657, y: 0, z: 0, w: 0.99617183}
-  m_LocalPosition: {x: 0, y: 6, z: -10}
+  m_LocalPosition: {x: 0, y: 6, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2402,7 +2173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2359b3d00253ab48aa101d09373b511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1949624658}
   clips:
   - {fileID: 8300000, guid: 729b970e391de82438402ad2df3fd7cc, type: 3}
   - {fileID: 8300000, guid: b5c717574afb69a4a92a99e0ec9ee209, type: 3}
@@ -2649,7 +2420,7 @@ Transform:
   m_GameObject: {fileID: 2079204592}
   serializedVersion: 2
   m_LocalRotation: {x: 0.08741657, y: 0, z: 0, w: 0.99617183}
-  m_LocalPosition: {x: 0, y: 6, z: -10}
+  m_LocalPosition: {x: 0, y: 6, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2813,98 +2584,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1 &2097392441
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2097392442}
-  - component: {fileID: 2097392443}
-  m_Layer: 0
-  m_Name: NotePool3B
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2097392442
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2097392441}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1913008058}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2097392443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2097392441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ff6f4c6d843e5e4e80a3bd616aa4546, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  noteBPrefabs: {fileID: 5813818180465729043, guid: 01cf8ec9e1802fb409fc8f12a2ec74c3,
-    type: 3}
---- !u!1 &2135716987
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2135716988}
-  - component: {fileID: 2135716989}
-  m_Layer: 0
-  m_Name: NotePool2A
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2135716988
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2135716987}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1913008058}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2135716989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2135716987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33d2700f001ab374ea7972d7aef94b4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  noteAPrefabs: {fileID: 8027987855001571748, guid: 2d6707babfdfedd4883ad9884aca9416,
-    type: 3}
 --- !u!1001 &5226789332984825620
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3536,7 +3215,7 @@ PrefabInstance:
     - target: {fileID: 4879939692144712719, guid: c4b0599cf856aeb468e0a421e735e63e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 4879939692144712719, guid: c4b0599cf856aeb468e0a421e735e63e,
         type: 3}
@@ -3965,10 +3644,7 @@ SceneRoots:
   - {fileID: 272253844}
   - {fileID: 1260333094}
   - {fileID: 698989651}
-  - {fileID: 1913008058}
-  - {fileID: 889829159}
   - {fileID: 1654178052}
-  - {fileID: 1566242692}
   - {fileID: 401423969}
   - {fileID: 650220655}
   - {fileID: 1655711314}
@@ -3976,3 +3652,4 @@ SceneRoots:
   - {fileID: 1948248378}
   - {fileID: 2079204593}
   - {fileID: 2011666409}
+  - {fileID: 1265197883}

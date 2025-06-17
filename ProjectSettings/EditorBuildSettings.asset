@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CryForMe.unity
     guid: ef26f4f0da7d87d43b34454c95dd6da2
+  - enabled: 1
+    path: Assets/Scenes/WhyWeLose.unity
+    guid: 692a7112acded1448abd784b6a99bad6
   m_configObjects: {}

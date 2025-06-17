@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using MidiParser;
+using Unity.VisualScripting;
 
 public class MidiNotePathSpawner : MonoBehaviour
 {
@@ -99,13 +100,7 @@ public class MidiNotePathSpawner : MonoBehaviour
         {
             SpawnSingleNote(note, songDuration);
         }
-        if (audioSource != null)
-        {
-            audioSource.Play();
-        }
-
-        // 5. Bắt đầu game
-        GameState.GameStarted = true;
+        StartCoroutine(GameStart());
     }
 
     void SpawnSingleNote((float time, int note, int velocity) noteData, float songDuration)
@@ -119,5 +114,21 @@ public class MidiNotePathSpawner : MonoBehaviour
         noteObj.transform.position = spawnPos;
 
         // (Nếu cần reset animation, script riêng, bạn có thể gọi tại đây)
+    }
+
+    IEnumerator GameStart()
+    {
+        yield return new WaitForSeconds(5f);
+        GameState.GameStarted = true;
+
+    }
+    void OnTriggerEnter(Collider other) {
+        if (other.CompareTag("Player"))
+        {
+            if (audioSource != null)
+            {
+                audioSource.Play();
+            }
+        }
     }
 }
