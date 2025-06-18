@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1005261, g: 0.124903746, b: 0.31757486, a: 1}
+  m_IndirectSpecularColor: {r: 0.10044348, g: 0.12483868, b: 0.31750548, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2996,6 +2996,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 37305971849897726, guid: 590d65204bfa5574899ea687464b8aec,
+        type: 3}
+      propertyPath: obstaclePrefab
+      value: 
+      objectReference: {fileID: 5335695315599310126, guid: a2f1b640c922be746a04843eaeb802c3,
+        type: 3}
     - target: {fileID: 37305971849897726, guid: 590d65204bfa5574899ea687464b8aec,
         type: 3}
       propertyPath: initialPoolSize
