@@ -4,6 +4,7 @@ public class MainMenuController : MonoBehaviour
 {
     public GameObject panelMusicSelection;
     public GameObject panelMainMenu; // <- thêm biến này
+    public GameObject panelPlayerSelection;
 
     public void OnPlayButtonClicked()
     {
@@ -14,5 +15,13 @@ public class MainMenuController : MonoBehaviour
     {
         panelMusicSelection.SetActive(false);
         panelMainMenu.SetActive(true);
+    }
+    public void OnBackPlayerSelection()
+    {
+        panelPlayerSelection.SetActive(false);
+    }
+    public void PlayerSelection()
+    {
+        panelPlayerSelection.SetActive(true);
     }
 }
