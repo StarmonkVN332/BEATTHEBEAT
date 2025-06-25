@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxX = 4.5f;
     [SerializeField] private float smoothTime = 0.1f;    // thời gian làm mượt
 
-    [SerializeField] private GameObject pannelLose;
+    [SerializeField] private GameObject Continue_UI;
     private bool isGameOver = false;
 
     private Vector2 previousTouchPos;
@@ -21,6 +21,11 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        Continue_UI = GameObject.Find("Continue_UI");
+        if (Continue_UI != null)
+        {
+            Continue_UI.SetActive(false);
+        }
         targetX = transform.position.x;
     }
 
@@ -71,7 +76,7 @@ public class PlayerController : MonoBehaviour
 
             Time.timeScale = 0f; // Dừng game
             // Nếu có UI thua cuộc thì bật lên ở đây
-            pannelLose.SetActive(true);
+            Continue_UI.SetActive(true);
         }
     }
 }
