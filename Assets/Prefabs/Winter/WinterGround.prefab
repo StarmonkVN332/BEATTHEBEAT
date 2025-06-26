@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2323247894902442708}
   - component: {fileID: 5684659487747305546}
+  - component: {fileID: 8123177056237734731}
   m_Layer: 0
   m_Name: WinterGround
   m_TagString: Untagged
@@ -193,6 +194,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 20
+--- !u!114 &8123177056237734731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4451465632181202435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d007fc90f8cc5341bbc2960499f546f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatingObjects:
+  - {fileID: 3358553398102995078}
+  - {fileID: 2963909713558572582}
+  - {fileID: 9042070102490865144}
+  - {fileID: 437284644755887565}
+  - {fileID: 5209132521463872139}
+  - {fileID: 3268312316863796308}
+  - {fileID: 2535240848886460250}
+  - {fileID: 7730266833396068797}
+  - {fileID: 3343971546097170929}
+  - {fileID: 8820390601292611557}
+  - {fileID: 6344427484314358761}
+  - {fileID: 6296403882121131180}
+  - {fileID: 7864551041874322532}
+  - {fileID: 2833859699782439227}
+  - {fileID: 8005134767639014124}
+  - {fileID: 7126291340866308435}
+  - {fileID: 7815042894569047552}
+  - {fileID: 5100721522292951904}
+  - {fileID: 2880139436568263921}
+  - {fileID: 2599676124095824989}
+  - {fileID: 9200357490026065904}
+  - {fileID: 2880139436568263921}
+  amplitude: 0.5
+  frequency: 1
 --- !u!1001 &151696901415854674
 PrefabInstance:
   m_ObjectHideFlags: 0
