@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float smoothTime = 0.1f;    // thời gian làm mượt
 
     [SerializeField] private GameObject Continue_UI;
+    [SerializeField] private AudioSource failSongPlayer;
     private bool isGameOver = false;
 
     private Vector2 previousTouchPos;
@@ -71,6 +72,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("obstacle") && !isGameOver)
         {
+            failSongPlayer.Play();
             isGameOver = true;
             Debug.Log("Game Over!");
 
