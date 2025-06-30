@@ -16,17 +16,10 @@ public class MidiNotePathSpawner : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
 
     private List<(float time, int note, int velocity)> noteEvents = new();
-    [SerializeField] private NotePool notePool;
+    [SerializeField] private GameObject note;
 
     void Start()
     {
-        notePool = NotePool.Instance;
-        if (notePool == null)
-        {
-            Debug.LogError("Không tìm thấy NotePool trong scene!");
-            return;
-        }
-
         StartCoroutine(LoadAndSpawnNotesCoroutine());
     }
 
@@ -91,7 +84,7 @@ public class MidiNotePathSpawner : MonoBehaviour
 
     void SpawnNotesAlongPath()
     {
-        if (noteEvents.Count == 0 || notePool == null)
+        if (noteEvents.Count == 0)
             return;
 
         float songDuration = noteEvents[noteEvents.Count - 1].time;
@@ -110,10 +103,7 @@ public class MidiNotePathSpawner : MonoBehaviour
         float zPos = (noteData.time / songDuration) * pathLength;
         Vector3 spawnPos = spawnOrigin.position + new Vector3(offsetX, 0, zPos);
 
-        GameObject noteObj = notePool.GetNote();
-        noteObj.transform.position = spawnPos;
-
-        // (Nếu cần reset animation, script riêng, bạn có thể gọi tại đây)
+        GameObject noteObj = Instantiate(note, spawnPos, Quaternion.identity);
     }
 
     IEnumerator GameStart()

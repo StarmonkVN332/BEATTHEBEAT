@@ -29,7 +29,7 @@ public class PlayerInfo : MonoBehaviour
             Debug.Log("Chạm vào Enemy: +1 điểm");
             randomSoundPlayer.PlayRandomSound();
             boomEffect.Play();
-            NotePool.Instance.ReturnNote(other.gameObject);
+            Destroy(other.gameObject);
         }
     }
     public void PlayerTakeDamage(int amount)

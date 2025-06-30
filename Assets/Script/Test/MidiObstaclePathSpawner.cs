@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using MidiParser;
+using UnityEditor.Experimental.GraphView;
 
 public class MidiObstaclePathSpawner : MonoBehaviour
 {
@@ -15,17 +16,10 @@ public class MidiObstaclePathSpawner : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
 
     private List<(float time, int note, int velocity)> noteEvents = new();
-    [SerializeField] private ObstaclePool obstaclePool;
+    [SerializeField] private GameObject obstacle;
 
     void Start()
     {
-        obstaclePool = ObstaclePool.Instance;
-        if (obstaclePool == null)
-        {
-            Debug.LogError("Không tìm thấy ObstaclePool trong scene!");
-            return;
-        }
-
         StartCoroutine(LoadAndSpawnObstaclesCoroutine());
     }
 
@@ -86,7 +80,7 @@ public class MidiObstaclePathSpawner : MonoBehaviour
 
     void SpawnObstaclesAlongPath()
     {
-        if (noteEvents.Count == 0 || obstaclePool == null)
+        if (noteEvents.Count == 0)
             return;
 
         float songDuration = noteEvents[noteEvents.Count - 1].time;
@@ -110,10 +104,7 @@ public class MidiObstaclePathSpawner : MonoBehaviour
         float zPos = (noteData.time / songDuration) * pathLength;
         Vector3 spawnPos = spawnOrigin.position + new Vector3(offsetX, 0, zPos);
 
-        GameObject obstacleObj = obstaclePool.GetObstacle();  // method lấy obstacle trong pool
-        obstacleObj.transform.position = spawnPos;
+        GameObject obstacleObj = Instantiate(obstacle, spawnPos, Quaternion.identity);
 
-        // Reset trạng thái nếu cần (animation, active, v.v)
-        obstacleObj.SetActive(true);
     }
 }

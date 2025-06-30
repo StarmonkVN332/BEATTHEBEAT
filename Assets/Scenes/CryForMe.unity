@@ -263,7 +263,7 @@ MonoBehaviour:
   spawnOrigin: {fileID: 76543901}
   pathLength: 3896
   audioSource: {fileID: 1673691687}
-  notePool: {fileID: 847764092}
+  note: {fileID: 8027987855001571748, guid: 2d6707babfdfedd4883ad9884aca9416, type: 3}
 --- !u!4 &76543901
 Transform:
   m_ObjectHideFlags: 0
@@ -445,18 +445,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1830554779}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &296000598 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 37305971849897726, guid: 590d65204bfa5574899ea687464b8aec,
-    type: 3}
-  m_PrefabInstance: {fileID: 463861124219645527}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a787dd835e9e5204aacaae180c93034e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &440691801
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,7 +689,8 @@ MonoBehaviour:
   spawnOrigin: {fileID: 494900255}
   pathLength: 3896
   audioSource: {fileID: 1673691687}
-  obstaclePool: {fileID: 296000598}
+  obstacle: {fileID: 5335695315599310126, guid: a2f1b640c922be746a04843eaeb802c3,
+    type: 3}
 --- !u!1 &515889351
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,20 +855,9 @@ MonoBehaviour:
   spawnHeight: 5
   noteSpeed: 1
   musicSource: {fileID: 1673691687}
+  startTime: 0
   delayMusicStart: 3.43
   spawnOrigin: {fileID: 98660879}
---- !u!114 &847764092 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1709943556051947853, guid: 590d65204bfa5574899ea687464b8aec,
-    type: 3}
-  m_PrefabInstance: {fileID: 463861124219645527}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43c29d85698b3184f88212bea59394da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &957172728
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,6 +1012,7 @@ MonoBehaviour:
   spawnHeight: 5
   noteSpeed: 1
   musicSource: {fileID: 1673691687}
+  startTime: 0
   delayMusicStart: 3.43
   spawnOrigin: {fileID: 1940044525}
 --- !u!1001 &1079439759
@@ -1153,6 +1132,7 @@ MonoBehaviour:
   spawnHeight: 5
   noteSpeed: 1
   musicSource: {fileID: 1673691687}
+  startTime: 0
   delayMusicStart: 3.43
   spawnOrigin: {fileID: 1940044525}
 --- !u!1001 &1245411039
@@ -1595,7 +1575,7 @@ Transform:
   m_GameObject: {fileID: 1599509942}
   serializedVersion: 2
   m_LocalRotation: {x: 0.08741657, y: 0, z: 0, w: 0.99617183}
-  m_LocalPosition: {x: -3.16, y: 6, z: -18}
+  m_LocalPosition: {x: 0, y: 6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2773,7 +2753,9 @@ PrefabInstance:
       value: POOL
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8128417588785757869, guid: 590d65204bfa5574899ea687464b8aec, type: 3}
+    - {fileID: 4579621574268740379, guid: 590d65204bfa5574899ea687464b8aec, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 590d65204bfa5574899ea687464b8aec, type: 3}
@@ -2973,6 +2955,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pause_UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584296304765749715, guid: 6ae7ada77cc79234682aaa75f826129c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
