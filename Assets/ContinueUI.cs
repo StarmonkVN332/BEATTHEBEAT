@@ -44,17 +44,20 @@ public class ContinueUI : MonoBehaviour
         // Xử lý tiếp tục game
         Debug.Log("Người chơi chọn tiếp tục");
         PlayerController.isGameOver = false;
-        Time.timeScale = 1f;
+        Time.timeScale = 1f;// thời gian bình thường
+
+        //code reload scene
         Scene curentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(curentScene.name);
-        gameObject.SetActive(false);
+
+        gameObject.SetActive(false);// tắt ui continue
     }
 
     private void EndCountdown()
     {
         // Hết giờ tự xử lý (ví dụ về menu chính hoặc restart)
         Debug.Log("Hết thời gian, không tiếp tục");
-        gameObject.SetActive(false);
-        SceneManager.LoadSceneAsync(0);
+        gameObject.SetActive(false);// tắt ui continue
+        SceneManager.LoadSceneAsync(0);// quay về scene menu
     }
 }
