@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject Continue_UI;
     [SerializeField] private AudioSource failSongPlayer;
-    private bool isGameOver = false;
+    public static bool isGameOver = false;
 
     private Vector2 previousTouchPos;
     private float targetX;                               // vị trí x mục tiêu
@@ -22,11 +22,6 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        Continue_UI = GameObject.Find("Continue_UI");
-        if (Continue_UI != null)
-        {
-            Continue_UI.SetActive(false);
-        }
         targetX = transform.position.x;
     }
 
@@ -75,10 +70,6 @@ public class PlayerController : MonoBehaviour
             failSongPlayer.Play();
             isGameOver = true;
             Debug.Log("Game Over!");
-
-            Time.timeScale = 0f; // Dừng game
-            // Nếu có UI thua cuộc thì bật lên ở đây
-            Continue_UI.SetActive(true);
         }
     }
 }

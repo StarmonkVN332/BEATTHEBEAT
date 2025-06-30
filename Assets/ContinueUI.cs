@@ -11,7 +11,7 @@ public class ContinueUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI countdownText;
     [SerializeField] private Button continueButton;
 
-    private float countdownTime = 3f;
+    private float countdownTime = 5f;
     private float currentTime;
 
     private void OnEnable()
@@ -27,7 +27,7 @@ public class ContinueUI : MonoBehaviour
 
     private void Update()
     {
-        currentTime -= Time.deltaTime;
+        currentTime -= Time.unscaledDeltaTime;
         if (currentTime <= 0f)
         {
             currentTime = 0f;
@@ -43,6 +43,10 @@ public class ContinueUI : MonoBehaviour
     {
         // Xử lý tiếp tục game
         Debug.Log("Người chơi chọn tiếp tục");
+        PlayerController.isGameOver = false;
+        Time.timeScale = 1f;
+        Scene curentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(curentScene.name);
         gameObject.SetActive(false);
     }
 
