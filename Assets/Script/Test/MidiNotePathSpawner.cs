@@ -120,11 +120,12 @@ public class MidiNotePathSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         GameState.GameStarted = true;
-
+        Debug.Log("Game Bắt đầu");
     }
     void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("Chơi nhạc");
             if (audioSource != null)
             {
                 audioSource.Play();
