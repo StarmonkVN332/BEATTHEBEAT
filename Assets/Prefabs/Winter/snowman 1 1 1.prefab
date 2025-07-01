@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8078580049655318688}
   - component: {fileID: 786432983218764141}
   - component: {fileID: 4315116675041793620}
-  - component: {fileID: 2401217405988618004}
   - component: {fileID: 1827048052921189967}
   m_Layer: 0
   m_Name: snowman 1 1 1
@@ -110,18 +109,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.27869302, y: 0.9242107, z: 0.21253641}
   m_Center: {x: -0.0072244904, y: 0.45645374, z: -0.0022801643}
---- !u!114 &2401217405988618004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5335695315599310126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28fe9997243be2a44aa4b17a96ca8ab2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &1827048052921189967
 Rigidbody:
   m_ObjectHideFlags: 0
