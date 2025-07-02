@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseUi : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject panelUI;
+
+    public void PanelUITrue()
     {
-        
+        panelUI.SetActive(true);
+        Time.timeScale = 0f;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PanelUIFalse()
     {
-        
+        panelUI.SetActive(false);
+        Time.timeScale = 1f;
     }
 }
