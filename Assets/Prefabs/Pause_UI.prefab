@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 720, y: -1479.9259}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 720, y: -1493.3625}
+  m_SizeDelta: {x: 182.4594, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3258819909232539507
 CanvasRenderer:
@@ -169,8 +169,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 720, y: -764.6059}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 720, y: -771.3242}
+  m_SizeDelta: {x: 182.4594, y: 43.4366}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2838524067120980280
 CanvasRenderer:
@@ -253,7 +253,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5346960056319380557}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7285599606549483926}
+        m_TargetAssemblyTypeName: PauseUi, Assembly-CSharp
+        m_MethodName: BackHomeMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2778647319204485661
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,7 +435,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 720, y: -406.9459}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 182.4594, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8628087174307527680
 CanvasRenderer:
@@ -677,8 +689,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 720, y: -1122.2659}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 720, y: -1135.7025}
+  m_SizeDelta: {x: 182.4594, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8499091313635196353
 CanvasRenderer:
@@ -961,7 +973,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Tr\u1EDF v\u1EC1 menu"
+  m_text: "Tr\u1EDF v\u1EC1 trang ch\u1EE7"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1297,7 +1309,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -4.3249}
-  m_SizeDelta: {x: 1440, y: 1494.9259}
+  m_SizeDelta: {x: 1440, y: 1508.3625}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3053492666490215887
 CanvasRenderer:
@@ -1487,8 +1499,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 720, y: -32.14295}
-  m_SizeDelta: {x: 173.6758, y: 64.2859}
+  m_AnchoredPosition: {x: 720, y: -32.142944}
+  m_SizeDelta: {x: 198.0548, y: 64.2859}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6456814594716647855
 CanvasRenderer:
@@ -1545,7 +1557,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29.25
+  m_fontSize: 33.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
