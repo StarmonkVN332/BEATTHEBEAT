@@ -432,7 +432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1086441198}
-  previewClip: {fileID: 8300000, guid: 5b63671392f540f41abba810be40392d, type: 3}
+  previewClip: {fileID: 8300000, guid: 6173fc6d770039545aba8cb593e18ca7, type: 3}
   previewButton: {fileID: 886725055}
   recordDisk: {fileID: 1687884062}
 --- !u!1 &98253307
