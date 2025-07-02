@@ -16,11 +16,13 @@ public class MidiObstaclePathSpawner : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
 
     private List<(float time, int note, int velocity)> noteEvents = new();
-    [SerializeField] private GameObject obstacle;
 
+    [SerializeField] private GameObject obstacle;
+    private Transform obstacleRotation;
     void Start()
     {
         StartCoroutine(LoadAndSpawnObstaclesCoroutine());
+        
     }
 
     IEnumerator LoadAndSpawnObstaclesCoroutine()
@@ -104,7 +106,7 @@ public class MidiObstaclePathSpawner : MonoBehaviour
         float zPos = (noteData.time / songDuration) * pathLength;
         Vector3 spawnPos = spawnOrigin.position + new Vector3(offsetX, 0, zPos);
 
-        GameObject obstacleObj = Instantiate(obstacle, spawnPos, Quaternion.identity);
+        GameObject obstacleObj = Instantiate(obstacle, spawnPos, obstacle.transform.rotation);
 
     }
 }
