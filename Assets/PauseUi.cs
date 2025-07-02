@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseUi : MonoBehaviour
@@ -17,5 +18,10 @@ public class PauseUi : MonoBehaviour
     {
         panelUI.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    public void BackHomeMenu()
+    {
+        SceneManager.LoadSceneAsync(0);
     }
 }
