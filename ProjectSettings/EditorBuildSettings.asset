@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HandMade.unity
     guid: 4b15917df26809b4781805ce4c93e177
+  - enabled: 1
+    path: Assets/Scenes/OnAndOn.unity
+    guid: 00725cf1ecab90047929a66fa5cfd48d
+  - enabled: 1
+    path: Assets/Scenes/Faded.unity
+    guid: 06457a79e667d68498eb9276e9aa4123
   m_configObjects: {}
