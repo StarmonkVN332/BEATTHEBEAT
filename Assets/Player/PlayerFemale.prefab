@@ -1818,7 +1818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3080405901222996424}
-  moveSpeed: 25
+  moveSpeed: 20
   forwardSpeed: 25
   minX: -4.5
   maxX: 4.5
