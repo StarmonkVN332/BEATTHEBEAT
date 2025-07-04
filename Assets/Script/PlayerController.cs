@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxX = 4.5f;
     [SerializeField] private float smoothTime = 0.1f;    // thời gian làm mượt
 
+    [SerializeField] private Collider collider;
     [SerializeField] private GameObject Continue_UI;
     [SerializeField] private AudioSource failSongPlayer;
     public static bool isGameOver = false;
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         targetX = transform.position.x;
+        collider.GetComponent<CapsuleCollider>();
     }
 
     void Update()
@@ -63,9 +65,9 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector3(currentPosition.x, 0f, currentPosition.z);
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider collider)
     {
-        if (other.CompareTag("obstacle") && !isGameOver)
+        if (collider.CompareTag("obstacle") && !isGameOver)
         {
             failSongPlayer.Play();
             isGameOver = true;

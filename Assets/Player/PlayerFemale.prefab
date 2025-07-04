@@ -1728,6 +1728,7 @@ GameObject:
   - component: {fileID: 2988604167572522282}
   - component: {fileID: 759951432669442977}
   - component: {fileID: 3929929618193593355}
+  - component: {fileID: 1069810803906979903}
   m_Layer: 0
   m_Name: PlayerFemale
   m_TagString: Player
@@ -1823,6 +1824,7 @@ MonoBehaviour:
   minX: -4.5
   maxX: 4.5
   smoothTime: 0.1
+  collider: {fileID: 0}
   Continue_UI: {fileID: 0}
   failSongPlayer: {fileID: 9075930345601549406}
 --- !u!114 &8297326534378222447
@@ -1858,12 +1860,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.6861899, y: 1.9238222, z: 0.081882}
-  m_Center: {x: -0.043094993, y: 0.4619112, z: 0.459059}
+  m_Size: {x: 1.6861899, y: 1.2805405, z: 0.081882}
+  m_Center: {x: -0.043094993, y: 0.78355205, z: 0.459059}
 --- !u!82 &759951432669442977
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1982,6 +1984,29 @@ MonoBehaviour:
   attackAnimations:
   - Attack_01
   - Attack_02
+--- !u!136 &1069810803906979903
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4508933563386377913}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.35649574
+  m_Height: 1.6342229
+  m_Direction: 1
+  m_Center: {x: 0.006810367, y: 0.73219925, z: 0}
 --- !u!1 &4607489473469830327
 GameObject:
   m_ObjectHideFlags: 0

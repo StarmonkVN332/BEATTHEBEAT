@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1540349619720582458}
   - component: {fileID: 7531122326531497850}
   - component: {fileID: 662999151109252267}
-  - component: {fileID: 678203872614977947}
   - component: {fileID: 3441277615675583591}
+  - component: {fileID: 783008899994889099}
   m_Layer: 0
   m_Name: obstacle
   m_TagString: obstacle
@@ -85,27 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &678203872614977947
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5813818180465729043}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.27869302, y: 0.9242107, z: 0.21253641}
-  m_Center: {x: -0.0072244904, y: 0.45645374, z: -0.0022801643}
 --- !u!54 &3441277615675583591
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -133,3 +112,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!136 &783008899994889099
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5813818180465729043}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.100939974
+  m_Height: 0.95936096
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5, z: -0.0022801643}

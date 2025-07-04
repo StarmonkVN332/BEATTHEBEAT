@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1693269767461757559}
   - component: {fileID: 1142614475893398914}
   - component: {fileID: 5575074972645836503}
-  - component: {fileID: 7040451031891973925}
   - component: {fileID: 1205352240842422975}
+  - component: {fileID: 7698642804349689986}
   m_Layer: 0
   m_Name: ForestObsatcle
   m_TagString: obstacle
@@ -86,28 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7040451031891973925
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7997050194987978479}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5931181764674875907, guid: b8075b47f76df1c40a5e7559d82ff7d8, type: 3}
 --- !u!54 &1205352240842422975
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -135,3 +113,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!65 &7698642804349689986
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7997050194987978479}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.34935942, y: 0.41947478, z: 0.324169}
+  m_Center: {x: -0.0048255567, y: 0.20432924, z: -0.0052712965}
