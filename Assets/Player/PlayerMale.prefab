@@ -1482,7 +1482,6 @@ GameObject:
   - component: {fileID: 546028350804958027}
   - component: {fileID: 419604743013270248}
   - component: {fileID: 9035438430884483141}
-  - component: {fileID: 3322410520700781297}
   m_Layer: 0
   m_Name: PlayerMale
   m_TagString: Player
@@ -1595,7 +1594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: 3
   score: 0
-  scoreText: {fileID: 0}
+  combo: 0
   animator: {fileID: 766828738105871787}
   randomSoundPlayer: {fileID: 345049431541998109}
   boomEffect: {fileID: 3196587013065498470}
@@ -1738,29 +1737,6 @@ MonoBehaviour:
   attackAnimations:
   - Attack_01
   - Attack_02
---- !u!136 &3322410520700781297
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3831083840356105797}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.35649574
-  m_Height: 1.6342229
-  m_Direction: 1
-  m_Center: {x: 0.006810367, y: 0.73219925, z: 0}
 --- !u!1 &3858077383467359902
 GameObject:
   m_ObjectHideFlags: 0
