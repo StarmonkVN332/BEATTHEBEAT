@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Faded.unity
     guid: 06457a79e667d68498eb9276e9aa4123
+  - enabled: 1
+    path: Assets/Scenes/Dream.unity
+    guid: 96c064777894f4246af21826f7f97e34
   m_configObjects: {}
