@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,9 +15,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioSource failSongPlayer;
     public static bool isGameOver = false;
 
+    [Header("Model Rotation")]
+    public GameObject rotationModel; // Gán GameObject visual (model) vào đây trong Inspector
+    [SerializeField] private float rotationAngle = 20f;
+    [SerializeField] private float rotationSmoothTime = 0.2f;
+
+    private float targetX;
+    private float velocityX = 0f;
+
     private Vector2 previousTouchPos;
-    private float targetX;                               // vị trí x mục tiêu
-    private float velocityX = 0f;                         // tốc độ tạm để smooth
+
+    private float targetYRotation = 0f;
+    private float currentYVelocity = 0f;
 
     void Start()
     {
@@ -55,7 +62,18 @@ public class PlayerController : MonoBehaviour
                 float deltaX = (delta.x / Screen.width) * moveSpeed;
                 targetX = Mathf.Clamp(targetX + deltaX, minX, maxX);
                 animator.SetTrigger("isMoving");
+
+                // Điều chỉnh góc xoay model
+                if (delta.x > 0.5f)
+                    targetYRotation = rotationAngle;
+                else if (delta.x < -0.5f)
+                    targetYRotation = -rotationAngle;
             }
+        }
+        else
+        {
+            // Không vuốt thì trở về vị trí thẳng
+            targetYRotation = 0f;
         }
 
         // Smooth horizontal movement
@@ -63,6 +81,19 @@ public class PlayerController : MonoBehaviour
 
         // Apply new position
         transform.position = new Vector3(currentPosition.x, 0f, currentPosition.z);
+
+        // Xử lý xoay nghiêng model
+        if (rotationModel != null)
+        {
+            float newYRotation = Mathf.SmoothDampAngle(
+                rotationModel.transform.localEulerAngles.y,
+                targetYRotation,
+                ref currentYVelocity,
+                rotationSmoothTime
+            );
+
+            rotationModel.transform.localRotation = Quaternion.Euler(0f, newYRotation, 0f);
+        }
     }
 
     void OnTriggerEnter(Collider collider)

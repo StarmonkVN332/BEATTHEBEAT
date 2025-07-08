@@ -1797,9 +1797,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aba22e08e21c7b4fb8319bec52f05e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  malePrefab: {fileID: 3831083840356105797, guid: f6d2f45461b1f2d418ad0bdfb945302f,
+  malePrefab: {fileID: 2116941740298925596, guid: fcf2c5f45ad1a144bb933889d28f9269,
     type: 3}
-  femalePrefab: {fileID: 4508933563386377913, guid: c4b0599cf856aeb468e0a421e735e63e,
+  femalePrefab: {fileID: 2666248858625055221, guid: 9341ebf6d63ad6246a34f55e5978d645,
     type: 3}
   selectedIndex: 0
 --- !u!4 &393873282
@@ -6937,6 +6937,7 @@ GameObject:
   - component: {fileID: 2086649550}
   - component: {fileID: 2086649549}
   - component: {fileID: 2086649552}
+  - component: {fileID: 2086649553}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7012,7 +7013,7 @@ Transform:
   m_GameObject: {fileID: 2086649548}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7062,6 +7063,40 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &2086649553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086649548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowDebugText: 1
+  m_ShowCameraFrustum: 1
+  m_IgnoreTimeScale: 0
+  m_WorldUpOverride: {fileID: 0}
+  m_UpdateMethod: 2
+  m_BlendUpdateMethod: 1
+  m_DefaultBlend:
+    m_Style: 1
+    m_Time: 0
+    m_CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  m_CustomBlends: {fileID: 0}
+  m_CameraCutEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_CameraActivatedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2124451080
 GameObject:
   m_ObjectHideFlags: 0
