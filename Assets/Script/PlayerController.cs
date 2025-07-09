@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public GameObject rotationModel; // Gán GameObject visual (model) vào đây trong Inspector
     [SerializeField] private float rotationAngle = 20f;
     [SerializeField] private float rotationSmoothTime = 0.2f;
+    [SerializeField] private float rotationVelocityThreshold = 0.1f; // Ngưỡng tốc độ ngang để xoay
 
     private float targetX;
     private float velocityX = 0f;
@@ -36,16 +37,16 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // 🚫 Wait until notes are spawned and music started
+        // 🚫 Chờ đến khi note được spawn và nhạc bắt đầu
         if (!GameState.GameStarted)
             return;
 
         Vector3 currentPosition = transform.position;
 
-        // Forward movement
+        // Di chuyển về phía trước
         currentPosition.z += forwardSpeed * Time.deltaTime;
 
-        // Touch input
+        // Điều khiển bằng cảm ứng
         if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
@@ -62,29 +63,30 @@ public class PlayerController : MonoBehaviour
                 float deltaX = (delta.x / Screen.width) * moveSpeed;
                 targetX = Mathf.Clamp(targetX + deltaX, minX, maxX);
                 animator.SetTrigger("isMoving");
-
-                // Điều chỉnh góc xoay model
-                if (delta.x > 0.5f)
-                    targetYRotation = rotationAngle;
-                else if (delta.x < -0.5f)
-                    targetYRotation = -rotationAngle;
             }
         }
-        else
-        {
-            // Không vuốt thì trở về vị trí thẳng
-            targetYRotation = 0f;
-        }
 
-        // Smooth horizontal movement
+        // Làm mượt di chuyển ngang
         currentPosition.x = Mathf.SmoothDamp(currentPosition.x, targetX, ref velocityX, smoothTime);
 
-        // Apply new position
+        // Áp dụng vị trí mới
         transform.position = new Vector3(currentPosition.x, 0f, currentPosition.z);
 
-        // Xử lý xoay nghiêng model
+        // Xử lý xoay nghiêng model dựa trên vận tốc ngang
         if (rotationModel != null)
         {
+            // Nếu vận tốc đủ lớn => nghiêng theo tỉ lệ
+            if (Mathf.Abs(velocityX) >= rotationVelocityThreshold)
+            {
+                // Xoay tỉ lệ với vận tốc, clamp không quá góc tối đa
+                targetYRotation = Mathf.Clamp(velocityX * rotationAngle, -rotationAngle, rotationAngle);
+            }
+            else
+            {
+                // Vận tốc nhỏ => về vị trí thẳng
+                targetYRotation = 0f;
+            }
+
             float newYRotation = Mathf.SmoothDampAngle(
                 rotationModel.transform.localEulerAngles.y,
                 targetYRotation,

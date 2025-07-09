@@ -362,7 +362,7 @@ MonoBehaviour:
   midiFolder: OnAndOn
   midiFileName: On&OnMain
   spawnOrigin: {fileID: 401423969}
-  pathLength: 3465
+  pathLength: 3470
   audioSource: {fileID: 1822908761}
   note: {fileID: 8027987855001571748, guid: 2d6707babfdfedd4883ad9884aca9416, type: 3}
 --- !u!65 &401423971
@@ -511,7 +511,7 @@ MonoBehaviour:
   midiFolder: OnAndOn
   midiFileName: On&OnObstacle
   spawnOrigin: {fileID: 454335181}
-  pathLength: 3465
+  pathLength: 3470
   audioSource: {fileID: 1822908761}
   obstacle: {fileID: 5813818180465729043, guid: 01cf8ec9e1802fb409fc8f12a2ec74c3,
     type: 3}
