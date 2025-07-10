@@ -1584,6 +1584,7 @@ MonoBehaviour:
   rotationModel: {fileID: 0}
   rotationAngle: 20
   rotationSmoothTime: 0.2
+  rotationVelocityThreshold: 0.1
 --- !u!114 &7460108608017124468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3335,7 +3336,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 4846483623503129925}
   clips:
-  - {fileID: 8300000, guid: 729b970e391de82438402ad2df3fd7cc, type: 3}
   - {fileID: 8300000, guid: b5c717574afb69a4a92a99e0ec9ee209, type: 3}
   - {fileID: 8300000, guid: 580c0791e4af0b440bd0588c98bf0523, type: 3}
   - {fileID: 8300000, guid: 22b04cd114bbe204e8542601c4bec072, type: 3}
@@ -3343,14 +3343,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fa1e4a50f8714ec41937677d8ab55933, type: 3}
   - {fileID: 8300000, guid: 61526c150f889594e99644d7062716d7, type: 3}
   - {fileID: 8300000, guid: 2bfb6f7abf2ac96449133a36cae3bdd5, type: 3}
-  - {fileID: 8300000, guid: de27a117093482d47b4f4f9c0f08d116, type: 3}
-  - {fileID: 8300000, guid: f7a14edf6c85ded42b9c1425276bb4b4, type: 3}
-  - {fileID: 8300000, guid: 4512226f4f10e4f4e83beba64b1bc052, type: 3}
-  - {fileID: 8300000, guid: 04fbaed5114c58e4ea099fea91042e7b, type: 3}
-  - {fileID: 8300000, guid: 52f1b553a281b864d8c1aebff883335f, type: 3}
-  - {fileID: 8300000, guid: 59352f8dd76e3c2408e5f084b670ee46, type: 3}
-  - {fileID: 8300000, guid: b3c0f44a09b025f49b838a627b2a762e, type: 3}
-  - {fileID: 8300000, guid: 0e1cb2773a836a84b976397af6180d5f, type: 3}
   minPitch: 1
   maxPitch: 1
 --- !u!82 &4846483623503129925
@@ -4294,6 +4286,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CFXR _BOOM_
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339739117810204693, guid: 26e1cb216e3635e4a820f58a1118d6b9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5339739117810204694, guid: 26e1cb216e3635e4a820f58a1118d6b9,
         type: 3}
