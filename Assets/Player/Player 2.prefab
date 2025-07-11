@@ -82,6 +82,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4490381364528476178}
   - component: {fileID: 8989010843512222575}
+  - component: {fileID: -266864719746944016}
+  - component: {fileID: -7759916000973628830}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Untagged
@@ -130,6 +132,48 @@ MonoBehaviour:
   rotationModel: {fileID: 7670460292934449318}
   rotationAngle: 20
   rotationSmoothTime: 0.2
+  rotationVelocityThreshold: 0.1
+--- !u!114 &-266864719746944016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2666248858625055221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b186dad947b7c8c41840e3f2dd69fa62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSwipeDistance: 50
+  jumpForce: 7
+--- !u!54 &-7759916000973628830
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2666248858625055221}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6100571678675643080
 GameObject:
   m_ObjectHideFlags: 0
