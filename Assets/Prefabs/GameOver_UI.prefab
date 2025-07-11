@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 9032591715876951042}
   - component: {fileID: 6097207620082339378}
   m_Layer: 5
-  m_Name: Continue_UI
+  m_Name: GameOver_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
