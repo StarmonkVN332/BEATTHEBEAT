@@ -10,7 +10,6 @@ TagManager:
   - SoundEffect
   - obstacle
   - ReturnPool
-  - Ground
   layers:
   - Default
   - TransparentFX
@@ -18,7 +17,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Ground
+  - 
   - 
   - 
   - 

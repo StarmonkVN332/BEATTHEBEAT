@@ -56,31 +56,12 @@ public class SwipeJump : MonoBehaviour
         }
     }
 
-    private bool isGrounded;
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = false;
-        }
-    }
-
     private void Jump()
     {
-        if (isGrounded)
+        // Chỉ nhảy khi đang đứng trên mặt đất (velocity.y gần 0)
+        if (Mathf.Abs(rb.velocity.y) < 0.01f)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isGrounded = false;
         }
     }
-
 }
