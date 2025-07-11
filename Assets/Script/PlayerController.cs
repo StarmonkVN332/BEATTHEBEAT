@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         currentPosition.x = Mathf.SmoothDamp(currentPosition.x, targetX, ref velocityX, smoothTime);
 
         // Áp dụng vị trí mới
-        transform.position = new Vector3(currentPosition.x, transform.position.y, currentPosition.z);
+        transform.position = new Vector3(currentPosition.x, 0f, currentPosition.z);
 
         // Xử lý xoay nghiêng model dựa trên vận tốc ngang
         if (rotationModel != null)
