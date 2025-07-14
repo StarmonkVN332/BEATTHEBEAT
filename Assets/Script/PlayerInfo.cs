@@ -81,7 +81,7 @@ public class PlayerInfo : MonoBehaviour
         score += pointGained;
         combo++;
 
-        Debug.Log($"Hit! Combo: {combo}, Score Gained: {pointGained}, Total Score: {score}");
+        //Debug.Log($"Hit! Combo: {combo}, Score Gained: {pointGained}, Total Score: {score}");
 
         UpdatePlayerInfo();
     }

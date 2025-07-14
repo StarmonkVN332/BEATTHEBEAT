@@ -24,20 +24,20 @@ public class PlayerController : MonoBehaviour
 
     private float targetX;
     private float velocityX = 0f;
-
     private Vector2 previousTouchPos;
     private float targetYRotation = 0f;
     private float currentYVelocity = 0f;
 
-    // Nhảy & trọng lực
+    // Nhảy & trọng lực tự tạo
     private float verticalVelocity = 0f;
-    [SerializeField] private float jumpForce = 12f;
-    [SerializeField] private float gravity = -25f;
+    [SerializeField] private float jumpForce = 20f;
+    [SerializeField] private float gravity = -35f;
 
     void Start()
     {
         targetX = transform.position.x;
-        collider.GetComponent<CapsuleCollider>();
+        if (collider != null)
+            collider.GetComponent<CapsuleCollider>();
     }
 
     void Update()
@@ -46,12 +46,12 @@ public class PlayerController : MonoBehaviour
             return;
 
         Vector3 currentPosition = transform.position;
-
-        // Thêm trọng lực
         verticalVelocity += gravity * Time.deltaTime;
 
-        // Điều khiển bằng cảm ứng
-        if (Input.touchCount == 1)
+        //─────────────────────────────────────────────────────────────
+        // TOUCH TRÊN THIẾT BỊ DI ĐỘNG
+        //─────────────────────────────────────────────────────────────
+        if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
 
@@ -69,34 +69,72 @@ public class PlayerController : MonoBehaviour
                 animator.SetTrigger("isMoving");
 
                 float deltaY = delta.y / Screen.height;
-                if (deltaY > 0.1f && isGrounded)
+                Debug.Log($"[TOUCH] deltaY = {deltaY}, isGrounded = {isGrounded}");
+
+                if (deltaY > 0.03f && isGrounded)
                 {
                     verticalVelocity = jumpForce;
                     isGrounded = false;
                     animator.SetTrigger("Jump");
-                    Debug.Log("Jumped! deltaY: " + deltaY);
+                    Debug.Log("Jumped via TOUCH, verticalVelocity = " + verticalVelocity);
                 }
             }
         }
 
-        // Làm mượt trục X
+#if UNITY_EDITOR
+        //─────────────────────────────────────────────────────────────
+        // GIẢ LẬP TRONG EDITOR BẰNG CHUỘT
+        //─────────────────────────────────────────────────────────────
+        if (Input.GetMouseButtonDown(0))
+        {
+            previousTouchPos = Input.mousePosition;
+        }
+        else if (Input.GetMouseButton(0))
+        {
+            Vector2 delta = (Vector2)Input.mousePosition - previousTouchPos;
+            previousTouchPos = Input.mousePosition;
+
+            float deltaX = (delta.x / Screen.width) * moveSpeed;
+            targetX = Mathf.Clamp(targetX + deltaX, minX, maxX);
+            animator.SetTrigger("isMoving");
+
+            float deltaY = delta.y / Screen.height;
+            Debug.Log($"[MOUSE] deltaY = {deltaY}, isGrounded = {isGrounded}");
+
+            if (deltaY > 0.03f && isGrounded)
+            {
+                verticalVelocity = jumpForce;
+                isGrounded = false;
+                animator.SetTrigger("Jump");
+                Debug.Log("Jumped via MOUSE, verticalVelocity = " + verticalVelocity);
+            }
+        }
+#endif
+
+        //─────────────────────────────────────────────────────────────
+        // VẬT LÝ TỰ TẠO
+        //─────────────────────────────────────────────────────────────
         currentPosition.x = Mathf.SmoothDamp(currentPosition.x, targetX, ref velocityX, smoothTime);
-        // Áp dụng vận tốc Y
         currentPosition.y += verticalVelocity * Time.deltaTime;
 
-        // Chặn rơi xuống sàn
-        if (currentPosition.y <= 0f)
+        // Xử lý chạm đất
+        if (currentPosition.y <= 0.01f && verticalVelocity <= 0f)
         {
             currentPosition.y = 0f;
             verticalVelocity = 0f;
-            isGrounded = true;
+            if (!isGrounded)
+            {
+                isGrounded = true;
+                Debug.Log("Landed");
+            }
         }
 
-        // Di chuyển tới trước
         currentPosition.z += forwardSpeed * Time.deltaTime;
         transform.position = currentPosition;
 
-        // Xử lý xoay model
+        //─────────────────────────────────────────────────────────────
+        // XOAY MODEL THEO DI CHUYỂN
+        //─────────────────────────────────────────────────────────────
         if (rotationModel != null)
         {
             if (Mathf.Abs(velocityX) >= rotationVelocityThreshold)
@@ -119,6 +157,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //─────────────────────────────────────────────────────────────
+    // XỬ LÝ GAME OVER & CHẠM VẬT CẢN
+    //─────────────────────────────────────────────────────────────
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("obstacle") && !isGameOver)
@@ -128,19 +169,6 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Game Over!");
             if (Continue_UI != null)
                 Continue_UI.SetActive(true);
-        }
-
-        if (other.CompareTag("Ground"))
-        {
-            isGrounded = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Ground"))
-        {
-            isGrounded = false;
         }
     }
 }
