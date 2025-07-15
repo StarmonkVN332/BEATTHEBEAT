@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1006483, g: 0.12502792, b: 0.31768593, a: 1}
+  m_IndirectSpecularColor: {r: 0.1005261, g: 0.124903746, b: 0.31757486, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -520,6 +520,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30b51a88891412e46af9879680a091fd, type: 3}
+--- !u!1 &443603313 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2575896835078053853, guid: 30b51a88891412e46af9879680a091fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 443603312}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &444565580
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,7 +991,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 57b2c99b8a05b374c950ff7d7c0788b0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9b9a08a350688e5438e7642a128c9b61, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.858
   m_Pitch: 1
@@ -1706,12 +1712,12 @@ PrefabInstance:
         type: 3}
       propertyPath: pauseSong
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1673691687}
     - target: {fileID: 2349539868089505309, guid: 995eb5dae925ee047bb9693b7e3edbba,
         type: 3}
       propertyPath: continueUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 443603313}
     - target: {fileID: 3937033788140529430, guid: 995eb5dae925ee047bb9693b7e3edbba,
         type: 3}
       propertyPath: m_Name
