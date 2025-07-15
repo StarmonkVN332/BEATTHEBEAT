@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 786432983218764141}
   - component: {fileID: 4315116675041793620}
   - component: {fileID: 1827048052921189967}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: snowman 1 1 1
   m_TagString: obstacle
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

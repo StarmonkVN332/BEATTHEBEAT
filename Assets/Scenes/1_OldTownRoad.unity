@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1006483, g: 0.12502792, b: 0.31768593, a: 1}
+  m_IndirectSpecularColor: {r: 0.1005261, g: 0.124903746, b: 0.31757486, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2071,7 +2071,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1822908763}
   - component: {fileID: 1822908761}
-  - component: {fileID: 1822908764}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -2193,19 +2192,6 @@ Transform:
   - {fileID: 1949624656}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1822908764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1822908760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96204daeddf42a34e9d7455f08c45b36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeText: {fileID: 0}
 --- !u!1 &1896344600
 GameObject:
   m_ObjectHideFlags: 0
@@ -2855,6 +2841,16 @@ PrefabInstance:
       propertyPath: pauseSong
       value: 
       objectReference: {fileID: 1822908761}
+    - target: {fileID: 2575896835078053853, guid: 30b51a88891412e46af9879680a091fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575896835078053853, guid: 30b51a88891412e46af9879680a091fd,
+        type: 3}
+      propertyPath: m_TagString
+      value: GameOverUI
+      objectReference: {fileID: 0}
     - target: {fileID: 7933560791461629530, guid: 30b51a88891412e46af9879680a091fd,
         type: 3}
       propertyPath: m_Name

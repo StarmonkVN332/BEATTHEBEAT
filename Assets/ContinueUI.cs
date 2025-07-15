@@ -43,7 +43,7 @@ public class ContinueUI : MonoBehaviour
     {
         // Xử lý tiếp tục game
         Debug.Log("Người chơi chọn tiếp tục");
-        PlayerController.isGameOver = false;
+        PlayerInfo.isGameOver = false;
         Time.timeScale = 1f;// thời gian bình thường
 
         //code reload scene

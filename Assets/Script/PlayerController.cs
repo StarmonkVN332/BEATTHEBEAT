@@ -10,11 +10,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxX = 4.5f;
     [SerializeField] private float smoothTime = 0.1f;
     public bool isGrounded = false;
-
-    [SerializeField] private Collider collider;
-    [SerializeField] private GameObject Continue_UI;
-    [SerializeField] private AudioSource failSongPlayer;
-    public static bool isGameOver = false;
+    
+    //[SerializeField] private Collider collider;
+    
 
     [Header("Model Rotation")]
     public GameObject rotationModel;
@@ -36,13 +34,12 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         targetX = transform.position.x;
-        if (collider != null)
-            collider.GetComponent<CapsuleCollider>();
+        
     }
 
     void Update()
     {
-        if (!GameState.GameStarted || isGameOver)
+        if (!GameState.GameStarted || PlayerInfo.isGameOver)
             return;
 
         Vector3 currentPosition = transform.position;
@@ -160,15 +157,5 @@ public class PlayerController : MonoBehaviour
     //─────────────────────────────────────────────────────────────
     // XỬ LÝ GAME OVER & CHẠM VẬT CẢN
     //─────────────────────────────────────────────────────────────
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("obstacle") && !isGameOver)
-        {
-            failSongPlayer.Play();
-            isGameOver = true;
-            Debug.Log("Game Over!");
-            if (Continue_UI != null)
-                Continue_UI.SetActive(true);
-        }
-    }
+    
 }

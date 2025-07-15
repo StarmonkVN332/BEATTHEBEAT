@@ -9,6 +9,9 @@ public class PlayerInfo : MonoBehaviour
     [SerializeField] private int playerHealth = 3;
     [SerializeField] private int score = 0;
     [SerializeField] private int combo = 0;
+    [SerializeField] private GameObject Continue_UI;
+    [SerializeField] private AudioSource failSongPlayer;
+    public static bool isGameOver = false;
 
     private TextMeshProUGUI scoreText;
     private TextMeshProUGUI comboText;
@@ -22,6 +25,7 @@ public class PlayerInfo : MonoBehaviour
 
     private void Start()
     {
+        GameObject Continue_UI = GameObject.FindGameObjectWithTag("GameOverUI");
         // Tìm text theo tên (nếu có trong scene)
         GameObject scoreObj = GameObject.Find("ScoreText");
         GameObject comboObj = GameObject.Find("ComboText");
@@ -49,23 +53,16 @@ public class PlayerInfo : MonoBehaviour
             boomEffect.Play();
             Destroy(other.gameObject);
         }
-    }
-
-    public void PlayerTakeDamage(int amount)
-    {
-        playerHealth -= amount;
-        if (playerHealth < 0) playerHealth = 0;
-
-        HandleNoteMiss(); // Mất máu = miss
-
-        UpdatePlayerInfo();
-
-        if (playerHealth <= 0)
+        else if(other.CompareTag("obstacle") && !isGameOver)
         {
-            PlayerDie();
+            failSongPlayer.Play();
+            isGameOver = true;
+            Debug.Log("Game Over!");
+            if (Continue_UI != null)
+                Continue_UI.SetActive(true);
         }
     }
-
+      
     private void HandleNoteHit()
     {
         float multiplier = 1f;
@@ -105,12 +102,6 @@ public class PlayerInfo : MonoBehaviour
             comboText.text = "x" + combo.ToString();
         }
     }
-
-    private void PlayerDie()
-    {
-        Debug.Log("Player Die!");
-    }
-
     public void SendHitNote()
     {
         HandleNoteHit();

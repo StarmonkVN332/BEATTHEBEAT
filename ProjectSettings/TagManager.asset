@@ -11,16 +11,17 @@ TagManager:
   - obstacle
   - ReturnPool
   - Ground
+  - GameOverUI
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - MissZone
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Enemy
+  - Player
+  - Obstacle
   - 
   - 
   - 

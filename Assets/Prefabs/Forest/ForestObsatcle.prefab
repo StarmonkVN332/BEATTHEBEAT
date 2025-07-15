@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5575074972645836503}
   - component: {fileID: 1205352240842422975}
   - component: {fileID: 7698642804349689986}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ForestObsatcle
   m_TagString: obstacle
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

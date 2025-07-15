@@ -65,7 +65,6 @@ GameObject:
   - component: {fileID: 6116053467477406960}
   - component: {fileID: 3834216317605245170}
   - component: {fileID: 8240738283811635073}
-  - component: {fileID: 1073180166309619988}
   - component: {fileID: 497790525398398642}
   - component: {fileID: -7190648353104991304}
   m_Layer: 0
@@ -163,20 +162,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1.2612538}
   m_Center: {x: 0, y: 0, z: -0.13062692}
---- !u!114 &1073180166309619988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8027987855001571748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d26cb22ae1296c64f83032fcca9489f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1
-  enemyScore: 1
 --- !u!82 &497790525398398642
 AudioSource:
   m_ObjectHideFlags: 0

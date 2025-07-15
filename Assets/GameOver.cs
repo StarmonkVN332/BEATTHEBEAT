@@ -10,7 +10,7 @@ public class GameOver : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerController.isGameOver)
+        if (PlayerInfo.isGameOver)
         {
             pauseSong.Pause();// chỗ này nhét nhạc chính của scene đó
             continueUI.SetActive(true);// chỗ này chỉ nhét ui continue
