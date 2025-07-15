@@ -12,6 +12,7 @@ TagManager:
   - ReturnPool
   - Ground
   - GameOverUI
+  - MissZone
   layers:
   - Default
   - TransparentFX

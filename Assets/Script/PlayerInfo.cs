@@ -26,6 +26,14 @@ public class PlayerInfo : MonoBehaviour
     private void Start()
     {
         GameObject Continue_UI = GameObject.FindGameObjectWithTag("GameOverUI");
+        if (Continue_UI != null)
+        {
+            Continue_UI.SetActive(false); // 👈 This disables the object
+        }
+        else
+        {
+            Debug.LogWarning("Không tìm thấy GameOverUI trong scene!");
+        }
         // Tìm text theo tên (nếu có trong scene)
         GameObject scoreObj = GameObject.Find("ScoreText");
         GameObject comboObj = GameObject.Find("ComboText");
@@ -83,7 +91,7 @@ public class PlayerInfo : MonoBehaviour
         UpdatePlayerInfo();
     }
 
-    private void HandleNoteMiss()
+    public void HandleNoteMiss()
     {
         Debug.Log($"Miss! Combo Reset. Previous Combo: {combo}");
         combo = 0;
