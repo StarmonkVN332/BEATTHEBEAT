@@ -14,6 +14,7 @@ public class PlayerInfo : MonoBehaviour
 
     private TextMeshProUGUI scoreText;
     private TextMeshProUGUI comboText;
+    private ComboTextAnim comboTextAnim;
 
     [Header("Animator")]
     [SerializeField] private Animator animator;
@@ -24,6 +25,14 @@ public class PlayerInfo : MonoBehaviour
 
     private void Start()
     {
+        // Tìm GameObject có gắn ComboTextAnim trong scene
+        comboTextAnim = FindObjectOfType<ComboTextAnim>();
+
+        if (comboTextAnim == null)
+        {
+            Debug.LogWarning("Không tìm thấy ComboTextAnim trong scene!");
+        }
+
         GameObject Continue_UI = GameObject.FindGameObjectWithTag("GameOverUI");
         if (Continue_UI != null)
         {
@@ -59,6 +68,11 @@ public class PlayerInfo : MonoBehaviour
             randomSoundPlayer.PlayRandomSound();
             boomEffect.Play();
             Destroy(other.gameObject);
+
+            if (comboTextAnim != null)
+            {
+                comboTextAnim.AnimationTextCombo();
+            }
         }
         else if(other.CompareTag("obstacle") && !isGameOver)
         {

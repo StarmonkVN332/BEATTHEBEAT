@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6394376353377443352}
   - component: {fileID: 4958780818743760782}
   - component: {fileID: 4899804366197916733}
+  - component: {fileID: 1577221226845435161}
   m_Layer: 5
   m_Name: ComboText
   m_TagString: Untagged
@@ -156,6 +157,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1577221226845435161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2789317133096877201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fc825bd7fbb5f94bb67f38501c32b18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 4899804366197916733}
 --- !u!1 &4677267923929332860
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,7 +801,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b9820c8b6621047a705ce68e89b7b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  continueUI: {fileID: 0}
   pauseSong: {fileID: 0}
 --- !u!224 &4120870498691103311 stripped
 RectTransform:
