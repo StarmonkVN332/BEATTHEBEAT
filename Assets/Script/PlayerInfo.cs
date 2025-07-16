@@ -69,10 +69,10 @@ public class PlayerInfo : MonoBehaviour
             boomEffect.Play();
             Destroy(other.gameObject);
 
-            if (comboTextAnim != null)
-            {
+   
+            
                 comboTextAnim.AnimationTextCombo();
-            }
+            
         }
         else if(other.CompareTag("obstacle") && !isGameOver)
         {
