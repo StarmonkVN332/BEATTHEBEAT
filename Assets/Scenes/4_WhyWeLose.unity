@@ -260,8 +260,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 3, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0.2}
+  m_Size: {x: 15, y: 5, z: 0.5}
+  m_Center: {x: 0, y: 2, z: 0.2}
 --- !u!1 &78704579
 GameObject:
   m_ObjectHideFlags: 0
@@ -1679,6 +1679,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 7945104320810495753, guid: 30b51a88891412e46af9879680a091fd,
+        type: 3}
+      propertyPath: pauseSong
+      value: 
+      objectReference: {fileID: 264816265}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

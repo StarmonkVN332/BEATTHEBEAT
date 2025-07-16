@@ -10,7 +10,9 @@ public class ContinueUI : MonoBehaviour
     [SerializeField] private Image countdownCircle;
     [SerializeField] private TextMeshProUGUI countdownText;
     [SerializeField] private Button continueButton;
-
+    [SerializeField] AudioSource pauseSong;
+    GameObject mainAudio;
+    [SerializeField] PlayerInfo playerinfo;
     private float countdownTime = 5f;
     private float currentTime;
 
@@ -24,7 +26,15 @@ public class ContinueUI : MonoBehaviour
     {
         continueButton.onClick.RemoveListener(OnContinue);
     }
-
+    private void Start()
+    {
+        
+        GameObject mainAudio = GameObject.Find("Audio");
+        if (mainAudio != null)
+            pauseSong = mainAudio.GetComponent<AudioSource>();
+        else
+            Debug.LogWarning("Không tìm thấy ScoreText trong scene!");
+    }
     private void Update()
     {
         currentTime -= Time.unscaledDeltaTime;
@@ -47,9 +57,13 @@ public class ContinueUI : MonoBehaviour
         Time.timeScale = 1f;// thời gian bình thường
 
         //code reload scene
-        Scene curentScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(curentScene.name);
-
+        //Scene curentScene = SceneManager.GetActiveScene();
+        //SceneManager.LoadScene(curentScene.name);
+        if (SongState.SongStarted == true)
+        {
+            pauseSong.Play();
+        }
+        
         gameObject.SetActive(false);// tắt ui continue
     }
 

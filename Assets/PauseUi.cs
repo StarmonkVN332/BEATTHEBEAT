@@ -13,14 +13,22 @@ public class PauseUi : MonoBehaviour
     {
         panelUI.SetActive(true);
         Time.timeScale = 0f;
-        pauseSong.Pause();
+        if (SongState.SongStarted == true)
+        {
+            pauseSong.Pause();
+        }
+        
     }
 
     public void PanelUIFalse()
     {
         panelUI.SetActive(false);
         Time.timeScale = 1f;
-        pauseSong.Play();   
+        if (SongState.SongStarted == true)
+        {
+            pauseSong.Play();
+        }
+
     }
 
     public void BackHomeMenu()

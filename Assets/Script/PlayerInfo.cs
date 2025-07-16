@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class PlayerInfo : MonoBehaviour
 {
     [Header("player info")]
-    [SerializeField] private int playerHealth = 3;
     [SerializeField] private int score = 0;
     [SerializeField] private int combo = 0;
     [SerializeField] private GameObject Continue_UI;
@@ -70,7 +69,7 @@ public class PlayerInfo : MonoBehaviour
                 Continue_UI.SetActive(true);
         }
     }
-      
+
     private void HandleNoteHit()
     {
         float multiplier = 1f;

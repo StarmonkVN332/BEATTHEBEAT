@@ -118,6 +118,7 @@ public class MidiNotePathSpawner : MonoBehaviour
             Debug.Log("Chơi nhạc");
             if (audioSource != null)
             {
+                SongState.SongStarted = true;
                 audioSource.Play();
             }
         }
