@@ -571,6 +571,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1164759920085822042, guid: 30b51a88891412e46af9879680a091fd,
+        type: 3}
+      propertyPath: pauseSong
+      value: 
+      objectReference: {fileID: 1673691687}
     - target: {fileID: 7933560791461629530, guid: 30b51a88891412e46af9879680a091fd,
         type: 3}
       propertyPath: m_Name
