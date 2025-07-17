@@ -158,7 +158,7 @@ MonoBehaviour:
   spawnOrigin: {fileID: 76543901}
   pathLength: 2567
   audioSource: {fileID: 1673691687}
-  note: {fileID: 8027987855001571748, guid: 2d6707babfdfedd4883ad9884aca9416, type: 3}
+  note: {fileID: 8027987855001571748, guid: 1d1624f80179bbf4f9f4188f9aa61954, type: 3}
 --- !u!4 &76543901
 Transform:
   m_ObjectHideFlags: 0
