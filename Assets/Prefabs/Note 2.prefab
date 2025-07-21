@@ -481,6 +481,10 @@ PrefabInstance:
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 9000000, guid: 6f6065c42255df54aa6c774a833d34c5, type: 3}
+    - target: {fileID: 9500000, guid: 6f6065c42255df54aa6c774a833d34c5, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 63009f90d7070ff4c9cf7e4f41b56c53, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
