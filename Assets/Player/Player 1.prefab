@@ -184,7 +184,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -380,6 +380,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4313149319672610022, guid: c272ead60c6350c4da82d77802846d7e,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.1369758
+      objectReference: {fileID: 0}
+    - target: {fileID: 4313149319672610022, guid: c272ead60c6350c4da82d77802846d7e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5.5828757
+      objectReference: {fileID: 0}
+    - target: {fileID: 4313149319672610022, guid: c272ead60c6350c4da82d77802846d7e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.1369758
+      objectReference: {fileID: 0}
+    - target: {fileID: 4313149319672610022, guid: c272ead60c6350c4da82d77802846d7e,
+        type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 418
       objectReference: {fileID: 0}
@@ -488,6 +503,36 @@ PrefabInstance:
       propertyPath: playerinfo
       value: 
       objectReference: {fileID: 2748153551376436890}
+    - target: {fileID: 7712350611170875305, guid: c272ead60c6350c4da82d77802846d7e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5.317547
+      objectReference: {fileID: 0}
+    - target: {fileID: 7712350611170875305, guid: c272ead60c6350c4da82d77802846d7e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6.2494025
+      objectReference: {fileID: 0}
+    - target: {fileID: 7712350611170875305, guid: c272ead60c6350c4da82d77802846d7e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5.317547
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228256879357040099, guid: c272ead60c6350c4da82d77802846d7e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.2748752
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228256879357040099, guid: c272ead60c6350c4da82d77802846d7e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.2748752
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228256879357040099, guid: c272ead60c6350c4da82d77802846d7e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.2748752
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
