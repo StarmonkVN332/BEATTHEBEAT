@@ -1,84 +1,51 @@
 ﻿using Firebase;
+using Firebase.Auth;
 using Firebase.Database;
 using Firebase.Extensions;
+using System;
+using TMPro;
 using UnityEngine;
 
-/// <summary>
-/// Quản lý Firebase Realtime Database cho người dùng.
-/// </summary>
 public class FirebaseManager : MonoBehaviour
 {
-
-    private bool isFirebaseReady = false;
     private DatabaseReference dbReference;
+    [Header("🗂️ UI Texts")]
+    public TMP_Text nameText, coinsText, pointText;
 
     private void Start()
     {
         Debug.Log("🟡 Đang khởi tạo Firebase...");
-
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
         {
-            var dependencyStatus = task.Result;
-            if (dependencyStatus == DependencyStatus.Available)
+            var status = task.Result;
+            if (status == DependencyStatus.Available)
             {
                 dbReference = FirebaseDatabase.DefaultInstance.RootReference;
-                isFirebaseReady = true;
                 Debug.Log("✅ Firebase đã sẵn sàng!");
             }
             else
             {
-                Debug.LogError("❌ Firebase chưa sẵn sàng: " + dependencyStatus);
+                Debug.LogError("❌ Firebase chưa sẵn sàng: " + status);
             }
         });
     }
 
-    /// <summary>
-    /// Lưu dữ liệu người dùng sau khi đăng ký.
-    /// </summary>
     public void SaveUserData(string userId, string name, int coins, int point)
     {
-        if (string.IsNullOrEmpty(userId))
-        {
-            Debug.LogError("❌ userId không hợp lệ!");
-            return;
-        }
-
-        if (dbReference == null)
-        {
-            Debug.LogError("❌ dbReference chưa khởi tạo xong. Hủy lưu dữ liệu.");
-            return;
-        }
-
-        Debug.Log("📤 Bắt đầu lưu dữ liệu cho userId = " + userId);
-
         User user = new User(name, coins, point);
         string json = JsonUtility.ToJson(user);
 
-        Debug.Log("📄 JSON người dùng: " + json);
-
         dbReference.Child("Users").Child(userId).SetRawJsonValueAsync(json).ContinueWithOnMainThread(task =>
         {
-            Debug.Log("🧪 Task lưu dữ liệu đã chạy");
-
             if (task.IsCompletedSuccessfully)
-            {
-                Debug.Log("✅ Dữ liệu người dùng đã lưu thành công!");
-            }
+                Debug.Log("✅ Đã lưu dữ liệu user.");
             else
-            {
-                Debug.LogError("❌ Lỗi khi lưu dữ liệu: " + task.Exception?.Flatten().InnerException?.Message);
-            }
+                Debug.LogError("❌ Lỗi khi lưu user: " + task.Exception);
         });
     }
 
-
-    /// <summary>
-    /// Cập nhật điểm cho người dùng.
-    /// </summary>
     public void UpdatePoint(string userId, int newPoint)
     {
-        if (string.IsNullOrEmpty(userId)) return;
-
         dbReference.Child("Users").Child(userId).Child("Point").SetValueAsync(newPoint).ContinueWithOnMainThread(task =>
         {
             if (task.IsCompletedSuccessfully)
@@ -88,64 +55,121 @@ public class FirebaseManager : MonoBehaviour
         });
     }
 
-    /// <summary>
-    /// Cập nhật số Coins cho người dùng.
-    /// </summary>
-    public void UpdateCoins(string userId, int coins)
+    public void SaveSongScore(string userId, string songId, int score)
     {
-        if (string.IsNullOrEmpty(userId)) return;
-
-        dbReference.Child("Users").Child(userId).Child("Coins").SetValueAsync(coins).ContinueWithOnMainThread(task =>
+        dbReference.Child("Users").Child(userId).Child("SongScores").Child(songId).SetValueAsync(score).ContinueWithOnMainThread(task =>
         {
             if (task.IsCompletedSuccessfully)
-                Debug.Log("✅ Cập nhật Coins thành công.");
+                Debug.Log("✅ Đã lưu điểm bài hát: " + songId);
             else
-                Debug.LogError("❌ Lỗi khi cập nhật Coins: " + task.Exception);
+                Debug.LogError("❌ Lỗi khi lưu điểm bài hát: " + task.Exception);
         });
     }
 
-    /// <summary>
-    /// Lấy thông tin điểm từ Firebase.
-    /// </summary>
-    public void GetPoint(string userId)
+    public void LoadUserData(string userId, System.Action<string, int, int> callback)
     {
-        if (string.IsNullOrEmpty(userId)) return;
-
-        dbReference.Child("Users").Child(userId).Child("Point").GetValueAsync().ContinueWithOnMainThread(task =>
+        dbReference.Child("Users").Child(userId).GetValueAsync().ContinueWithOnMainThread(task =>
         {
             if (task.IsCompletedSuccessfully)
             {
                 DataSnapshot snapshot = task.Result;
-
-                if (snapshot.Exists && int.TryParse(snapshot.Value?.ToString(), out int point))
+                if (snapshot.Exists)
                 {
-                    Debug.Log("🎯 Điểm của người dùng: " + point);
+                    User user = JsonUtility.FromJson<User>(snapshot.GetRawJsonValue());
+                    callback?.Invoke(user.Name, user.Coins, user.Point);
                 }
                 else
                 {
-                    Debug.LogWarning("⚠ Không tìm thấy điểm hoặc dữ liệu không hợp lệ.");
+                    Debug.LogWarning("⚠ Không tìm thấy dữ liệu user.");
+                    callback?.Invoke("Unknown", 0, 0);
                 }
             }
             else
             {
-                Debug.LogError("❌ Lỗi khi lấy Point: " + task.Exception);
+                Debug.LogError("❌ Lỗi khi load user: " + task.Exception);
+                callback?.Invoke("Error", 0, 0);
             }
         });
     }
 
-    /// <summary>
-    /// Gọi khi đăng nhập thành công.
-    /// </summary>
+    public void LoadUserDataAndDisplay()
+    {
+        string userId = FirebaseAuth.DefaultInstance.CurrentUser.UserId;
+        dbReference.Child("Users").Child(userId).GetValueAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.IsCompletedSuccessfully)
+            {
+                DataSnapshot snapshot = task.Result;
+                if (snapshot.Exists)
+                {
+                    User user = JsonUtility.FromJson<User>(snapshot.GetRawJsonValue());
+                    Debug.Log($"👤 {user.Name} | 💰 {user.Coins} | 🏆 {user.Point}");
+
+                    if (nameText != null) nameText.text = user.Name;
+                    if (coinsText != null) coinsText.text = user.Coins.ToString();
+                    if (pointText != null) pointText.text = user.Point.ToString();
+                }
+                else
+                {
+                    Debug.LogWarning("⚠ User không có dữ liệu.");
+                }
+            }
+            else
+            {
+                Debug.LogError("❌ Lỗi khi load user: " + task.Exception);
+            }
+        });
+    }
+
     public void OnLoginSuccess()
     {
-        Debug.Log("🎉 OnLoginSuccess: Đăng nhập thành công!");
-        // LoadUserData(userId); // Gợi ý mở rộng
+        Debug.Log("🎉 OnLoginSuccess");
+        LoadUserDataAndDisplay();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    internal void LoadUserData(string userId, Action<object, object, object> value)
+    {
+        throw new NotImplementedException();
     }
 }
 
-/// <summary>
-/// Model người dùng để lưu vào Firebase.
-/// </summary>
 [System.Serializable]
 public class User
 {

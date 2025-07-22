@@ -45,6 +45,7 @@ public class FirebaseLoginManager : MonoBehaviour
         
         buttonGoogleLogin.onClick.AddListener(SignInWithGoogle);
 
+
         firebaseManager = FindObjectOfType<FirebaseManager>();
         if (firebaseManager == null)
         {
