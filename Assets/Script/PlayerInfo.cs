@@ -14,6 +14,7 @@ public class PlayerInfo : MonoBehaviour
 
     private TextMeshProUGUI scoreText;
     private TextMeshProUGUI comboText;
+    private TextMeshProUGUI summaryScoreText;
     private ComboTextAnim comboTextAnim;
 
     [Header("Animator")]
@@ -25,6 +26,15 @@ public class PlayerInfo : MonoBehaviour
 
     private void Start()
     {
+        GameObject summaryScoreObj = GameObject.Find("Summary_Score_Text");
+        if (summaryScoreObj != null)
+        {
+            summaryScoreText = summaryScoreObj.GetComponent<TextMeshProUGUI>();
+        }
+        else
+        {
+            Debug.LogWarning("Không tìm thấy Summary_Score_Text trong scene!");
+        }
         // Tìm GameObject có gắn ComboTextAnim trong scene
         comboTextAnim = FindObjectOfType<ComboTextAnim>();
 
@@ -78,9 +88,18 @@ public class PlayerInfo : MonoBehaviour
         {
             failSongPlayer.Play();
             isGameOver = true;
+            if (summaryScoreText != null)
+            {
+                summaryScoreText.text = "Tổng điểm: " + score.ToString();
+            }
             Debug.Log("Game Over!");
             if (Continue_UI != null)
                 Continue_UI.SetActive(true);
+        }
+
+        if (other.CompareTag("WinTrigger"))
+        {
+            Time.timeScale = 0f;
         }
     }
 
