@@ -129,9 +129,7 @@ public class PlayerController : MonoBehaviour
         currentPosition.z += forwardSpeed * Time.deltaTime;
         transform.position = currentPosition;
 
-        //─────────────────────────────────────────────────────────────
-        // XOAY MODEL THEO DI CHUYỂN
-        //─────────────────────────────────────────────────────────────
+
         if (rotationModel != null)
         {
             if (Mathf.Abs(velocityX) >= rotationVelocityThreshold)
@@ -154,8 +152,4 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //─────────────────────────────────────────────────────────────
-    // XỬ LÝ GAME OVER & CHẠM VẬT CẢN
-    //─────────────────────────────────────────────────────────────
-    
 }
