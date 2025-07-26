@@ -20,9 +20,22 @@ public class MidiNotePathSpawner : MonoBehaviour
 
     void Start()
     {
+        GameState.GameStarted = false;
         StartCoroutine(LoadAndSpawnNotesCoroutine());
+        Time.timeScale = 1f; // Đặt lại tốc độ thời gian về bình thường
     }
-
+    void OnEnable()
+    {
+        GameState.GameStarted = false;
+        SongState.SongStarted = false;
+        noteEvents.Clear();
+    }
+    private void OnDisable()
+    {
+        GameState.GameStarted = false;
+        SongState.SongStarted = false;
+        noteEvents.Clear();
+    }
     IEnumerator LoadAndSpawnNotesCoroutine()
     {
         // 1. Load MIDI

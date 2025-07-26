@@ -6,6 +6,10 @@ public class MainMenuController : MonoBehaviour
     public GameObject panelMainMenu; // <- thêm biến này
     public GameObject panelPlayerSelection;
 
+    private void Start()
+    {
+        Time.timeScale = 1f; // Đảm bảo game không bị dừng khi vào menu
+    }
     public void OnPlayButtonClicked()
     {
         panelMusicSelection.SetActive(true);

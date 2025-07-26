@@ -22,7 +22,6 @@ public class MidiObstaclePathSpawner : MonoBehaviour
     void Start()
     {
         StartCoroutine(LoadAndSpawnObstaclesCoroutine());
-        
     }
 
     IEnumerator LoadAndSpawnObstaclesCoroutine()

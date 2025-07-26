@@ -9,6 +9,7 @@ public class SpawnGround : MonoBehaviour
     private void OnEnable()
     {
         hasSpawned = false; // Reset mỗi lần object được bật lại
+        lastZSpawn = 0f; // Reset vị trí spawn mỗi lần object được bật lại
     }
 
     private void OnTriggerEnter(Collider other)
