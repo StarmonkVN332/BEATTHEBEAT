@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -34,5 +34,15 @@ public class PauseUi : MonoBehaviour
     public void BackHomeMenu()
     {
         SceneManager.LoadSceneAsync(0);
+    }
+
+    public void ReloadCurrentScene()
+    {
+        // Lấy tên scene hiện tại
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        // Load lại scene (Single => xoá sạch mọi thứ khác, giống lần đầu load)
+        SceneManager.LoadScene(currentScene, LoadSceneMode.Single);
+        Time.timeScale = 1f;
     }
 }
