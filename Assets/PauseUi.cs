@@ -8,6 +8,7 @@ public class PauseUi : MonoBehaviour
 {
     [SerializeField] private GameObject panelUI;
     [SerializeField] AudioSource pauseSong;
+    [SerializeField] private GameObject optionsUI;
 
     public void PanelUITrue()
     {
@@ -29,6 +30,15 @@ public class PauseUi : MonoBehaviour
             pauseSong.Play();
         }
 
+    }
+
+    public void PannelOptionsTrue()
+    {
+        optionsUI.SetActive(true);
+    }
+    public void PannelOptionsFalse()
+    {
+        optionsUI.SetActive(false);
     }
 
     public void BackHomeMenu()
