@@ -7,7 +7,7 @@ QualitySettings:
   m_CurrentQuality: 0
   m_QualitySettings:
   - serializedVersion: 3
-    name: Performant
+    name: Performance
     pixelLightCount: 0
     shadows: 0
     shadowResolution: 0
@@ -30,8 +30,8 @@ QualitySettings:
     useLegacyDetailDistribution: 1
     vSyncCount: 0
     realtimeGICPUUsage: 25
-    lodBias: 0.4
-    maximumLODLevel: 0
+    lodBias: 0.01
+    maximumLODLevel: 2
     enableLODCrossFade: 1
     streamingMipmapsActive: 0
     streamingMipmapsAddAllCameras: 1

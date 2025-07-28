@@ -192,6 +192,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 248855ad9c530fa49a66c5ddebd72798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameText: {fileID: 0}
+  coinsText: {fileID: 0}
+  pointText: {fileID: 0}
 --- !u!1 &1589074622
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,6 +507,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -284
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641235048898695235, guid: 959cf3f46cfa71f41a64a75d02becd35,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641235048898695235, guid: 959cf3f46cfa71f41a64a75d02becd35,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641235048898695235, guid: 959cf3f46cfa71f41a64a75d02becd35,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641235048898695235, guid: 959cf3f46cfa71f41a64a75d02becd35,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 165.3519
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641235048898695235, guid: 959cf3f46cfa71f41a64a75d02becd35,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641235048898695235, guid: 959cf3f46cfa71f41a64a75d02becd35,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641235048898695235, guid: 959cf3f46cfa71f41a64a75d02becd35,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4641235048898695235, guid: 959cf3f46cfa71f41a64a75d02becd35,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -284
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791225585059353331, guid: 959cf3f46cfa71f41a64a75d02becd35,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6670536236400705402, guid: 959cf3f46cfa71f41a64a75d02becd35,
         type: 3}
