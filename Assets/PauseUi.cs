@@ -43,7 +43,7 @@ public class PauseUi : MonoBehaviour
 
     public void BackHomeMenu()
     {
-        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadSceneAsync("0_menuTest");
     }
 
     public void ReloadCurrentScene()
@@ -52,7 +52,7 @@ public class PauseUi : MonoBehaviour
         string currentScene = SceneManager.GetActiveScene().name;
 
         // Load lại scene (Single => xoá sạch mọi thứ khác, giống lần đầu load)
-        SceneManager.LoadScene(currentScene, LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync(currentScene, LoadSceneMode.Single);
         Time.timeScale = 1f;
     }
 }
