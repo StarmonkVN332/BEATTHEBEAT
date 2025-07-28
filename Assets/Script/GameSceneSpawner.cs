@@ -11,11 +11,12 @@ public class GameSceneSpawner : MonoBehaviour
         StartCoroutine(SpawnWithDelay());
 
     }
-    private void OnEnable()
-    {
-        // Start the coroutine to spawn the player after a delay
-        StartCoroutine(SpawnWithDelay());
-    }
+        
+    //private void OnEnable()
+    //{
+    //    // Start the coroutine to spawn the player after a delay
+    //    StartCoroutine(SpawnWithDelay());
+    //}
     
 
     IEnumerator SpawnWithDelay()

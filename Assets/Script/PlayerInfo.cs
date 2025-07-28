@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 public class PlayerInfo : MonoBehaviour
@@ -26,15 +27,15 @@ public class PlayerInfo : MonoBehaviour
 
     private void Start()
     {
-        GameObject summaryScoreObj = GameObject.Find("Summary_Score_Text");
-        if (summaryScoreObj != null)
-        {
-            summaryScoreText = summaryScoreObj.GetComponent<TextMeshProUGUI>();
-        }
-        else
-        {
-            Debug.LogWarning("Không tìm thấy Summary_Score_Text trong scene!");
-        }
+        //GameObject summaryScoreObj = GameObject.Find("Summary_Score_Text");
+        //if (summaryScoreObj != null)
+        //{
+        //    summaryScoreText = summaryScoreObj.GetComponent<TextMeshProUGUI>();
+        //}
+        //else
+        //{
+        //    Debug.LogWarning("Không tìm thấy Summary_Score_Text trong scene!");
+        //}
         // Tìm GameObject có gắn ComboTextAnim trong scene
         comboTextAnim = FindObjectOfType<ComboTextAnim>();
 
@@ -42,7 +43,7 @@ public class PlayerInfo : MonoBehaviour
         {
             Debug.LogWarning("Không tìm thấy ComboTextAnim trong scene!");
         }
-
+        //
         GameObject Continue_UI = GameObject.FindGameObjectWithTag("GameOverUI");
         if (Continue_UI != null)
         {
@@ -88,10 +89,10 @@ public class PlayerInfo : MonoBehaviour
         {
             failSongPlayer.Play();
             isGameOver = true;
-            if (summaryScoreText != null)
-            {
-                summaryScoreText.text = "Tổng điểm: " + score.ToString();
-            }
+            //if (summaryScoreText != null)
+            //{
+            //    summaryScoreText.text = "Tổng điểm: " + score.ToString();
+            //}
             Debug.Log("Game Over!");
             if (Continue_UI != null)
                 Continue_UI.SetActive(true);
@@ -100,6 +101,7 @@ public class PlayerInfo : MonoBehaviour
         if (other.CompareTag("WinTrigger"))
         {
             Time.timeScale = 0f;
+           
         }
     }
 
@@ -142,6 +144,7 @@ public class PlayerInfo : MonoBehaviour
             comboText.text = "x" + combo.ToString();
         }
     }
+
     public void SendHitNote()
     {
         HandleNoteHit();
@@ -151,5 +154,10 @@ public class PlayerInfo : MonoBehaviour
     {
         Debug.Log("Miss Note! Combo reset.");
         HandleNoteMiss();
+    }
+
+    public int GetScore()
+    {
+        return score;
     }
 }
