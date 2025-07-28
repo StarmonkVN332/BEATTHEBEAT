@@ -79,7 +79,7 @@ public class FirebaseLoginManager : MonoBehaviour
                 firebaseManager.SaveUserData(firebaseUser.UserId, defaultName, defaultCoins, defaultPoint);
             }
 
-            SceneManager.LoadScene("Test");
+            SceneManager.LoadScene("0_menuTest");
         });
     }
 
