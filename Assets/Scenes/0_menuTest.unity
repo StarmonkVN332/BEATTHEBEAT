@@ -3494,6 +3494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 330425071}
   - component: {fileID: 330425070}
+  - component: {fileID: 330425072}
   m_Layer: 7
   m_Name: Player_Model_Male
   m_TagString: Untagged
@@ -3534,6 +3535,27 @@ Transform:
   - {fileID: 1731152383}
   m_Father: {fileID: 1416654082}
   m_LocalEulerAnglesHint: {x: 0.662, y: -176.508, z: 0.04}
+--- !u!95 &330425072
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330425069}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 0308cf4e83cf517488b60af58b290fe0, type: 3}
+  m_Controller: {fileID: 9100000, guid: 50a853a3ff2ad7a4c9d245773cd9fad3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &331914458
 GameObject:
   m_ObjectHideFlags: 0
@@ -9197,6 +9219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 918706916}
   - component: {fileID: 918706917}
+  - component: {fileID: 918706918}
   m_Layer: 7
   m_Name: Player_Model_Female
   m_TagString: Untagged
@@ -9237,6 +9260,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 30
+--- !u!95 &918706918
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918706915}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 0308cf4e83cf517488b60af58b290fe0, type: 3}
+  m_Controller: {fileID: 9100000, guid: 50a853a3ff2ad7a4c9d245773cd9fad3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &923137857
 GameObject:
   m_ObjectHideFlags: 0
