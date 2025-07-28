@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using MidiParser;
-using UnityEditor.Experimental.GraphView;
 
 public class MidiObstaclePathSpawner : MonoBehaviour
 {
