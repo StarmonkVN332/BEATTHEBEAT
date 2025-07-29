@@ -4,6 +4,9 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Firebase.Auth;
+using UnityEngine;
+using Firebase.Extensions;
 public class PlayerInfo : MonoBehaviour
 {
     [Header("player info")]
@@ -23,10 +26,42 @@ public class PlayerInfo : MonoBehaviour
     [SerializeField] private RandomSoundPlayer randomSoundPlayer;
     [SerializeField] private ParticleSystem boomEffect;
 
+    [Header("Firebase Info")]
+    [SerializeField] private TextMeshProUGUI nameText;
+    [SerializeField] private TextMeshProUGUI coinsText;
+    [SerializeField] private TextMeshProUGUI pointText;
+    private FirebaseManager firebaseManager;
+    private string userId;
+
     private int basePointPerNote = 100;
 
     private void Start()
     {
+
+        firebaseManager = FindObjectOfType<FirebaseManager>();
+        if (firebaseManager == null)
+        {
+            Debug.LogError("❌ Không tìm thấy FirebaseManager!");
+            return; // Dừng lại để không gọi LoadUserData khi firebaseManager null
+        }
+        FirebaseUser user = FirebaseAuth.DefaultInstance.CurrentUser;
+
+        if (user != null)
+        {
+            userId = user.UserId;
+            firebaseManager?.LoadUserData(userId, (name, coins, point) =>
+            {
+                if (nameText != null) nameText.text = name;
+                if (coinsText != null) coinsText.text = "Coins: " + coins;
+                if (pointText != null) pointText.text = "Point: " + point;
+            });
+        }
+        else
+        {
+            Debug.LogWarning("⚠ Chưa đăng nhập, không thể load user info.");
+        }
+
+
         //GameObject summaryScoreObj = GameObject.Find("Summary_Score_Text");
         //if (summaryScoreObj != null)
         //{
@@ -66,6 +101,15 @@ public class PlayerInfo : MonoBehaviour
             comboText = comboObj.GetComponent<TextMeshProUGUI>();
         else
             Debug.LogWarning("Không tìm thấy ComboText trong scene!");
+
+        firebaseManager = FindObjectOfType<FirebaseManager>();
+        if (firebaseManager == null)
+        {
+            Debug.LogError("❌ Không tìm thấy FirebaseManager!");
+            return;
+        }
+
+        firebaseManager?.SaveSongScore(userId, "song1", score);//LUU BAI DIEM TUNG BAI HAT
 
         UpdatePlayerInfo();
     }

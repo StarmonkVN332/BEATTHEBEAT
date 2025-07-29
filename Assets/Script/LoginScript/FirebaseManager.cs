@@ -3,6 +3,7 @@ using Firebase.Auth;
 using Firebase.Database;
 using Firebase.Extensions;
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -12,8 +13,23 @@ public class FirebaseManager : MonoBehaviour
     [Header("🗂️ UI Texts")]
     public TMP_Text nameText, coinsText, pointText;
 
+    private bool isFirebaseReady = false;
+    internal readonly bool IsReady;
+
     private void Start()
     {
+
+
+        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.Result == DependencyStatus.Available)
+            {
+                dbReference = FirebaseDatabase.DefaultInstance.RootReference;
+                isFirebaseReady = true;
+                LoadUserDataAndDisplay(); // gọi ở đây đảm bảo firebase ready
+            }
+        });
+
         Debug.Log("🟡 Đang khởi tạo Firebase...");
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
         {
@@ -29,6 +45,7 @@ public class FirebaseManager : MonoBehaviour
             }
         });
     }
+
 
     public void SaveUserData(string userId, string name, int coins, int point)
     {
@@ -127,48 +144,27 @@ public class FirebaseManager : MonoBehaviour
         LoadUserDataAndDisplay();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    internal void LoadUserData(string userId, Action<object, object, object> value)
+    public void UpdateUserData(string userId, int newCoins, int newPoint)
     {
-        throw new NotImplementedException();
+        Dictionary<string, object> updates = new Dictionary<string, object>();
+        updates["Coins"] = newCoins;
+        updates["Point"] = newPoint;
+
+        dbReference.Child("Users").Child(userId).UpdateChildrenAsync(updates).ContinueWithOnMainThread(task =>
+        {
+            if (task.IsCompletedSuccessfully)
+            {
+                Debug.Log("✅ Dữ liệu đã được cập nhật!");
+            }
+            else
+            {
+                Debug.LogError("❌ Cập nhật dữ liệu thất bại: " + task.Exception);
+            }
+        });
     }
-}
+
+
+    }
 
 [System.Serializable]
 public class User
@@ -184,3 +180,5 @@ public class User
         Point = point;
     }
 }
+
+
