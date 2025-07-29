@@ -1147,6 +1147,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 7284598669604578543, guid: e916ef7e432b362448dee4c4dec3fe61,
+        type: 3}
+      propertyPath: winPannel
+      value: 
+      objectReference: {fileID: 2001721481}
+    - target: {fileID: 7284598669604578543, guid: e916ef7e432b362448dee4c4dec3fe61,
+        type: 3}
+      propertyPath: summaryScore
+      value: 
+      objectReference: {fileID: 2001721480}
     - target: {fileID: 7870676571537162982, guid: e916ef7e432b362448dee4c4dec3fe61,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1330,6 +1340,24 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30b51a88891412e46af9879680a091fd, type: 3}
+--- !u!114 &2001721480 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 128806167240180812, guid: 30b51a88891412e46af9879680a091fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 2001721479}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2001721481 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6051532605061202610, guid: 30b51a88891412e46af9879680a091fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 2001721479}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &463861124219645527
 PrefabInstance:
   m_ObjectHideFlags: 0
