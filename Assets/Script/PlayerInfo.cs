@@ -18,6 +18,7 @@ public class PlayerInfo : MonoBehaviour
     private TextMeshProUGUI scoreText;
     private TextMeshProUGUI comboText;
     private TextMeshProUGUI summaryScoreText;
+
     private ComboTextAnim comboTextAnim;
 
     [Header("Animator")]
@@ -37,39 +38,39 @@ public class PlayerInfo : MonoBehaviour
     private void Start()
     {
 
-        firebaseManager = FindObjectOfType<FirebaseManager>();
-        if (firebaseManager == null)
-        {
-            Debug.LogError("❌ Không tìm thấy FirebaseManager!");
-            return; // Dừng lại để không gọi LoadUserData khi firebaseManager null
-        }
-        FirebaseUser user = FirebaseAuth.DefaultInstance.CurrentUser;
-
-        if (user != null)
-        {
-            userId = user.UserId;
-            firebaseManager?.LoadUserData(userId, (name, coins, point) =>
-            {
-                if (nameText != null) nameText.text = name;
-                if (coinsText != null) coinsText.text = "Coins: " + coins;
-                if (pointText != null) pointText.text = "Point: " + point;
-            });
-        }
-        else
-        {
-            Debug.LogWarning("⚠ Chưa đăng nhập, không thể load user info.");
-        }
-
-
-        //GameObject summaryScoreObj = GameObject.Find("Summary_Score_Text");
-        //if (summaryScoreObj != null)
+        //firebaseManager = FindObjectOfType<FirebaseManager>();
+        //if (firebaseManager == null)
         //{
-        //    summaryScoreText = summaryScoreObj.GetComponent<TextMeshProUGUI>();
+        //    Debug.LogError("❌ Không tìm thấy FirebaseManager!");
+        //    return; // Dừng lại để không gọi LoadUserData khi firebaseManager null
+        //}
+        //FirebaseUser user = FirebaseAuth.DefaultInstance.CurrentUser;
+
+        //if (user != null)
+        //{
+        //    userId = user.UserId;
+        //    firebaseManager?.LoadUserData(userId, (name, coins, point) =>
+        //    {
+        //        if (nameText != null) nameText.text = name;
+        //        if (coinsText != null) coinsText.text = "Coins: " + coins;
+        //        if (pointText != null) pointText.text = "Point: " + point;
+        //    });
         //}
         //else
         //{
-        //    Debug.LogWarning("Không tìm thấy Summary_Score_Text trong scene!");
+        //    Debug.LogWarning("⚠ Chưa đăng nhập, không thể load user info.");
         //}
+
+
+        GameObject summaryScoreObj = GameObject.Find("Summary_Score_Text");
+        if (summaryScoreObj != null)
+        {
+            summaryScoreText = summaryScoreObj.GetComponent<TextMeshProUGUI>();
+        }
+        else
+        {
+            Debug.LogWarning("Không tìm thấy Summary_Score_Text trong scene!");
+        }
         // Tìm GameObject có gắn ComboTextAnim trong scene
         comboTextAnim = FindObjectOfType<ComboTextAnim>();
 
@@ -128,10 +129,10 @@ public class PlayerInfo : MonoBehaviour
         {
             failSongPlayer.Play();
             isGameOver = true;
-            //if (summaryScoreText != null)
-            //{
-            //    summaryScoreText.text = "Tổng điểm: " + score.ToString();
-            //}
+            if (summaryScoreText != null)
+            {
+                summaryScoreText.text = "Tổng điểm: " + score.ToString();
+            }
             Debug.Log("Game Over!");
             if (Continue_UI != null)
                 Continue_UI.SetActive(true);

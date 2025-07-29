@@ -11,7 +11,7 @@ public class ActivateOnTrigger : MonoBehaviour
     private void Start()
     {
         // Cách 1: Tìm trực tiếp trong scene
-        //playerInfo = FindObjectOfType<PlayerInfo>();
+        playerInfo = FindObjectOfType<PlayerInfo>();
 
         // Cách 2: Hoặc public biến rồi kéo PlayerInfo vào Inspector
         // (public PlayerInfo playerInfo;)
