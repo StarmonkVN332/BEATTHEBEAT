@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using static UnityEditor.Progress;
 
 public class MainMenuController : MonoBehaviour
 {
     public GameObject panelMusicSelection;
     public GameObject panelMainMenu; // <- thêm biến này
     public GameObject panelPlayerSelection;
+    [SerializeField] private GameObject optionsUI;
 
     private void Start()
     {
@@ -27,5 +29,13 @@ public class MainMenuController : MonoBehaviour
     public void PlayerSelection()
     {
         panelPlayerSelection.SetActive(true);
+    }
+    public void PannelOptionsTrue()
+    {
+        optionsUI.SetActive(true);
+    }
+    public void PannelOptionsFalse()
+    {
+        optionsUI.SetActive(false);
     }
 }
