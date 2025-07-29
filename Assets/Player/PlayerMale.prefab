@@ -1405,7 +1405,6 @@ GameObject:
   - component: {fileID: 7050254159649278085}
   - component: {fileID: 766828738105871787}
   - component: {fileID: 8615643157894204954}
-  - component: {fileID: 6437354420231077097}
   - component: {fileID: 7460108608017124468}
   - component: {fileID: 546028350804958027}
   - component: {fileID: 419604743013270248}
@@ -1488,31 +1487,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &6437354420231077097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3831083840356105797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4ebfe046f1140745a0fcb62875e1a0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 766828738105871787}
-  moveSpeed: 20
-  forwardSpeed: 25
-  minX: -4.5
-  maxX: 4.5
-  smoothTime: 0.1
-  isGrounded: 0
-  rotationModel: {fileID: 0}
-  rotationAngle: 20
-  rotationSmoothTime: 0.2
-  rotationVelocityThreshold: 0.1
-  jumpForce: 20
-  gravity: -35
 --- !u!114 &7460108608017124468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1532,6 +1506,9 @@ MonoBehaviour:
   animator: {fileID: 766828738105871787}
   randomSoundPlayer: {fileID: 345049431541998109}
   boomEffect: {fileID: 3196587013065498470}
+  nameText: {fileID: 0}
+  coinsText: {fileID: 0}
+  pointText: {fileID: 0}
 --- !u!65 &546028350804958027
 BoxCollider:
   m_ObjectHideFlags: 0

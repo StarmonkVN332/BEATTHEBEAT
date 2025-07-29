@@ -5,7 +5,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using Firebase.Auth;
-using UnityEngine;
 using Firebase.Extensions;
 public class PlayerInfo : MonoBehaviour
 {
@@ -122,12 +121,8 @@ public class PlayerInfo : MonoBehaviour
             Debug.Log("Chạm vào Enemy: Ăn note thành công");
             randomSoundPlayer.PlayRandomSound();
             boomEffect.Play();
-            Destroy(other.gameObject);
-
-   
-            
-                comboTextAnim.AnimationTextCombo();
-            
+            Destroy(other.gameObject);            
+            comboTextAnim.AnimationTextCombo();
         }
         else if(other.CompareTag("obstacle") && !isGameOver)
         {

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1006483, g: 0.12502792, b: 0.31768593, a: 1}
+  m_IndirectSpecularColor: {r: 0.1005261, g: 0.124903746, b: 0.31757486, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -380,6 +380,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpawnPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2711828909641147863, guid: 663caa6bac3192248bca50b19295142b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8746940937565249992, guid: 663caa6bac3192248bca50b19295142b,
         type: 3}
@@ -1218,6 +1223,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Game_Over
+      objectReference: {fileID: 0}
+    - target: {fileID: 3937033788140529430, guid: 995eb5dae925ee047bb9693b7e3edbba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6640089684069151091, guid: 995eb5dae925ee047bb9693b7e3edbba,
         type: 3}

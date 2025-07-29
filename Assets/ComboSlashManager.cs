@@ -15,7 +15,7 @@ public class ComboSlashManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Enemy")) return;
+        if (!other.CompareTag("AnimationTrigger")) return;
 
         int randomIndex = Random.Range(0, attackAnimations.Length);
 

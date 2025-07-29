@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.100604154, g: 0.12499231, b: 0.31765345, a: 1}
+  m_IndirectSpecularColor: {r: 0.100439206, g: 0.124807745, b: 0.31746665, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1474,6 +1474,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Game_Over
+      objectReference: {fileID: 0}
+    - target: {fileID: 3937033788140529430, guid: 995eb5dae925ee047bb9693b7e3edbba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6640089684069151091, guid: 995eb5dae925ee047bb9693b7e3edbba,
         type: 3}
