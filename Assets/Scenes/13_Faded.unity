@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1006483, g: 0.12502792, b: 0.31768593, a: 1}
+  m_IndirectSpecularColor: {r: 0.1005261, g: 0.124903746, b: 0.31757486, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -157,7 +157,7 @@ MonoBehaviour:
   midiFolder: Faded
   midiFileName: FadedMain
   spawnOrigin: {fileID: 76543901}
-  pathLength: 3212
+  pathLength: 3214
   audioSource: {fileID: 1673691687}
   note: {fileID: 8027987855001571748, guid: 78ffbb6583271714fbf06bbe71c41525, type: 3}
 --- !u!4 &76543901
@@ -445,7 +445,7 @@ MonoBehaviour:
   midiFolder: Faded
   midiFileName: FadedObstacle
   spawnOrigin: {fileID: 494900255}
-  pathLength: 3212
+  pathLength: 3214
   audioSource: {fileID: 1673691687}
   obstacle: {fileID: 5335695315599310126, guid: a2f1b640c922be746a04843eaeb802c3,
     type: 3}
