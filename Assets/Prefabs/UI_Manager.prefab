@@ -1452,6 +1452,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1139718097702908655}
     m_Modifications:
+    - target: {fileID: 328563664946899644, guid: fcab0ceb856107a4594692a49a071a42,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296907013876905022, guid: fcab0ceb856107a4594692a49a071a42,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1519290615543728382, guid: fcab0ceb856107a4594692a49a071a42,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1561,6 +1571,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: OPTIONS
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898754761042541670, guid: fcab0ceb856107a4594692a49a071a42,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5388371801826197113, guid: fcab0ceb856107a4594692a49a071a42,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6409694584145753358, guid: fcab0ceb856107a4594692a49a071a42,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
