@@ -947,6 +947,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7029442246078377464, guid: f6d2f45461b1f2d418ad0bdfb945302f,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7029442246078377464, guid: f6d2f45461b1f2d418ad0bdfb945302f,
+        type: 3}
       propertyPath: m_TagString
       value: MissZone
       objectReference: {fileID: 0}
@@ -1103,6 +1108,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 175238629035115752, guid: f6d2f45461b1f2d418ad0bdfb945302f, type: 3}
+    - {fileID: 7029442246078377464, guid: f6d2f45461b1f2d418ad0bdfb945302f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 518415876273585939, guid: f6d2f45461b1f2d418ad0bdfb945302f,
