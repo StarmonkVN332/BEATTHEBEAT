@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1006483, g: 0.12502792, b: 0.31768593, a: 1}
+  m_IndirectSpecularColor: {r: 0.1005261, g: 0.124903746, b: 0.31757486, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -574,6 +574,11 @@ PrefabInstance:
       propertyPath: pauseSong
       value: 
       objectReference: {fileID: 1673691687}
+    - target: {fileID: 5792499725554161613, guid: 30b51a88891412e46af9879680a091fd,
+        type: 3}
+      propertyPath: m_text
+      value: Cry For Me
+      objectReference: {fileID: 0}
     - target: {fileID: 7933560791461629530, guid: 30b51a88891412e46af9879680a091fd,
         type: 3}
       propertyPath: m_Name

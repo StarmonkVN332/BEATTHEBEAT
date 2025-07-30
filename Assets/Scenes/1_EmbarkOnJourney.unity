@@ -449,6 +449,11 @@ PrefabInstance:
       propertyPath: pauseSong
       value: 
       objectReference: {fileID: 1673691687}
+    - target: {fileID: 5792499725554161613, guid: 30b51a88891412e46af9879680a091fd,
+        type: 3}
+      propertyPath: m_text
+      value: Embark On Journey
+      objectReference: {fileID: 0}
     - target: {fileID: 7933560791461629530, guid: 30b51a88891412e46af9879680a091fd,
         type: 3}
       propertyPath: m_Name
