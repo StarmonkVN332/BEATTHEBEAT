@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LoginScene.unity
     guid: 8733e8a56a6b062488f70e9ecc0ae710
   - enabled: 1
@@ -57,5 +57,11 @@ EditorBuildSettings:
     path: Assets/Scenes/14_WhyDoI.unity
     guid: 34165566405702842b954765a266c445
   m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000,
+      guid: 13e79675eeec0df45a4df5a0a3afc1ce, type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 54f414078b51da34bbfef9d1ef0c8b00,
+      type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000,
+      guid: f7342f01fdc346745a610626a3e3c1ce, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: ecaf6ed883b7b164a8fed9b8e94ea91e, type: 2}
