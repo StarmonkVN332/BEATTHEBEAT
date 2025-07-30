@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Firebase.Auth;
 using Firebase.Extensions;
+using UnityEngine.SceneManagement;
 public class PlayerInfo : MonoBehaviour
 {
     [Header("player info")]
@@ -61,7 +62,8 @@ public class PlayerInfo : MonoBehaviour
         //    Debug.LogWarning("⚠ Chưa đăng nhập, không thể load user info.");
         //}
 
-
+        string sceneName = SceneManager.GetActiveScene().name;
+        Debug.Log("Current scene name: " + sceneName);
         GameObject summaryScoreObj = GameObject.Find("Summary_Score_Text");
         if (summaryScoreObj != null)
         {
@@ -109,7 +111,7 @@ public class PlayerInfo : MonoBehaviour
             return;
         }
 
-        firebaseManager?.SaveSongScore(userId, "song1", score);//LUU BAI DIEM TUNG BAI HAT
+        firebaseManager?.SaveSongScore(userId, sceneName, score);//LUU BAI DIEM TUNG BAI HAT
 
         UpdatePlayerInfo();
     }
