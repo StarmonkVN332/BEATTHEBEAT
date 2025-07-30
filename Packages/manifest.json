@@ -1,9 +1,6 @@
 {
   "dependencies": {
     "com.qiaozhilei.easy-text-effects": "https://github.com/LeiQiaoZhi/Easy-Text-Effect.git",
-    "com.unity.adaptiveperformance": "4.0.1",
-    "com.unity.adaptiveperformance.google.android": "5.1.5",
-    "com.unity.adaptiveperformance.samsung.android": "5.1.0",
     "com.unity.cinemachine": "2.10.3",
     "com.unity.collab-proxy": "2.3.1",
     "com.unity.device-simulator.devices": "1.0.0",
