@@ -39,28 +39,28 @@ public class PlayerInfo : MonoBehaviour
     private void Start()
     {
 
-        //firebaseManager = FindObjectOfType<FirebaseManager>();
-        //if (firebaseManager == null)
-        //{
-        //    Debug.LogError("❌ Không tìm thấy FirebaseManager!");
-        //    return; // Dừng lại để không gọi LoadUserData khi firebaseManager null
-        //}
-        //FirebaseUser user = FirebaseAuth.DefaultInstance.CurrentUser;
+        firebaseManager = FindObjectOfType<FirebaseManager>();
+        if (firebaseManager == null)
+        {
+            Debug.LogError("❌ Không tìm thấy FirebaseManager!");
+            return; // Dừng lại để không gọi LoadUserData khi firebaseManager null
+        }
+        FirebaseUser user = FirebaseAuth.DefaultInstance.CurrentUser;
 
-        //if (user != null)
-        //{
-        //    userId = user.UserId;
-        //    firebaseManager?.LoadUserData(userId, (name, coins, point) =>
-        //    {
-        //        if (nameText != null) nameText.text = name;
-        //        if (coinsText != null) coinsText.text = "Coins: " + coins;
-        //        if (pointText != null) pointText.text = "Point: " + point;
-        //    });
-        //}
-        //else
-        //{
-        //    Debug.LogWarning("⚠ Chưa đăng nhập, không thể load user info.");
-        //}
+        if (user != null)
+        {
+            userId = user.UserId;
+            firebaseManager?.LoadUserData(userId, (name, coins, point) =>
+            {
+                if (nameText != null) nameText.text = name;
+                if (coinsText != null) coinsText.text = "Coins: " + coins;
+                if (pointText != null) pointText.text = "Point: " + point;
+            });
+        }
+        else
+        {
+            Debug.LogWarning("⚠ Chưa đăng nhập, không thể load user info.");
+        }
 
         string sceneName = SceneManager.GetActiveScene().name;
         Debug.Log("Current scene name: " + sceneName);
@@ -111,7 +111,7 @@ public class PlayerInfo : MonoBehaviour
             return;
         }
 
-        firebaseManager?.SaveSongScore(userId, sceneName, score);//LUU BAI DIEM TUNG BAI HAT
+        
 
         UpdatePlayerInfo();
     }
@@ -138,6 +138,9 @@ public class PlayerInfo : MonoBehaviour
             Debug.Log("Game Over!");
             if (Continue_UI != null)
                 Continue_UI.SetActive(true);
+
+            firebaseManager?.SaveScoreFromGame(score); // ✅ Lưu điểm tổng
+            //firebaseManager?.SaveSongScore(userId, sceneName, score);//LUU BAI DIEM TUNG BAI HAT
         }
 
         if (other.CompareTag("WinTrigger"))

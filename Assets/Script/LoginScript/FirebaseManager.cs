@@ -10,42 +10,47 @@ using UnityEngine;
 public class FirebaseManager : MonoBehaviour
 {
     private DatabaseReference dbReference;
+
     [Header("🗂️ UI Texts")]
     public TMP_Text nameText, coinsText, pointText;
 
-    private bool isFirebaseReady = false;
-    internal readonly bool IsReady;
-
     private void Start()
     {
-
-
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
         {
             if (task.Result == DependencyStatus.Available)
             {
                 dbReference = FirebaseDatabase.DefaultInstance.RootReference;
-                isFirebaseReady = true;
-                LoadUserDataAndDisplay(); // gọi ở đây đảm bảo firebase ready
-            }
-        });
-
-        Debug.Log("🟡 Đang khởi tạo Firebase...");
-        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
-        {
-            var status = task.Result;
-            if (status == DependencyStatus.Available)
-            {
-                dbReference = FirebaseDatabase.DefaultInstance.RootReference;
+                LoadUserDataAndDisplay();
                 Debug.Log("✅ Firebase đã sẵn sàng!");
             }
             else
             {
-                Debug.LogError("❌ Firebase chưa sẵn sàng: " + status);
+                Debug.LogError("❌ Firebase chưa sẵn sàng: " + task.Result);
             }
         });
     }
 
+    public void SetUITextReferences(TMP_Text name, TMP_Text coins, TMP_Text point)
+    {
+        nameText = name;
+        coinsText = coins;
+        pointText = point;
+
+        // Gọi lại LoadUserData để cập nhật các text mới này
+        LoadUserDataAndDisplay();
+    }
+
+    private void Awake()
+    {
+        if (FindObjectsOfType<FirebaseManager>().Length > 1)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
+    }
 
     public void SaveUserData(string userId, string name, int coins, int point)
     {
@@ -61,25 +66,18 @@ public class FirebaseManager : MonoBehaviour
         });
     }
 
-    public void UpdatePoint(string userId, int newPoint)
+    public void UpdateUserData(string userId, int newCoins, int newPoint)
     {
-        dbReference.Child("Users").Child(userId).Child("Point").SetValueAsync(newPoint).ContinueWithOnMainThread(task =>
-        {
-            if (task.IsCompletedSuccessfully)
-                Debug.Log("✅ Cập nhật Point thành công.");
-            else
-                Debug.LogError("❌ Lỗi khi cập nhật Point: " + task.Exception);
-        });
-    }
+        Dictionary<string, object> updates = new Dictionary<string, object>();
+        updates["Coins"] = newCoins;
+        updates["Point"] = newPoint;
 
-    public void SaveSongScore(string userId, string songId, int score)
-    {
-        dbReference.Child("Users").Child(userId).Child("SongScores").Child(songId).SetValueAsync(score).ContinueWithOnMainThread(task =>
+        dbReference.Child("Users").Child(userId).UpdateChildrenAsync(updates).ContinueWithOnMainThread(task =>
         {
             if (task.IsCompletedSuccessfully)
-                Debug.Log("✅ Đã lưu điểm bài hát: " + songId);
+                Debug.Log("✅ Dữ liệu đã được cập nhật!");
             else
-                Debug.LogError("❌ Lỗi khi lưu điểm bài hát: " + task.Exception);
+                Debug.LogError("❌ Cập nhật dữ liệu thất bại: " + task.Exception);
         });
     }
 
@@ -111,7 +109,10 @@ public class FirebaseManager : MonoBehaviour
 
     public void LoadUserDataAndDisplay()
     {
-        string userId = FirebaseAuth.DefaultInstance.CurrentUser.UserId;
+        FirebaseUser user = FirebaseAuth.DefaultInstance.CurrentUser;
+        if (user == null) return;
+
+        string userId = user.UserId;
         dbReference.Child("Users").Child(userId).GetValueAsync().ContinueWithOnMainThread(task =>
         {
             if (task.IsCompletedSuccessfully)
@@ -119,12 +120,11 @@ public class FirebaseManager : MonoBehaviour
                 DataSnapshot snapshot = task.Result;
                 if (snapshot.Exists)
                 {
-                    User user = JsonUtility.FromJson<User>(snapshot.GetRawJsonValue());
-                    Debug.Log($"👤 {user.Name} | 💰 {user.Coins} | 🏆 {user.Point}");
+                    User u = JsonUtility.FromJson<User>(snapshot.GetRawJsonValue());
 
-                    if (nameText != null) nameText.text = user.Name;
-                    if (coinsText != null) coinsText.text = user.Coins.ToString();
-                    if (pointText != null) pointText.text = user.Point.ToString();
+                    if (nameText != null) nameText.text = u.Name;
+                    if (coinsText != null) coinsText.text = u.Coins.ToString();
+                    if (pointText != null) pointText.text = u.Point.ToString();
                 }
                 else
                 {
@@ -144,27 +144,73 @@ public class FirebaseManager : MonoBehaviour
         LoadUserDataAndDisplay();
     }
 
-    public void UpdateUserData(string userId, int newCoins, int newPoint)
+    /// <summary>
+    /// 🏆 Lưu điểm cao nhất nếu score > điểm đã lưu
+    /// </summary>
+    public void SaveScoreFromGame(int score)
     {
-        Dictionary<string, object> updates = new Dictionary<string, object>();
-        updates["Coins"] = newCoins;
-        updates["Point"] = newPoint;
+        FirebaseUser user = FirebaseAuth.DefaultInstance.CurrentUser;
+        if (user == null)
+        {
+            Debug.LogWarning("⚠ Không có user đăng nhập.");
+            return;
+        }
 
-        dbReference.Child("Users").Child(userId).UpdateChildrenAsync(updates).ContinueWithOnMainThread(task =>
+        string userId = user.UserId;
+        DatabaseReference pointRef = dbReference.Child("Users").Child(userId).Child("Point");
+
+        pointRef.GetValueAsync().ContinueWithOnMainThread(task =>
         {
             if (task.IsCompletedSuccessfully)
             {
-                Debug.Log("✅ Dữ liệu đã được cập nhật!");
+                int currentPoint = 0;
+                if (task.Result.Exists && int.TryParse(task.Result.Value.ToString(), out currentPoint))
+                {
+                    if (score > currentPoint)
+                    {
+                        pointRef.SetValueAsync(score).ContinueWithOnMainThread(setTask =>
+                        {
+                            if (setTask.IsCompletedSuccessfully)
+                                Debug.Log("🏆 Đã lưu điểm cao mới: " + score);
+                            else
+                                Debug.LogError("❌ Lỗi khi lưu điểm mới: " + setTask.Exception);
+                        });
+                    }
+                    else
+                    {
+                        Debug.Log("ℹ️ Điểm mới (" + score + ") không cao hơn (" + currentPoint + "), không lưu.");
+                    }
+                }
+                else
+                {
+                    // Nếu chưa có điểm => lưu luôn
+                    pointRef.SetValueAsync(score).ContinueWithOnMainThread(setTask =>
+                    {
+                        if (setTask.IsCompletedSuccessfully)
+                            Debug.Log("🏆 Đã lưu điểm mới (lần đầu): " + score);
+                        else
+                            Debug.LogError("❌ Lỗi khi lưu điểm: " + setTask.Exception);
+                    });
+                }
             }
             else
             {
-                Debug.LogError("❌ Cập nhật dữ liệu thất bại: " + task.Exception);
+                Debug.LogError("❌ Lỗi khi đọc điểm hiện tại: " + task.Exception);
             }
         });
     }
 
-
+    public void SaveSongScore(string userId, string songId, int score)
+    {
+        dbReference.Child("Users").Child(userId).Child("SongScores").Child(songId).SetValueAsync(score).ContinueWithOnMainThread(task =>
+        {
+            if (task.IsCompletedSuccessfully)
+                Debug.Log("✅ Đã lưu điểm bài hát: " + songId);
+            else
+                Debug.LogError("❌ Lỗi khi lưu điểm bài hát: " + task.Exception);
+        });
     }
+}
 
 [System.Serializable]
 public class User
@@ -180,5 +226,3 @@ public class User
         Point = point;
     }
 }
-
-

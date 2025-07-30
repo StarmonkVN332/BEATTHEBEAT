@@ -129,7 +129,7 @@ public class FirebaseLoginManager : MonoBehaviour
 
                 // Chuyển scene sau khi xử lý DB
                 firebaseManager?.OnLoginSuccess();
-                SceneManager.LoadScene("Test");
+                SceneManager.LoadScene("0_menuTest");
             });
         });
     }
