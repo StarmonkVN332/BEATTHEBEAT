@@ -38,7 +38,7 @@ public class PlayerInfo : MonoBehaviour
 
     private void Start()
     {
-
+        GetTextUI();
         firebaseManager = FindObjectOfType<FirebaseManager>();
         if (firebaseManager == null)
         {
@@ -62,6 +62,21 @@ public class PlayerInfo : MonoBehaviour
             Debug.LogWarning("⚠ Chưa đăng nhập, không thể load user info.");
         }
 
+        
+
+        firebaseManager = FindObjectOfType<FirebaseManager>();
+        if (firebaseManager == null)
+        {
+            Debug.LogError("❌ Không tìm thấy FirebaseManager!");
+            return;
+        }
+
+        
+
+        UpdatePlayerInfo();
+    }
+    void GetTextUI()
+    {
         string sceneName = SceneManager.GetActiveScene().name;
         Debug.Log("Current scene name: " + sceneName);
         GameObject summaryScoreObj = GameObject.Find("Summary_Score_Text");
@@ -103,19 +118,7 @@ public class PlayerInfo : MonoBehaviour
             comboText = comboObj.GetComponent<TextMeshProUGUI>();
         else
             Debug.LogWarning("Không tìm thấy ComboText trong scene!");
-
-        firebaseManager = FindObjectOfType<FirebaseManager>();
-        if (firebaseManager == null)
-        {
-            Debug.LogError("❌ Không tìm thấy FirebaseManager!");
-            return;
-        }
-
-        
-
-        UpdatePlayerInfo();
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
