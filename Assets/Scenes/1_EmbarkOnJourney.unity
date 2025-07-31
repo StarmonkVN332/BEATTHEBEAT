@@ -449,6 +449,12 @@ PrefabInstance:
       propertyPath: pauseSong
       value: 
       objectReference: {fileID: 1673691687}
+    - target: {fileID: 4812887381100719529, guid: 30b51a88891412e46af9879680a091fd,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9d2f4607004a40f4586cc09506962f22,
+        type: 3}
     - target: {fileID: 5792499725554161613, guid: 30b51a88891412e46af9879680a091fd,
         type: 3}
       propertyPath: m_text

@@ -1851,6 +1851,12 @@ PrefabInstance:
       propertyPath: m_TagString
       value: GameOverUI
       objectReference: {fileID: 0}
+    - target: {fileID: 4812887381100719529, guid: 30b51a88891412e46af9879680a091fd,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1d09fa3a61b10c440bfee19580195b54,
+        type: 3}
     - target: {fileID: 5792499725554161613, guid: 30b51a88891412e46af9879680a091fd,
         type: 3}
       propertyPath: m_text
