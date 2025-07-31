@@ -129,6 +129,26 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1689706034}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &619842857 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7885219800426229554, guid: 959cf3f46cfa71f41a64a75d02becd35,
+    type: 3}
+  m_PrefabInstance: {fileID: 1689706034}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &619842861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619842857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd4553da5fffee408a1febbf4552f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  welcomePanel: {fileID: 1675531290}
+  loginUI: {fileID: 1689706036}
 --- !u!1 &804008349
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,7 +308,6 @@ GameObject:
   - component: {fileID: 947131046}
   - component: {fileID: 947131045}
   - component: {fileID: 947131047}
-  - component: {fileID: 947131048}
   m_Layer: 0
   m_Name: FirebaseAuthManager
   m_TagString: Untagged
@@ -350,20 +369,6 @@ MonoBehaviour:
   nameText: {fileID: 0}
   coinsText: {fileID: 0}
   pointText: {fileID: 0}
---- !u!114 &947131048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 947131043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cd4553da5fffee408a1febbf4552f5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  welcomePanel: {fileID: 1675531290}
-  loginUI: {fileID: 1689706036}
 --- !u!1 &1589074622
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,7 +985,11 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1675531291}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7885219800426229554, guid: 959cf3f46cfa71f41a64a75d02becd35,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 619842861}
   m_SourcePrefab: {fileID: 100100000, guid: 959cf3f46cfa71f41a64a75d02becd35, type: 3}
 --- !u!1 &1689706035 stripped
 GameObject:

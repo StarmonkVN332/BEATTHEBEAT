@@ -9,8 +9,8 @@ using Firebase.Extensions;
 using UnityEngine.SceneManagement;
 public class PlayerInfo : MonoBehaviour
 {
-    [Header("player info")]
-    [SerializeField] private int score = 0;
+    //[Header("player info")]
+    public int score { private set; get; } =0; // Điểm số của người chơi, khởi tạo là 0
     [SerializeField] private int combo = 0;
     [SerializeField] private GameObject Continue_UI;
     [SerializeField] private AudioSource failSongPlayer;

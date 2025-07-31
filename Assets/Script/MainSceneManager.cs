@@ -27,6 +27,7 @@ public class MainSceneManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
     }
     void Start()
     {
@@ -54,7 +55,7 @@ public class MainSceneManager : MonoBehaviour
         Debug.Log($"✅ Loading scene: {sceneName}");
         SceneManager.LoadSceneAsync(sceneName);
     }
-
+    
     public void ChangeSceneWithClickDelay(string sceneName, float delay)
     {
         StartCoroutine(ChangeSceneAfterClickDelay(sceneName, delay));
