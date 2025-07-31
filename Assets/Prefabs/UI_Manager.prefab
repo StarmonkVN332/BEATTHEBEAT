@@ -609,7 +609,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3866304120728649302}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1164759920085822042}
+        m_TargetAssemblyTypeName: PauseUi, Assembly-CSharp
+        m_MethodName: ReloadCurrentScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5980730326146099160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,7 +1552,7 @@ PrefabInstance:
     - target: {fileID: 1519290615543728382, guid: fcab0ceb856107a4594692a49a071a42,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -2.8962402
+      value: -2.8962708
       objectReference: {fileID: 0}
     - target: {fileID: 1519290615543728382, guid: fcab0ceb856107a4594692a49a071a42,
         type: 3}
