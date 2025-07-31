@@ -527,6 +527,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Where We Started
       objectReference: {fileID: 0}
+    - target: {fileID: 6051532605061202610, guid: 30b51a88891412e46af9879680a091fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7933560791461629530, guid: 30b51a88891412e46af9879680a091fd,
         type: 3}
       propertyPath: m_Name
